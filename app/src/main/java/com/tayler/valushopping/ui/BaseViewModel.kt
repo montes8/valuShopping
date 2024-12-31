@@ -1,4 +1,4 @@
-package com.tayler.valushopping
+package com.tayler.valushopping.ui
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
