@@ -3,10 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navProfile"
-            android:icon="@drawable/ic_profile"
-            android:title="@string/txt_menu_profile" />
-        <item
             android:id="@+id/navClient"
             android:icon="@drawable/ic_client"
             android:title="@string/txt_menu_client"/>
@@ -19,6 +15,10 @@
             android:id="@+id/navFacebook"
             android:icon="@drawable/ic_facebook"
             android:title="@string/txt_menu_facebook" />
+        <item
+            android:id="@+id/navInstagram"
+            android:icon="@drawable/ic_instagram"
+            android:title="@string/txt_menu_instagram" />
         <item
             android:id="@+id/navOther"
             android:icon="@drawable/ic_term"

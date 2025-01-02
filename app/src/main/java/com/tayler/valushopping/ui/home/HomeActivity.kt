@@ -62,7 +62,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     addToNavigation(productFragment)
                 }
 
-                R.id.bottom_nav_category -> {
+                R.id.bottom_nav_other -> {
                     addToNavigation(categoryFragment)
                 }
                 else -> {
@@ -76,10 +76,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.navProfile -> {
-                selectedItemMenu(item,true)
-            }
-
             R.id.navClient -> {
                 selectedItemMenu(item,false)
             }
@@ -90,6 +86,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.navFacebook -> {
+                selectedItemMenu(item, false)
+            }
+
+            R.id.navInstagram -> {
                 selectedItemMenu(item, false)
             }
 

@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 app:uiTayStyleTbIcon="UI_TAY_ICON_TWO"
                 android:background="@color/pink_50"
+                app:uiTayTextTb="@string/tb_principal"
                 app:uiTayTbIconColorDefault="false"
                 app:uiTayIconStartTb="@drawable/ic_menu_home"
                 app:uiTayIconEndTb="@drawable/ic_logout"
@@ -30,29 +31,42 @@
                 android:id="@+id/frameGeneric"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_tay_0"
-                app:layout_constraintBottom_toTopOf="@id/btnNavigation"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/ctnNavigation"
                 app:layout_constraintTop_toBottomOf="@+id/toolBarHome"
                 tools:ignore="UselessLeaf" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/btnNavigation"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_70"
-                android:background="@color/gray_100"
-                android:elevation="@dimen/size_10"
-                app:elevation="@dimen/size_10"
-                app:itemHorizontalTranslationEnabled="false"
-                app:itemIconSize="@dimen/size_22"
-                app:menu="@menu/menu_home"
-                app:itemIconTint="@color/selector_item_menu"
-                app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearance"
-                app:itemTextAppearanceInactive="@style/BottomNavigationView.RowAppearance"
-                app:itemTextColor="@color/selector_item_menu"
-                app:labelVisibilityMode="labeled"
+                android:id="@+id/ctnNavigation"
+                android:background="@drawable/bg_navigation"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:elevation="@dimen/dim_tay_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameGeneric" />
+                app:layout_constraintTop_toBottomOf="@+id/frameGeneric"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/btnNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_60"
+                    android:background="@drawable/bg_navigation"
+                    app:itemHorizontalTranslationEnabled="false"
+                    app:itemIconSize="@dimen/size_22"
+                    app:menu="@menu/menu_home"
+                    app:itemIconTint="@color/selector_item_menu"
+                    app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearance"
+                    app:itemTextAppearanceInactive="@style/BottomNavigationView.RowAppearance"
+                    app:itemTextColor="@color/selector_item_menu"
+                    app:labelVisibilityMode="labeled"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.navigation.NavigationView

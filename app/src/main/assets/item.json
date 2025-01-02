@@ -1,22 +1,22 @@
 [
   {
-    "id": 1,
-    "title": "Inicio",
-    "icon": "ic_home"
+    "id": 5,
+    "title": "Cambio de perfil",
+    "icon": "ic_profile"
   },
   {
-    "id": 2,
-    "title": "Productos",
-    "icon": "ic_product"
-  },
-  {
-    "id": 3,
-    "title": "Categorias",
-    "icon": "ic_category"
-  },
-  {
-    "id": 4,
-    "title": "Config",
+    "id": 6,
+    "title": "WhatsApp",
     "icon": "ic_admin"
+  },
+  {
+    "id": 7,
+    "title": "Contactanos",
+    "icon": "ic_contact"
+  },
+  {
+    "id": 7,
+    "title": "Ayuda",
+    "icon": "ic_help"
   }
 ]

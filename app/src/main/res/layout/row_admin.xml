@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="admin"
+            type="com.tayler.valushopping.entity.ItemModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:id="@+id/cardAdmin"
+        android:outlineSpotShadowColor="@color/pink_100"
+        app:cardCornerRadius="@dimen/dim_tay_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/dim_tay_12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="@dimen/dim_tay_12"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/ctlAdmin"
+            android:layout_marginStart="@dimen/dim_tay_12"
+            android:layout_marginEnd="@dimen/dim_tay_12"
+            android:layout_marginTop="@dimen/dim_tay_20"
+            android:layout_marginBottom="@dimen/dim_tay_20"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:contentDescription="@null"
+                android:layout_width="@dimen/dim_tay_24"
+                app:srcDrawableString="@{admin.icon}"
+                android:scaleType="fitXY"
+                tools:src="@drawable/ic_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="@dimen/dim_tay_24"/>
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/flex_bold_italic"
+                android:textSize="@dimen/dim_tay_sp_text_16"
+                android:text="@{admin.title}"
+                android:layout_marginStart="@dimen/dim_tay_8"
+                tools:text="@string/text_welcome"
+                android:textColor="@color/pink_200"
+                app:layout_constraintTop_toBottomOf="@+id/cardAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

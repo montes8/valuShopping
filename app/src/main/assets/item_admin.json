@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Productos",
+    "icon": "ic_product"
+  },
+  {
+    "id": 2,
+    "title": "Parametros",
+    "icon": "ic_param"
+  },
+  {
+    "id": 3,
+    "title": "WhatsApp",
+    "icon": "ic_admin"
+  },
+  {
+    "id": 4,
+    "title": "Contactanos",
+    "icon": "ic_contact"
+  }
+]

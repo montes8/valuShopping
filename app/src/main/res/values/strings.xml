@@ -2,19 +2,20 @@
     <string name="app_name">Valu</string>
     <string name="text_welcome">Bienvenidas</string>
     <string name="text_name_principal">VALU \nSHOOPING</string>
-
+    <string name="tb_principal">VALU SHOOPING</string>
 
 
     <!-- TODO: text menu and tab-->
     <string name="txt_home">Inicio</string>
-    <string name="txt_product">Productos</string>
-    <string name="txt_category">Categorias</string>
-    <string name="txt_admin">Admin</string>
+    <string name="txt_clothes">Ropa</string>
+    <string name="txt_other">Otros</string>
+    <string name="txt_config">Config</string>
 
     <string name="txt_menu_profile">Cambio de perfil</string>
     <string name="txt_menu_client">Se parte de nosotros</string>
     <string name="txt_menu_map">Puntos de entrega</string>
     <string name="txt_menu_other">T &amp; C</string>
     <string name="txt_menu_facebook">Facebook</string>
+    <string name="txt_menu_instagram">Instagram</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
 </resources>

@@ -7,16 +7,16 @@
 
     <item
         android:id="@+id/bottom_nav_product"
-        android:icon="@drawable/ic_product"
-        android:title="@string/txt_product" />
+        android:icon="@drawable/ic_clothes"
+        android:title="@string/txt_clothes" />
     <item
-        android:id="@+id/bottom_nav_category"
+        android:id="@+id/bottom_nav_other"
         android:icon="@drawable/ic_category"
-        android:title="@string/txt_category" />
+        android:title="@string/txt_other" />
 
     <item
         android:id="@+id/bottom_nav_admin"
         android:icon="@drawable/ic_admin"
-        android:title="@string/txt_admin" />
+        android:title="@string/txt_config" />
 
 </menu>

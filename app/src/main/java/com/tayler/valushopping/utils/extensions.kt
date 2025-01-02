@@ -2,12 +2,16 @@ package com.tayler.valushopping.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.tayler.valushopping.R
 import com.tayler.valushopping.repository.ERROR_MESSAGE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_MESSAGE_GENERAL
@@ -141,4 +145,19 @@ fun FragmentManager?.moveBackToFirstFragment(currentFragment: Fragment?): Fragme
 fun AppCompatActivity.validateOnlyOneItemOnNavigationStep(): Boolean =
     (this.supportFragmentManager.backStackEntryCount <= 1)
 
+
+inline fun <reified T> getData(context: Context, fileName: String): T {
+    val jsonData = Gson()
+    val json = context.assets.open(fileName).bufferedReader().use {
+        it.readText()
+    }
+    return jsonData.fromJson(json, object : TypeToken<T>() {}.type)
+}
+
+fun setImageString(value: String, context: Context): Drawable?{
+    val uri = "@drawable/$value"
+    val imageResource: Int = context.resources.getIdentifier(uri, null, context.packageName)
+    return ContextCompat.getDrawable(context, imageResource)
+
+}
 
