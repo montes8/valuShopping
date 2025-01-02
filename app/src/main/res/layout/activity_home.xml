@@ -7,7 +7,6 @@
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:openDrawer="start"
         tools:context=".ui.home.HomeActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <FrameLayout
-                android:id="@+id/fragmentContent"
+                android:id="@+id/frameGeneric"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_tay_0"
                 app:layout_constraintBottom_toTopOf="@id/btnNavigation"
@@ -44,6 +43,7 @@
                 app:elevation="@dimen/size_10"
                 app:itemHorizontalTranslationEnabled="false"
                 app:itemIconSize="@dimen/size_22"
+                app:menu="@menu/menu_home"
                 app:itemIconTint="@color/selector_item_menu"
                 app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearance"
                 app:itemTextAppearanceInactive="@style/BottomNavigationView.RowAppearance"
@@ -52,7 +52,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragmentContent" />
+                app:layout_constraintTop_toBottomOf="@+id/frameGeneric" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.navigation.NavigationView
