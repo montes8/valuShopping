@@ -56,7 +56,7 @@
                     app:itemIconSize="@dimen/size_22"
                     app:menu="@menu/menu_home"
                     app:itemIconTint="@color/selector_item_menu"
-                    app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearance"
+                    app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearanceActive"
                     app:itemTextAppearanceInactive="@style/BottomNavigationView.RowAppearance"
                     app:itemTextColor="@color/selector_item_menu"
                     app:labelVisibilityMode="labeled"
