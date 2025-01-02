@@ -1,13 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout
-
+<layout>
+    <androidx.drawerlayout.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:openDrawer="start"
         tools:context=".ui.home.HomeActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <com.gb.vale.uitaylibrary.extra.UiTayToolBar
+                android:id="@+id/toolBarHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:uiTayStyleTbIcon="UI_TAY_ICON_TWO"
+                android:background="@color/pink_50"
+                app:uiTayTbIconColorDefault="false"
+                app:uiTayIconStartTb="@drawable/ic_menu_home"
+                app:uiTayIconEndTb="@drawable/ic_logout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fragmentContent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_tay_0"
+                app:layout_constraintBottom_toTopOf="@id/btnNavigation"
+                app:layout_constraintTop_toBottomOf="@+id/toolBarHome"
+                tools:ignore="UselessLeaf" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/btnNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_70"
+                android:background="@color/gray_100"
+                android:elevation="@dimen/size_10"
+                app:elevation="@dimen/size_10"
+                app:itemHorizontalTranslationEnabled="false"
+                app:itemIconSize="@dimen/size_22"
+                app:itemIconTint="@color/selector_item_menu"
+                app:itemTextAppearanceActive="@style/BottomNavigationView.RowAppearance"
+                app:itemTextAppearanceInactive="@style/BottomNavigationView.RowAppearance"
+                app:itemTextColor="@color/selector_item_menu"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentContent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navViewMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:fitsSystemWindows="true"
+            app:itemTextColor="@drawable/bottom_navigation_colors"
+            app:headerLayout="@layout/nav_header_home"
+            app:itemIconTint="@color/selector_item_menu"
+            app:itemTextAppearance="@style/NavigationView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_drawable" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

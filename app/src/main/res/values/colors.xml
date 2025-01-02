@@ -13,6 +13,8 @@
     <color name="pink_400">#F50057</color>
     <color name="pink_600">#D81B60</color>
     <color name="pink_700">#C2185B</color>
-
+    <color name="gray_100">#FAFBFF</color>
     <color name="transparency_white">#CBFFFFFF</color>
+
+    <color name="tay_toolbar_solid">@color/pink_50</color>
 </resources>
