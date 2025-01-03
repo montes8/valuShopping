@@ -1,5 +1,7 @@
 package com.tayler.valushopping.repository.network.abstracts
 
+import com.tayler.valushopping.repository.network.model.ParamResponse
+
 interface IUserNetwork {
-    suspend fun loadTest():Boolean
+    suspend fun loadParam():ParamResponse
 }

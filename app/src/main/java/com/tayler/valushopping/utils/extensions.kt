@@ -24,6 +24,7 @@ import com.tayler.valushopping.repository.network.exception.ApiException
 import com.tayler.valushopping.repository.network.exception.MyNetworkException
 import com.tayler.valushopping.repository.network.exception.UnAuthorizedException
 import com.tayler.valushopping.ui.BaseFragment
+import retrofit2.Response
 
 @SuppressLint("MissingPermission")
 fun Context?.isConnected(): Boolean {
@@ -159,5 +160,11 @@ fun setImageString(value: String, context: Context): Drawable?{
     val imageResource: Int = context.resources.getIdentifier(uri, null, context.packageName)
     return ContextCompat.getDrawable(context, imageResource)
 
+}
+
+fun <T> Response<T>.validateBody() : T {
+    this.body()?.let {
+        return it
+    } ?: throw NullPointerException()
 }
 

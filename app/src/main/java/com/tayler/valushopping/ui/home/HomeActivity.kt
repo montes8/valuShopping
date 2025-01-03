@@ -12,15 +12,15 @@ import com.tayler.valushopping.databinding.ActivityHomeBinding
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.admin.AdminFragment
-import com.tayler.valushopping.ui.home.category.CategoryFragment
 import com.tayler.valushopping.ui.home.init.InitFragment
+import com.tayler.valushopping.ui.home.other.OtherFragment
 import com.tayler.valushopping.ui.home.product.ProductFragment
 
 class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var initFragment   : InitFragment
     private lateinit var productFragment : ProductFragment
-    private lateinit var categoryFragment   : CategoryFragment
+    private lateinit var otherFragment   : OtherFragment
     private lateinit var adminFragment   : AdminFragment
     private var drawer: DrawerLayout? = null
     companion object {
@@ -44,8 +44,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun initFragment(){
         initFragment = InitFragment.newInstance()
         productFragment = ProductFragment.newInstance()
-        categoryFragment = CategoryFragment.newInstance()
+        otherFragment = OtherFragment.newInstance()
         adminFragment = AdminFragment.newInstance()
+        addToNavigation(initFragment)
     }
 
     private fun configActionNavigation() = with(binding){
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 }
 
                 R.id.bottom_nav_other -> {
-                    addToNavigation(categoryFragment)
+                    addToNavigation(otherFragment)
                 }
                 else -> {
                     addToNavigation(adminFragment)

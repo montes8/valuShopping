@@ -3,6 +3,7 @@ package com.tayler.valushopping.ui
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,6 +22,16 @@ open class BaseViewModel : ViewModel() {
                 ex.printStackTrace()
                 loadingLiveData.postValue(false)
                 errorLiveData.postValue(ex)
+            }
+        }
+
+    fun <T> executeLiveData(func: suspend () -> T) =
+        liveData(Dispatchers.IO) {
+            try {
+                val value = func()
+                emit(value)
+            } catch (ex: Exception) {
+                ex.printStackTrace()
             }
         }
 
