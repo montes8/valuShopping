@@ -13,12 +13,13 @@
 
   <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
       android:layout_width="match_parent"
+      android:id="@+id/youTubeVale"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:videoId="EOBE_uBSGYw"
       android:layout_height="wrap_content"/>
   <TextView
+      android:id="@+id/textTitleInit"
       android:layout_width="match_parent"
       android:text="@string/accessibility_fingerprint_dialog_help_area"
       android:fontFamily="@font/flex_bold_italic"
@@ -28,6 +29,7 @@
       android:layout_height="wrap_content"/>
 
   <TextView
+      android:id="@+id/textSubTitleInit"
       android:layout_width="match_parent"
       android:text="@string/accessibility_fingerprint_dialog_help_area"
       android:layout_marginTop="@dimen/dim_tay_12"
