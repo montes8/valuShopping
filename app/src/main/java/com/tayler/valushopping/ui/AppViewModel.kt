@@ -1,5 +1,6 @@
 package com.tayler.valushopping.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tayler.valushopping.repository.network.api.UserNetwork
@@ -25,6 +26,7 @@ class AppViewModel  @Inject constructor(
 
     fun loadParam(){
         executeNotProgress {
+            Log.d("paramLiveData","executeNotProgress")
             val response = userNetwork.loadParam()
             _successParamLiveData.postValue(response)
         }
