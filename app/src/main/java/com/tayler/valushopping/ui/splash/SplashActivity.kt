@@ -1,12 +1,14 @@
 package com.tayler.valushopping.ui.splash
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.utils.uiTayHandler
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivitySplashBinding
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.ui.AppViewModel
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
@@ -18,7 +20,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashActivity : BaseActivity() {
 
     private val viewModel: AppViewModel by viewModels()
-
     private lateinit var binding: ActivitySplashBinding
 
     override fun getMainView() {
@@ -39,6 +40,8 @@ class SplashActivity : BaseActivity() {
     }
     override fun observeViewModel() {
         viewModel.successParamLiveData.observe(this){
+            Log.d("paramLiveData",it.toString())
+            AppDataVale.paramData = it
             uiTayHandler(2000) { HomeActivity.newInstance(this) }
         }
     }
