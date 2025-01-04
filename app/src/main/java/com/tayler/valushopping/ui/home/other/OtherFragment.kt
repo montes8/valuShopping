@@ -7,11 +7,15 @@ import androidx.databinding.DataBindingUtil
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.FragmentOtherBinding
 import com.tayler.valushopping.ui.BaseFragment
+import com.tayler.valushopping.ui.home.other.adapter.OtherAdapter
+import com.tayler.valushopping.utils.JSON_ITEM_OTHER
+import com.tayler.valushopping.utils.getData
 
 
 class OtherFragment : BaseFragment() {
 
     private lateinit var binding: FragmentOtherBinding
+    private var otherAdapter = OtherAdapter()
 
     companion object { fun newInstance() = OtherFragment() }
 
@@ -24,6 +28,9 @@ class OtherFragment : BaseFragment() {
     }
 
     override fun setUpView() {
+        binding.otherAdapter = otherAdapter
+        otherAdapter.adminList = getData(requireContext(), JSON_ITEM_OTHER)
+        otherAdapter.onClickAdmin = {}
     }
 
     override fun observeLiveData() {

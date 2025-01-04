@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Polos",
+    "icon": "ic_logo_pole"
+  },
+  {
+    "id": 2,
+    "title": "Pantalones",
+    "icon": "ic_logo_pant"
+  },
+  {
+    "id": 3,
+    "title": "Faldas",
+    "icon": "ic_logo_skirt"
+  },
+  {
+    "id": 4,
+    "title": "Calzado",
+    "icon": "ic_logo_footwear"
+  },
+  {
+    "id": 5,
+    "title": "Otras Prendas",
+    "icon": "ic_other_clothes"
+  },
+  {
+    "id": 6,
+    "title": "Otros Productos",
+    "icon": "ic_logo_other_product"
+  }
+]

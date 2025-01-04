@@ -9,6 +9,7 @@ import com.tayler.valushopping.databinding.FragmentAdminBinding
 import com.tayler.valushopping.entity.ItemModel
 import com.tayler.valushopping.ui.BaseFragment
 import com.tayler.valushopping.ui.home.admin.adapter.AdminAdapter
+import com.tayler.valushopping.ui.login.LoginActivity
 import com.tayler.valushopping.utils.JSON_ITEM
 import com.tayler.valushopping.utils.getData
 
@@ -51,7 +52,7 @@ class AdminFragment : BaseFragment() {
                 //contactanos
             }
             5 ->{
-                //cambio perfil
+                LoginActivity.newInstance(requireContext())
 
             }
             else->{

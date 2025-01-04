@@ -43,6 +43,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:elevation="@dimen/dim_tay_24"
+                app:elevation="@dimen/dim_tay_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameGeneric"
                 android:layout_height="wrap_content">
