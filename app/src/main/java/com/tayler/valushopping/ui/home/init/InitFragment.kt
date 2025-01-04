@@ -37,6 +37,7 @@ class InitFragment : BaseFragment() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 val videoId = param.idMovie?: EMPTY_VALE
                 youTubePlayer.loadVideo(videoId, 0f)
+                youTubePlayer.pause()
             }
         })
     }

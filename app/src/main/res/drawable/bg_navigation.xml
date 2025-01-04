@@ -5,4 +5,5 @@
         android:topRightRadius="@dimen/dim_tay_24"/>
 
     <solid  android:color="@color/pink_50"/>
+    <stroke android:color="@color/pink_100" android:width="1dp"/>
 </shape>

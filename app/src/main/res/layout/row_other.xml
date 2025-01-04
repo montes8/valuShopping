@@ -11,7 +11,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_tay_24">
+        android:layout_marginTop="@dimen/dim_tay_8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,11 +53,10 @@
             <TextView
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/size_10"
-                android:fontFamily="@font/flex_bold"
-                android:textSize="@dimen/dim_tay_sp_text_16"
+                android:layout_marginTop="@dimen/size_4"
+                android:fontFamily="@font/flex_bold_italic"
+                android:textSize="@dimen/dim_tay_sp_text_18"
                 android:text="@{other.title}"
-                tools:text="laurita"
                 android:textColor="@color/pink_200"
                 app:layout_constraintTop_toBottomOf="@+id/cardAdmin"
                 android:layout_width="wrap_content"
