@@ -10,7 +10,8 @@ import com.tayler.valushopping.entity.ItemModel
 import com.tayler.valushopping.ui.BaseFragment
 import com.tayler.valushopping.ui.home.admin.adapter.AdminAdapter
 import com.tayler.valushopping.ui.login.LoginActivity
-import com.tayler.valushopping.utils.JSON_ITEM
+import com.tayler.valushopping.ui.param.ParamActivity
+import com.tayler.valushopping.utils.JSON_ITEM_ADMIN
 import com.tayler.valushopping.utils.getData
 
 
@@ -31,7 +32,7 @@ class AdminFragment : BaseFragment() {
 
     override fun setUpView() {
         binding.adapterAdmin = adapterAdmin
-        adapterAdmin.adminList = getData(requireContext(), JSON_ITEM)
+        adapterAdmin.adminList = getData(requireContext(), JSON_ITEM_ADMIN)
         adapterAdmin.onClickAdmin = {configOnClickAdapter(it)}
     }
 
@@ -42,7 +43,7 @@ class AdminFragment : BaseFragment() {
 
             }
             2 ->{
-                //parametros
+                ParamActivity.newInstance(requireContext())
 
             }
             3,6 -> {

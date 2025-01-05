@@ -21,9 +21,12 @@ import com.tayler.valushopping.repository.ERROR_TITLE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_TITLE_GENERAL
 import com.tayler.valushopping.repository.ERROR_TITLE_NETWORK
 import com.tayler.valushopping.repository.network.exception.ApiException
+import com.tayler.valushopping.repository.network.exception.CompleteErrorModel
+import com.tayler.valushopping.repository.network.exception.GenericException
 import com.tayler.valushopping.repository.network.exception.MyNetworkException
 import com.tayler.valushopping.repository.network.exception.UnAuthorizedException
 import com.tayler.valushopping.ui.BaseFragment
+import okhttp3.ResponseBody
 import retrofit2.Response
 
 @SuppressLint("MissingPermission")
@@ -162,9 +165,19 @@ fun setImageString(value: String, context: Context): Drawable?{
 
 }
 
-fun <T> Response<T>.validateBody() : T {
-    this.body()?.let {
+fun <T> Response<T>?.validateBody() : T {
+    this?.body()?.let {
         return it
     } ?: throw NullPointerException()
+}
+
+fun <T> Response<T>?.validateData():Boolean{
+   return this?.isSuccessful == true && this.body() != null
+}
+
+fun ResponseBody?.toCompleteErrorModel(code : Int) : Exception {
+    return this?.let {
+        return  if (code == 407) throw UnAuthorizedException () else Gson().fromJson(it.string(), CompleteErrorModel::class.java)?.getApiException()?:GenericException()
+    } ?: GenericException()
 }
 

@@ -41,6 +41,7 @@
                         android:layout_width="match_parent"
                         app:srcDrawableString="@{other.icon}"
                         android:scaleType="fitXY"
+                        android:id="@+id/rowProductImg"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

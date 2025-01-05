@@ -17,4 +17,6 @@
     <color name="transparency_white">#CBFFFFFF</color>
 
     <color name="tay_toolbar_solid">@color/pink_50</color>
+    <color name="color_shimmer_start_gray">#D8DDF3</color>
+    <color name="color_shimmer_end_gray">#F0F3FA</color>
 </resources>

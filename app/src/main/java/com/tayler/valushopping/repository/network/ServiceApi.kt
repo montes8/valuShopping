@@ -10,7 +10,7 @@ import retrofit2.http.Path
 
 interface ServiceApi {
     @GET("config/param")
-    suspend fun loadParam(): Response<ParamResponse>
+    suspend fun loadParam(): Response<ParamResponse>?
 
     @POST("config/param")
     suspend fun saveParam(@Body paramResponse: ParamResponse): Response<ParamResponse>

@@ -1,6 +1,5 @@
 package com.tayler.valushopping.ui
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -11,16 +10,21 @@ import kotlinx.coroutines.launch
 open class BaseViewModel : ViewModel() {
     val errorLiveData = MutableLiveData<Throwable>()
     val loadingLiveData = MutableLiveData<Boolean>()
+    val shimmerLiveData = MutableLiveData<Boolean>()
 
-    fun execute(func: suspend () -> Unit)=
+
+    fun execute(loading : Boolean = true,func: suspend () -> Unit)=
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 loadingLiveData.postValue(true)
+                shimmerLiveData.postValue(!loading)
                 func()
                 loadingLiveData.postValue(false)
+                shimmerLiveData.postValue(false)
             } catch (ex: Exception) {
                 ex.printStackTrace()
                 loadingLiveData.postValue(false)
+                shimmerLiveData.postValue(false)
                 errorLiveData.postValue(ex)
             }
         }
@@ -43,14 +47,4 @@ open class BaseViewModel : ViewModel() {
                 errorLiveData.postValue(ex)
             }
         }
-
-    fun executeSuspendNotError(func: suspend () -> Unit) =
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                func()
-            } catch (ex: Exception) {
-               Log.d("tagError","$ex")
-            }
-        }
-
 }

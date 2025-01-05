@@ -8,10 +8,13 @@
     <dimen name="size_70">70dp</dimen>
     <dimen name="size_60">60dp</dimen>
     <dimen name="size_80">80dp</dimen>
+    <dimen name="size_110">110dp</dimen>
+    <dimen name="size_128">128dp</dimen>
     <dimen name="size_152">152dp</dimen>
     <dimen name="size_170">170dp</dimen>
 
 
     <dimen name="txt_size_10">10sp</dimen>
+    <dimen name="txt_size_20">20sp</dimen>
     <dimen name="txt_size_25">25sp</dimen>
 </resources>

@@ -7,7 +7,9 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityLoginBinding
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding

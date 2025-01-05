@@ -30,8 +30,9 @@
             android:id="@+id/ctlAdmin"
             android:layout_marginStart="@dimen/dim_tay_12"
             android:layout_marginEnd="@dimen/dim_tay_12"
-            android:layout_marginTop="@dimen/dim_tay_20"
-            android:layout_marginBottom="@dimen/dim_tay_20"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/dim_tay_16"
+            android:layout_marginBottom="@dimen/dim_tay_16"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content">

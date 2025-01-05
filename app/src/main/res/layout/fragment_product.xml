@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="productAdapter"
+            type="com.tayler.valushopping.ui.home.product.adapter.ProductAdapter" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_bg_general">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+        <TextView
+            android:id="@+id/txtTitleAdmin"
+            android:layout_width="@dimen/dim_tay_0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/pink_200"
+            android:layout_marginEnd="@dimen/dim_tay_16"
+            android:layout_marginStart="@dimen/dim_tay_16"
+            android:layout_marginTop="@dimen/dim_tay_24"
+            android:fontFamily="@font/flex_bold_italic"
+            android:textSize="@dimen/txt_size_25"
+            android:lineSpacingExtra="@dimen/size_4"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Elige ahora un producto"
+            android:layout_height="wrap_content"/>
 
-    tools:context=".ui.home.admin.AdminFragment">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_tay_0"
+            app:adapter="@{productAdapter}"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/dim_tay_8"
+            tools:listitem="@layout/row_other"
+            tools:itemCount="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
