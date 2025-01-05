@@ -28,7 +28,6 @@ class UserNetwork @Inject constructor(private val serviceApi : ServiceApi, priva
 
     override suspend fun saveParam(param: ParamResponse): ParamResponse {
         return base.executeWithConnection {
-            param.title = EMPTY_VALE
             var model  : ParamResponse?  = null
                 val response  = serviceApi.saveParam(param)
                 if (response.validateData()) {
@@ -42,7 +41,6 @@ class UserNetwork @Inject constructor(private val serviceApi : ServiceApi, priva
     override suspend fun updateParam(param: ParamResponse): ParamResponse {
         return base.executeWithConnection {
             var model  : ParamResponse?  = null
-            param.title = EMPTY_VALE
             val response  = serviceApi.updateParam(param.uid?: EMPTY_VALE,param)
             if (response.validateData()) {
                 model = response.validateBody()

@@ -64,7 +64,7 @@ abstract class BaseFragment : Fragment() {
         (activity as BaseActivity).setDataShared(value)
     }
 
-    fun getDataShared() = (activity as BaseActivity).dataSharedSatel
+    fun getDataShared() = (activity as BaseActivity).dataSharedVale
 
     private val onBackPressedCallback: OnBackPressedCallback =
         object : OnBackPressedCallback(true) {

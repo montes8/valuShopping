@@ -16,7 +16,6 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.repository.ERROR_MESSAGE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_MESSAGE_GENERAL
 import com.tayler.valushopping.repository.ERROR_MESSAGE_NETWORK
-import com.tayler.valushopping.repository.ERROR_TITLE_API
 import com.tayler.valushopping.repository.ERROR_TITLE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_TITLE_GENERAL
 import com.tayler.valushopping.repository.ERROR_TITLE_NETWORK
@@ -48,7 +47,7 @@ fun Throwable.mapperError():Triple<Int,String,String>{
     return when(this){
         is MyNetworkException -> Triple(R.drawable.ic_error_red,ERROR_TITLE_NETWORK,ERROR_MESSAGE_NETWORK)
         is UnAuthorizedException -> Triple(R.drawable.ic_info_error,ERROR_TITLE_EXPIRE,ERROR_MESSAGE_EXPIRE)
-        is ApiException -> Triple(R.drawable.ic_info_error, ERROR_TITLE_API,message?:ERROR_MESSAGE_GENERAL)
+        is ApiException -> Triple(R.drawable.ic_info_error, title,messageApi)
         else -> Triple(R.drawable.ic_info_error, ERROR_TITLE_GENERAL, ERROR_MESSAGE_GENERAL)
     }
 }

@@ -6,7 +6,7 @@ import com.tayler.valushopping.repository.ERROR_MESSAGE_GENERAL
 import com.tayler.valushopping.repository.ERROR_TITLE_GENERAL
 import com.tayler.valushopping.utils.EMPTY_VALE
 
-data class ApiException(val code: Int = 0,val title: String = EMPTY_VALE, val meessage: String = EMPTY_VALE): Exception()
+data class ApiException(val code: Int = 0,val title: String = EMPTY_VALE, val messageApi: String = EMPTY_VALE): Exception()
 
 class GenericException : Exception()
 

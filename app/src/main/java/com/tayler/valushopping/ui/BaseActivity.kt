@@ -12,7 +12,7 @@ import com.tayler.valushopping.utils.onToBaseBack
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    var dataSharedSatel: Any? = null
+    var dataSharedVale: Any? = null
 
     var activateBack = true
     abstract fun getMainView()
@@ -86,9 +86,9 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNextDetected(currentFragment: BaseFragment): Boolean = true
 
     fun <T> setDataShared(value: T) {
-        dataSharedSatel = value
+        dataSharedVale = value
     }
 
-    fun getDataShared() = dataSharedSatel
+    fun getDataShared() = dataSharedVale
 
 }

@@ -51,6 +51,8 @@ class ParamActivity : BaseActivity() {
         binding.btnSaveParam.setOnClickUiTayDelay {
             viewModel.updateParam(dataParam)
         }
+
+        binding.tbParam.setOnClickTayBackListener{ onToBack()}
     }
 
     override fun observeViewModel() {
@@ -98,7 +100,7 @@ class ParamActivity : BaseActivity() {
         var flagEnable = 0
         flagEnable  += if(binding.editIdMovie.uiTayLText.length > 4) 0 else 1
         flagEnable += if(binding.editTitleParam.uiTayLText.length > 4) 0 else 1
-        flagEnable += if(binding.editDescriptionParam.text.toString().length > 4) 0 else 1
+        flagEnable += if(binding.editDescriptionParam.text.toString().length > 20) 0 else 1
         binding.btnSaveParam.tayBtnEnable = flagEnable == 0
         configData()
     }
