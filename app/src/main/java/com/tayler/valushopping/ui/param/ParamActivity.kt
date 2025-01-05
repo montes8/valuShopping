@@ -11,10 +11,14 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityParamBinding
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.ui.AppViewModel
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
+import com.tayler.valushopping.ui.home.HomeActivity
+import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.successDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,22 +47,38 @@ class ParamActivity : BaseActivity() {
 
     private fun configAction() {
         binding.btnTestMovie.setOnClickUiTayDelay {
-            if (binding.editIdMovie.uiTayLText.isNotEmpty()) {
-                youTubePlayerObserver?.loadVideo(binding.editIdMovie.uiTayLText, 0f)
-            }
+            configMovieId()
         }
 
         binding.btnSaveParam.setOnClickUiTayDelay {
-            viewModel.updateParam(dataParam)
+            loadService()
         }
 
         binding.tbParam.setOnClickTayBackListener{ onToBack()}
+    }
+
+    private fun loadService(){
+        mapperData()
+        viewModel.updateParam(dataParam)
+    }
+
+    private fun configMovieId(){
+        if (binding.editIdMovie.uiTayLText.isNotEmpty()) {
+            youTubePlayerObserver?.loadVideo(binding.editIdMovie.uiTayLText, 0f)
+        }
     }
 
     override fun observeViewModel() {
         viewModel.successParamLiveData.observe(this) {
             if (it.uid?.isNotEmpty() == true) {
                 configParam(it)
+            }
+        }
+
+        viewModel.successUpdateParamLiveData.observe(this) {data ->
+            this.successDialog{
+                AppDataVale.paramData = data
+                HomeActivity.newInstance(this)
             }
         }
 
@@ -69,8 +89,17 @@ class ParamActivity : BaseActivity() {
 
     private fun configParam(param: ParamResponse) {
         dataParam = param
-    }
+        binding.editIdMovie.uiTayLText= dataParam.idMovie?: EMPTY_VALE
+        binding.editTitleParam.uiTayLText = dataParam.title?: EMPTY_VALE
+        binding.editDescriptionParam.setText(dataParam.description?: EMPTY_VALE)
+        dataParam.enableCategory?.let {
+            binding.rbCategoryActive.isChecked = it
+            binding.rbCategoryInactive.isChecked = !it
+        }
 
+        configMovieId()
+        enableBtn()
+    }
 
     private fun configChangeEdit(){
         binding.editIdMovie.setOnChangeTayEditLayoutListener {
@@ -97,15 +126,14 @@ class ParamActivity : BaseActivity() {
 
 
     private fun enableBtn(){
-        var flagEnable = 0
-        flagEnable  += if(binding.editIdMovie.uiTayLText.length > 4) 0 else 1
-        flagEnable += if(binding.editTitleParam.uiTayLText.length > 4) 0 else 1
-        flagEnable += if(binding.editDescriptionParam.text.toString().length > 20) 0 else 1
-        binding.btnSaveParam.tayBtnEnable = flagEnable == 0
-        configData()
+            var flagEnable = 0
+            flagEnable  += if(binding.editIdMovie.uiTayLText.length > 4) 0 else 1
+            flagEnable += if(binding.editTitleParam.uiTayLText.length > 4) 0 else 1
+            flagEnable += if(binding.editDescriptionParam.text.toString().length > 20) 0 else 1
+            binding.btnSaveParam.tayBtnEnable = flagEnable == 0
     }
 
-    private fun configData(){
+    private fun mapperData(){
         dataParam.idMovie = binding.editIdMovie.uiTayLText
         dataParam.title = binding.editTitleParam.uiTayLText
         dataParam.description = binding.editDescriptionParam.text.toString()

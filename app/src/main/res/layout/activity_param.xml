@@ -137,9 +137,10 @@
                     android:padding="@dimen/dim_tay_12"
                     android:layout_marginTop="@dimen/dim_tay_8"
                     android:minHeight="@dimen/size_128"
+                    android:maxHeight="@dimen/size_152"
                     android:hint="Agrega descripcion minuno de caranteres 20"
                     android:gravity="top"
-                    android:textSize="@dimen/txt_size_20"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
                     android:background="@drawable/bg_corner_pink_round"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -179,6 +180,7 @@
                         android:layout_height="wrap_content"/>
 
                     <RadioButton
+                        android:id="@+id/rbCategoryInactive"
                         android:text="Desactivado"
                         android:theme="@style/MyRadioButton"
                         android:textSize="@dimen/dim_tay_sp_text_16"

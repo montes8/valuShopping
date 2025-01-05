@@ -20,6 +20,8 @@ class AppViewModel  @Inject constructor(
 
     val successParamLiveData        : LiveData<ParamResponse> get()   = _successParamLiveData
     private val _successParamLiveData    = MutableLiveData<ParamResponse>()
+    val successUpdateParamLiveData        : LiveData<ParamResponse> get()   = _successUpdateParamLiveData
+    private val _successUpdateParamLiveData    = MutableLiveData<ParamResponse>()
 
 
     fun loadParam(){
@@ -34,7 +36,7 @@ class AppViewModel  @Inject constructor(
             val response = if(param.uid?.isEmpty() == true)userNetwork.saveParam(param) else
                 userNetwork.updateParam(param)
 
-            _successParamLiveData.postValue(response)
+            _successUpdateParamLiveData.postValue(response)
         }
     }
 
