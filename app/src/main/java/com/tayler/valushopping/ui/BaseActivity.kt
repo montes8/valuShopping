@@ -1,5 +1,7 @@
 package com.tayler.valushopping.ui
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -24,8 +26,10 @@ abstract class BaseActivity : AppCompatActivity() {
     private var cyMProgressBar: CrossProgressBarFull? = null
     private var currentFragment: BaseFragment? = null
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         getMainView()
         cyMProgressBar =
             CrossProgressBarFull(this, android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
