@@ -19,4 +19,8 @@
         <item name="colorControlActivated">@color/pink_200</item>
     </style>
 
+    <style name="MyRadioButtonRB" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/pink_200</item>
+    </style>
 </resources>

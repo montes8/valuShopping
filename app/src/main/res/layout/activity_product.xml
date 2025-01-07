@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.product.ProductActivity">
+    <com.gb.vale.uitaylibrary.extra.UiTayToolBar
+        android:layout_width="match_parent"
+        android:id="@+id/tbProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:uiTayTextTb="Agrega producto"
+        android:layout_height="wrap_content"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbProduct"
+        android:layout_height="@dimen/dim_tay_0">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:padding="@dimen/dim_tay_16"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/ctnDataProduct"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="200dp"
+                    app:cardCornerRadius="@dimen/dim_tay_16"
+                    android:layout_height="200dp">
+                    <ImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="match_parent"
+                        android:contentDescription="@null"
+                        android:background="@color/color_shimmer_start_gray"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/dim_tay_8"
+                    android:layout_height="match_parent">
+
+                    <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                        android:layout_width="match_parent"
+                        style="@style/UiTayStyleEditLayout"
+                        android:id="@+id/editUnit"
+                        app:uiTayLHint="Precio x/unidad"
+                        android:layout_height="wrap_content"/>
+                    <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/editTotal"
+                        style="@style/UiTayStyleEditLayout"
+                        app:uiTayLHint="Precio x/docena"
+                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="@string/text_available"
+                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioGroup
+                        android:id="@+id/rgParam"
+                        android:layout_width="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rbStateActive"
+                            android:layout_width="wrap_content"
+                            android:text="@string/text_yes"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textColor="@color/selector_item_menu"
+                            android:theme="@style/MyRadioButton"
+                            android:layout_height="wrap_content"/>
+
+                        <RadioButton
+                            android:id="@+id/rbStateInactive"
+                            android:text="@string/text_not"
+                            android:theme="@style/MyRadioButton"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textColor="@color/selector_item_menu"
+                            android:layout_marginStart="@dimen/dim_tay_24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/dim_tay_12"
+                android:layout_height="wrap_content">
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditBasic
+                    android:layout_width="match_parent"
+                    android:id="@+id/textNameProduct"
+                    app:uiTayLabelTitle="Nombre del producto"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtDescriptionProduct"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:text="@string/text_description_product"
+                    android:textColor="@color/pink_200"
+                    android:fontFamily="@font/flex_bold_italic"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editDescriptionParam"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/dim_tay_12"
+                    android:layout_marginTop="@dimen/dim_tay_8"
+                    android:minHeight="@dimen/size_128"
+                    android:maxHeight="@dimen/size_152"
+                    android:hint="@string/hint_description_product"
+                    android:gravity="top"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:background="@drawable/bg_corner_pink_round"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDescriptionParam"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtTypeProduct"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:text="@string/text_type_product"
+                    android:textColor="@color/pink_200"
+                    android:fontFamily="@font/flex_bold_italic"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
+                    android:layout_height="wrap_content"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:clipToPadding="true"
+                    android:scrollbarSize="@dimen/dim_tay_0"
+                    tools:ignore="UselessLeaf">
+                    <RadioGroup
+                        android:id="@+id/rgType"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
+                        android:layout_height="40dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_pole"
+                            android:layout_width="wrap_content"
+                            android:text="@string/text_pole"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:checked="true"
+                            android:textColor="@color/selector_rb_text"
+                            android:layout_height="match_parent"/>
+
+                        <RadioButton
+                            android:id="@+id/rbPants"
+                            android:text="@string/text_pants"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/rbFootwear"
+                            android:text="@string/text_footwear"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/rbSkirt"
+                            android:text="@string/text_skirt"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/rbGarments"
+                            android:text="@string/text_garments"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/rbOther"
+                            android:text="@string/text_other"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </RadioGroup>
+                </HorizontalScrollView>
+
+                <com.gb.vale.uitaylibrary.button.UITayButton
+                    android:layout_width="match_parent"
+                    app:uiTayBtnText="Agregar producto"
+                    app:uiTayBtnEnable="false"
+                    android:layout_marginTop="@dimen/dim_tay_24"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -28,6 +28,7 @@ class ParamActivity : BaseActivity() {
     private lateinit var binding: ActivityParamBinding
     private var youTubePlayerObserver: YouTubePlayer? = null
     private var dataParam = ParamResponse()
+
     companion object {
         fun newInstance(context: Context) {
             context.startActivity(Intent(context, ParamActivity::class.java))

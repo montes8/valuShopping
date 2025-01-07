@@ -20,4 +20,16 @@
     <string name="txt_menu_tiktok">Tiktok</string>
     <string name="txt_menu_instagram">Instagram</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
+    <string name="text_available">DISPONIBLE</string>
+    <string name="text_yes">SI</string>
+    <string name="text_not">NO</string>
+    <string name="text_description_product">Descripcion del producto</string>
+    <string name="hint_description_product">Agrega descripcion minuno de caranteres 20</string>
+    <string name="text_type_product">Tipo de producto</string>
+    <string name="text_other">Otros</string>
+    <string name="text_garments">Prendas</string>
+    <string name="text_skirt">Falda</string>
+    <string name="text_footwear">Calzado</string>
+    <string name="text_pants">Pantalon</string>
+    <string name="text_pole">Polo</string>
 </resources>

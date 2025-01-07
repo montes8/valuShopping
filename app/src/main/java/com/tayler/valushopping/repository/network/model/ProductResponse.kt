@@ -11,8 +11,8 @@ data class ProductResponse (
     var name : String? = EMPTY_VALE,
     @SerializedName("description")
     var description : String? = EMPTY_VALE,
-    @SerializedName("tipo")
-    var tipe : String? = EMPTY_VALE,
+    @SerializedName("type")
+    var type : String? = EMPTY_VALE,
     @SerializedName("price")
     var price : String? = PRICE_DEFAULT,
     @SerializedName("priceTwo")
