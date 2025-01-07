@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "title": "Productos",
+    "title": "Agregar producto",
     "icon": "ic_product"
   },
   {
     "id": 2,
-    "title": "Parametros",
+    "title": "Configurar parametros",
     "icon": "ic_param"
   },
   {

@@ -46,6 +46,7 @@
                         android:id="@+id/imgProduct"
                         android:layout_width="match_parent"
                         android:contentDescription="@null"
+                        android:scaleType="fitXY"
                         android:background="@color/color_shimmer_start_gray"
                         android:layout_height="match_parent"/>
                 </androidx.cardview.widget.CardView>
@@ -60,11 +61,13 @@
                         style="@style/UiTayStyleEditLayout"
                         android:id="@+id/editUnit"
                         app:uiTayLHint="Precio x/unidad"
+                        android:inputType="numberDecimal"
                         android:layout_height="wrap_content"/>
                     <com.gb.vale.uitaylibrary.label.UiTayEditLayout
                         android:layout_width="match_parent"
                         android:id="@+id/editTotal"
                         style="@style/UiTayStyleEditLayout"
+                        android:inputType="numberDecimal"
                         app:uiTayLHint="Precio x/docena"
                         android:layout_marginTop="@dimen/dim_tay_12"
                         android:layout_height="wrap_content"/>
@@ -89,6 +92,7 @@
                             android:id="@+id/rbStateActive"
                             android:layout_width="wrap_content"
                             android:text="@string/text_yes"
+                            android:checked="true"
                             android:textSize="@dimen/dim_tay_sp_text_16"
                             android:textColor="@color/selector_item_menu"
                             android:theme="@style/MyRadioButton"

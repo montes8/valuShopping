@@ -2,7 +2,6 @@ package com.tayler.valushopping.repository.network.model
 
 import com.google.gson.annotations.SerializedName
 import com.tayler.valushopping.utils.EMPTY_VALE
-import com.tayler.valushopping.utils.PRICE_DEFAULT
 
 data class ProductResponse (
     @SerializedName("uid")
@@ -13,10 +12,12 @@ data class ProductResponse (
     var description : String? = EMPTY_VALE,
     @SerializedName("type")
     var type : String? = EMPTY_VALE,
+    @SerializedName("category")
+    var category : String? = EMPTY_VALE,
     @SerializedName("price")
-    var price : String? = PRICE_DEFAULT,
+    var price : String? = EMPTY_VALE,
     @SerializedName("priceTwo")
-    var priceTwo : String? = PRICE_DEFAULT,
+    var priceTwo : String? = EMPTY_VALE,
     @SerializedName("state")
     var state : Boolean? = true,
     @SerializedName("img")
