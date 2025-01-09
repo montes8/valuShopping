@@ -303,6 +303,7 @@
                         android:checked="true"
                         android:text="@string/text_female"
                         android:gravity="center"
+
                         android:paddingVertical="@dimen/dim_tay_8"
                         android:paddingHorizontal="@dimen/dim_tay_24"
                         android:background="@drawable/bg_selector_rb"
@@ -315,7 +316,6 @@
                     android:text="@string/text_male"
                     android:layout_width="wrap_content"
                     android:button="@null"
-                    android:checked="true"
                     android:gravity="center"
                     android:layout_marginStart="@dimen/dim_tay_8"
                     android:paddingVertical="@dimen/dim_tay_8"
