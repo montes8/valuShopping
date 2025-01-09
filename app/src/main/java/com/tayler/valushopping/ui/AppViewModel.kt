@@ -15,9 +15,6 @@ class AppViewModel  @Inject constructor(
     private val  appPreferences: AppPreferences,
 ): BaseViewModel(){
 
-    val successSessionLiveData        : LiveData<Boolean> get()   = _successSessionLiveData
-    private val _successSessionLiveData    = MutableLiveData<Boolean>()
-
     val successParamLiveData        : LiveData<ParamResponse> get()   = _successParamLiveData
     private val _successParamLiveData    = MutableLiveData<ParamResponse>()
     val successUpdateParamLiveData        : LiveData<ParamResponse> get()   = _successUpdateParamLiveData

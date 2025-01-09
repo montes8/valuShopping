@@ -32,4 +32,8 @@
     <string name="text_footwear">Calzado</string>
     <string name="text_pants">Pantalon</string>
     <string name="text_pole">Polo</string>
+    <string name="text_unisex">Unisex</string>
+    <string name="text_female">Mujer</string>
+    <string name="text_male">Varon</string>
+    <string name="text_gender">Genero</string>
 </resources>

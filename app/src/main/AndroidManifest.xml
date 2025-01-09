@@ -44,7 +44,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity
-            android:name=".ui.product.ProductActivity"
+            android:name=".ui.product.add.ProductActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:exported="false" />
         <activity

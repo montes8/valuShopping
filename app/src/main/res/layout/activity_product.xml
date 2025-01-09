@@ -6,7 +6,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.product.ProductActivity">
+    tools:context=".ui.product.add.ProductActivity">
     <com.gb.vale.uitaylibrary.extra.UiTayToolBar
         android:layout_width="match_parent"
         android:id="@+id/tbProduct"
@@ -39,9 +39,9 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="200dp"
+                    android:layout_width="160dp"
                     app:cardCornerRadius="@dimen/dim_tay_16"
-                    android:layout_height="200dp">
+                    android:layout_height="160dp">
                     <ImageView
                         android:id="@+id/imgProduct"
                         android:layout_width="match_parent"
@@ -62,20 +62,23 @@
                         android:id="@+id/editUnit"
                         app:uiTayLHint="Precio x/unidad"
                         android:inputType="numberDecimal"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="50dp"/>
                     <com.gb.vale.uitaylibrary.label.UiTayEditLayout
                         android:layout_width="match_parent"
                         android:id="@+id/editTotal"
                         style="@style/UiTayStyleEditLayout"
                         android:inputType="numberDecimal"
                         app:uiTayLHint="Precio x/docena"
-                        android:layout_marginTop="@dimen/dim_tay_12"
-                        android:layout_height="wrap_content"/>
+                        android:layout_marginTop="@dimen/size_4"
+                        android:layout_height="50dp"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="@string/text_available"
-                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:fontFamily="@font/flex_bold_italic"
+                        android:textColor="@color/primary_pink"
+                        android:textSize="@dimen/txt_size_10"
+                        android:layout_marginTop="@dimen/dim_tay_8"
                         android:layout_height="wrap_content"/>
 
                     <RadioGroup
@@ -83,7 +86,7 @@
                         android:layout_width="match_parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:layout_marginTop="@dimen/dim_tay_8"
                         android:orientation="horizontal"
                         app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
                         android:layout_height="wrap_content">
@@ -93,7 +96,7 @@
                             android:layout_width="wrap_content"
                             android:text="@string/text_yes"
                             android:checked="true"
-                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textSize="@dimen/txt_size_10"
                             android:textColor="@color/selector_item_menu"
                             android:theme="@style/MyRadioButton"
                             android:layout_height="wrap_content"/>
@@ -102,7 +105,7 @@
                             android:id="@+id/rbStateInactive"
                             android:text="@string/text_not"
                             android:theme="@style/MyRadioButton"
-                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textSize="@dimen/txt_size_10"
                             android:textColor="@color/selector_item_menu"
                             android:layout_marginStart="@dimen/dim_tay_24"
                             android:layout_width="wrap_content"
@@ -125,7 +128,8 @@
 
                 <com.gb.vale.uitaylibrary.label.UiTayEditBasic
                     android:layout_width="match_parent"
-                    android:id="@+id/textNameProduct"
+                    android:id="@+id/editNameProduct"
+                    app:uiTayLabelHint="nombre de producto"
                     app:uiTayLabelTitle="Nombre del producto"
                     android:layout_height="wrap_content"/>
 
@@ -143,12 +147,12 @@
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/editDescriptionParam"
+                    android:id="@+id/editDescriptionProduct"
                     android:layout_width="match_parent"
                     android:padding="@dimen/dim_tay_12"
                     android:layout_marginTop="@dimen/dim_tay_8"
-                    android:minHeight="@dimen/size_128"
-                    android:maxHeight="@dimen/size_152"
+                    android:minHeight="@dimen/size_110"
+                    android:maxHeight="@dimen/size_128"
                     android:hint="@string/hint_description_product"
                     android:gravity="top"
                     android:textSize="@dimen/dim_tay_sp_text_16"
@@ -189,16 +193,16 @@
                         android:layout_height="40dp">
 
                         <RadioButton
-                            android:id="@+id/rb_pole"
+                            android:id="@+id/rbPole"
                             android:layout_width="wrap_content"
                             android:text="@string/text_pole"
                             android:button="@null"
+                            android:checked="true"
                             android:gravity="center"
                             android:paddingVertical="@dimen/dim_tay_8"
                             android:paddingHorizontal="@dimen/dim_tay_24"
                             android:background="@drawable/bg_selector_rb"
                             android:textSize="@dimen/dim_tay_sp_text_16"
-                            android:checked="true"
                             android:textColor="@color/selector_rb_text"
                             android:layout_height="match_parent"/>
 
@@ -270,9 +274,75 @@
 
                     </RadioGroup>
                 </HorizontalScrollView>
+                <TextView
+                    android:id="@+id/txtGenderProduct"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:text="@string/text_gender"
+                    android:textColor="@color/pink_200"
+                    android:fontFamily="@font/flex_bold_italic"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
+                    android:layout_height="wrap_content"/>
+                <RadioGroup
+                    android:id="@+id/rgGender"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
+                    android:layout_height="40dp">
+
+                    <RadioButton
+                        android:id="@+id/rbFemale"
+                        android:layout_width="wrap_content"
+                        android:button="@null"
+                        android:checked="true"
+                        android:text="@string/text_female"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/dim_tay_8"
+                        android:paddingHorizontal="@dimen/dim_tay_24"
+                        android:background="@drawable/bg_selector_rb"
+                        android:textSize="@dimen/dim_tay_sp_text_16"
+                        android:textColor="@color/selector_rb_text"
+                        android:layout_height="match_parent"/>
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:text="@string/text_male"
+                    android:layout_width="wrap_content"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/dim_tay_8"
+                    android:paddingVertical="@dimen/dim_tay_8"
+                    android:paddingHorizontal="@dimen/dim_tay_24"
+                    android:background="@drawable/bg_selector_rb"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:textColor="@color/selector_rb_text"
+                    android:layout_height="match_parent"/>
+
+                <RadioButton
+                    android:id="@+id/rbUnisex"
+                    android:text="@string/text_unisex"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/dim_tay_8"
+                    android:paddingHorizontal="@dimen/dim_tay_24"
+                    android:background="@drawable/bg_selector_rb"
+                    android:textColor="@color/selector_rb_text"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:layout_marginStart="@dimen/dim_tay_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                </RadioGroup>
 
                 <com.gb.vale.uitaylibrary.button.UITayButton
                     android:layout_width="match_parent"
+                    android:id="@+id/btnSaveProduct"
                     app:uiTayBtnText="Agregar producto"
                     app:uiTayBtnEnable="false"
                     android:layout_marginTop="@dimen/dim_tay_24"

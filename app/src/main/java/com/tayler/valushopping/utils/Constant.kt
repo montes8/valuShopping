@@ -14,3 +14,5 @@ const val DESCRIPTION_MOVIE_DEFAULT = "\"Perdonarte ¿para qué?\" es una canci�
 const val ID_MOVIE_DEFAULT = "beH6uqy6Xsw"
 const val DIALOG_TITLE_DEFAULT = "Datos guardados"
 const val DIALOG_MESSAGE_DEFAULT = "Datos guardados correctamente, los vera reflejado la proxima ves que ingrese."
+const val TYPE_CLOTHES = "1"
+const val TYPE_OTHER = "2"

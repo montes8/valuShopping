@@ -21,5 +21,7 @@ data class ProductResponse (
     @SerializedName("state")
     var state : Boolean? = true,
     @SerializedName("img")
-    var img : String? = EMPTY_VALE
+    var img : String? = EMPTY_VALE,
+    @SerializedName("gender")
+    var gender : String? = EMPTY_VALE,
 )

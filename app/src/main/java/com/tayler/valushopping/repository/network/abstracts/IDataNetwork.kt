@@ -1,5 +1,11 @@
 package com.tayler.valushopping.repository.network.abstracts
 
+import com.tayler.valushopping.repository.network.model.ImageResponse
+import com.tayler.valushopping.repository.network.model.ProductResponse
+import java.io.File
+
 interface IDataNetwork {
-    suspend fun loadTest():Boolean
+    suspend fun saveProduct(data : ProductResponse):ProductResponse
+
+    suspend fun saveImage(file: File?):ImageResponse
 }

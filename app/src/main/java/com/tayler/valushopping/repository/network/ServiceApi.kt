@@ -2,6 +2,7 @@ package com.tayler.valushopping.repository.network
 
 import com.tayler.valushopping.repository.network.model.ImageResponse
 import com.tayler.valushopping.repository.network.model.ParamResponse
+import com.tayler.valushopping.repository.network.model.ProductResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -24,7 +25,11 @@ interface ServiceApi {
                             @Body paramResponse: ParamResponse): Response<ParamResponse>
 
     @Multipart
-    @POST("api/uploads")
+    @POST("uploads")
     suspend fun saveImage(
         @Part file : MultipartBody.Part): Response<ImageResponse>
+
+    @POST("product")
+    suspend fun saveProduct(@Body productResponse: ProductResponse): Response<ProductResponse>
+
 }

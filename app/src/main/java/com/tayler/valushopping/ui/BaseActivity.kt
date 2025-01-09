@@ -15,7 +15,6 @@ import com.tayler.valushopping.utils.onToBaseBack
 abstract class BaseActivity : AppCompatActivity() {
 
     var dataSharedVale: Any? = null
-
     var activateBack = true
     abstract fun getMainView()
     abstract fun setUpView()
