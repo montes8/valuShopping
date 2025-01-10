@@ -11,6 +11,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@drawable/ic_bg_general"
             android:layout_height="match_parent">
 
             <com.gb.vale.uitaylibrary.extra.UiTayToolBar
@@ -31,7 +32,6 @@
                 android:id="@+id/frameGeneric"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_tay_0"
-                android:background="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/ctnNavigation"
                 app:layout_constraintTop_toBottomOf="@+id/toolBarHome"
                 tools:ignore="UselessLeaf" />

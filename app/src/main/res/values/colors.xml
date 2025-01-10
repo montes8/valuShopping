@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_Accent">@color/pink_100</color>
-    <color name="primary_secondary">@color/pink_200</color>
-    <color name="primary_pink">@color/pink_400</color>
+    <color name="primary_Accent">@color/pink_50</color>
+    <color name="primary_secondary">@color/pink_100</color>
+    <color name="primary_pink">@color/pink_200</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
