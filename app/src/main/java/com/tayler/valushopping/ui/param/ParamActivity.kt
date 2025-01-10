@@ -6,8 +6,6 @@ import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
-import com.gb.vale.uitaylibrary.utils.uiTayIsSystemKeyboardVisible
-import com.gb.vale.uitaylibrary.utils.uiTayMargins
 import com.gb.vale.uitaylibrary.utils.uiTayVisibilityDuo
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -43,18 +41,10 @@ class ParamActivity : BaseActivity() {
     }
 
     override fun setUpView() {
-        configInit()
         viewModel.loadParam()
         configChangeEdit()
         configAction()
     }
-
-    private fun configInit(){
-        binding.nsvParam.viewTreeObserver.addOnGlobalLayoutListener {
-            binding.nsvParam.uiTayMargins(bottom = if (uiTayIsSystemKeyboardVisible()) 300 else 0)
-        }
-    }
-
     private fun configAction() {
         binding.btnTestMovie.setOnClickUiTayDelay {
             configMovieId()
