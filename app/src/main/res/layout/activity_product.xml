@@ -26,13 +26,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:padding="@dimen/dim_tay_16"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:id="@+id/ctnDataProduct"
+                android:padding="@dimen/dim_tay_16"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -123,24 +123,36 @@
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="@dimen/dim_tay_12"
+                android:layout_marginTop="@dimen/dim_tay_8"
                 android:layout_height="wrap_content">
 
                 <com.gb.vale.uitaylibrary.label.UiTayEditBasic
                     android:layout_width="match_parent"
                     android:id="@+id/editNameProduct"
                     app:uiTayLabelHint="nombre de producto"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     app:uiTayLabelTitle="Nombre del producto"
+                    android:layout_height="wrap_content"/>
+                <com.gb.vale.uitaylibrary.label.UiTayEditBasic
+                    android:layout_width="match_parent"
+                    android:id="@+id/editPhoneProduct"
+                    android:inputType="number"
+                    app:uiTayLabelEditMaxLength="9"
+                    app:uiTayLabelHint="Numero de celular"
+                    android:layout_marginTop="@dimen/size_4"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
+                    app:uiTayLabelTitle="Numero de celular"
                     android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/txtDescriptionProduct"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:layout_marginTop="@dimen/dim_tay_8"
                     android:text="@string/text_description_product"
                     android:textColor="@color/pink_200"
                     android:fontFamily="@font/flex_bold_italic"
                     android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
@@ -153,6 +165,7 @@
                     android:layout_marginTop="@dimen/dim_tay_8"
                     android:minHeight="@dimen/size_110"
                     android:maxHeight="@dimen/size_128"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     android:hint="@string/hint_description_product"
                     android:gravity="top"
                     android:textSize="@dimen/dim_tay_sp_text_16"
@@ -165,11 +178,12 @@
                 <TextView
                     android:id="@+id/txtTypeProduct"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:layout_marginTop="@dimen/dim_tay_8"
                     android:text="@string/text_type_product"
                     android:textColor="@color/pink_200"
                     android:fontFamily="@font/flex_bold_italic"
                     android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
@@ -179,15 +193,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="horizontal"
-                    android:clipToPadding="true"
+                    android:clipToPadding="false"
                     android:scrollbarSize="@dimen/dim_tay_0"
                     tools:ignore="UselessLeaf">
                     <RadioGroup
                         android:id="@+id/rgType"
+                        android:paddingStart="@dimen/dim_tay_16"
+                        android:paddingEnd="@dimen/dim_tay_16"
                         android:layout_width="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:layout_marginTop="@dimen/dim_tay_8"
                         android:orientation="horizontal"
                         app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
                         android:layout_height="40dp">
@@ -277,11 +293,12 @@
                 <TextView
                     android:id="@+id/txtGenderProduct"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:layout_marginTop="@dimen/dim_tay_8"
                     android:text="@string/text_gender"
                     android:textColor="@color/pink_200"
                     android:fontFamily="@font/flex_bold_italic"
                     android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTitleParam"
@@ -291,8 +308,10 @@
                     android:layout_width="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:layout_marginTop="@dimen/dim_tay_8"
                     android:orientation="horizontal"
+                    android:paddingStart="@dimen/dim_tay_16"
+                    android:paddingEnd="@dimen/dim_tay_16"
                     app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
                     android:layout_height="40dp">
 
@@ -345,7 +364,9 @@
                     android:id="@+id/btnSaveProduct"
                     app:uiTayBtnText="Agregar producto"
                     app:uiTayBtnEnable="false"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
                     android:layout_marginTop="@dimen/dim_tay_24"
+                    android:layout_marginBottom="@dimen/dim_tay_12"
                     android:layout_height="wrap_content"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>

@@ -24,4 +24,6 @@ data class ProductResponse (
     var img : String? = EMPTY_VALE,
     @SerializedName("gender")
     var gender : String? = EMPTY_VALE,
+    @SerializedName("phone")
+    var phone : String? = EMPTY_VALE,
 )

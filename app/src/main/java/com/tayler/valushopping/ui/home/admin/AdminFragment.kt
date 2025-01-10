@@ -14,8 +14,10 @@ import com.tayler.valushopping.ui.param.ParamActivity
 import com.tayler.valushopping.ui.product.add.ProductActivity
 import com.tayler.valushopping.utils.JSON_ITEM_ADMIN
 import com.tayler.valushopping.utils.getData
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class AdminFragment : BaseFragment() {
 
     private lateinit var binding: FragmentAdminBinding

@@ -18,6 +18,8 @@ class DataViewModel  @Inject constructor(
 
     val successProductLiveData        : LiveData<ProductResponse> get()   = _successProductLiveData
     private val _successProductLiveData    = MutableLiveData<ProductResponse>()
+    val successLoadProductLiveData        : LiveData<List<ProductResponse>> get()   = _successLoadProductLiveData
+    private val _successLoadProductLiveData    = MutableLiveData<List<ProductResponse>>()
 
 
     fun saveProduct(data : ProductResponse){
@@ -26,6 +28,13 @@ class DataViewModel  @Inject constructor(
             data.img = "${BuildConfig.BASE_URL}uploads/imgs/${responseImage.nameImage}"
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
+        }
+    }
+
+    fun loadProduct(){
+        execute(false) {
+            val response = dataNetwork.loadProduct()
+            _successLoadProductLiveData.postValue(response)
         }
     }
 

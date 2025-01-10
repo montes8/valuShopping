@@ -10,6 +10,7 @@ import com.gb.vale.uitaylibrary.manager.camera.UiTayCameraManager
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
 import com.gb.vale.uitaylibrary.utils.uiTayFormatDecimal
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
+import com.gb.vale.uitaylibrary.utils.uiTayValidatePhoneFormat
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
@@ -95,6 +96,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         flagEnable  += if(binding.editUnit.uiTayLText.length > 1) 0 else 1
         flagEnable  += if(binding.editTotal.uiTayLText.length > 1) 0 else 1
         flagEnable  += if(fileImage.isNotEmpty()) 0 else 1
+        flagEnable  += if(binding.editPhoneProduct.uiTayLabelEdit.uiTayValidatePhoneFormat()) 0 else 1
         binding.btnSaveProduct.tayBtnEnable = flagEnable == 0
     }
 
@@ -103,6 +105,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         dataProduct.description = binding.editDescriptionProduct.text.toString()
         dataProduct.price = binding.editUnit.uiTayLText.uiTayFormatDecimal()
         dataProduct.priceTwo = binding.editTotal.uiTayLText.uiTayFormatDecimal()
+        dataProduct.phone = binding.editPhoneProduct.uiTayLabelEdit
         dataProduct.img =  fileImage
         dataProduct.state = binding.rbStateActive.isChecked
         dataProduct.type = type.toString()

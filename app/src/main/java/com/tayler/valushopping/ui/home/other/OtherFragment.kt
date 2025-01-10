@@ -10,8 +10,9 @@ import com.tayler.valushopping.ui.BaseFragment
 import com.tayler.valushopping.ui.home.other.adapter.OtherAdapter
 import com.tayler.valushopping.utils.JSON_ITEM_OTHER
 import com.tayler.valushopping.utils.getData
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OtherFragment : BaseFragment() {
 
     private lateinit var binding: FragmentOtherBinding

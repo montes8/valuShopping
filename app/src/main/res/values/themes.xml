@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Custom.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primary_pink</item>
         <item name="colorPrimaryDark">@color/primary_secondary</item>
@@ -35,6 +35,19 @@
     <style name="Custom.Theme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_pink</item>
+        <item name="colorPrimaryDark">@color/primary_pink</item>
+        <item name="colorAccent">@color/primary_pink</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:ignore="NewApi">0</item>
     </style>
 
     <style name="Custom.Theme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

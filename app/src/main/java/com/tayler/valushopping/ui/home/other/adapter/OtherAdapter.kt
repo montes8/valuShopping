@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
-import com.tayler.valushopping.BR
 import com.tayler.valushopping.databinding.RowOtherBinding
 import com.tayler.valushopping.entity.ItemModel
+import com.tayler.valushopping.utils.setImageString
+
 class OtherAdapter(var onClickAdmin: ((ItemModel) -> Unit)? = null) :
     RecyclerView.Adapter<OtherAdapter.AdminViewHolder>() {
 
@@ -33,11 +34,11 @@ class OtherAdapter(var onClickAdmin: ((ItemModel) -> Unit)? = null) :
     override fun getItemCount(): Int = adminList.size
 
 
-
     inner class AdminViewHolder(private val binding: RowOtherBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(other: ItemModel) {
-            binding.setVariable(BR.other, other)
             binding.executePendingBindings()
+            binding.rowTitleBottom.text = other.title
+            binding.rowProductImg.setImageDrawable(setImageString(other.icon,binding.root.context))
             binding.ctlAdmin.setOnClickUiTayDelay{onClickAdmin?.invoke(other) }
         }
     }

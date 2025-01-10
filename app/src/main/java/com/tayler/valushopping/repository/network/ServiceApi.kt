@@ -32,4 +32,7 @@ interface ServiceApi {
     @POST("product")
     suspend fun saveProduct(@Body productResponse: ProductResponse): Response<ProductResponse>
 
+    @GET("product")
+    suspend fun loadProduct(): Response<List<ProductResponse>>
+
 }

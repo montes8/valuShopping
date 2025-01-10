@@ -15,7 +15,9 @@ import com.tayler.valushopping.ui.home.admin.AdminFragment
 import com.tayler.valushopping.ui.home.init.InitFragment
 import com.tayler.valushopping.ui.home.other.OtherFragment
 import com.tayler.valushopping.ui.home.product.ProductFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var initFragment   : InitFragment

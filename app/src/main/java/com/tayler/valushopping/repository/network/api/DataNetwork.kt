@@ -29,6 +29,18 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
         }
     }
 
+    override suspend fun loadProduct(): List<ProductResponse> {
+        return base.executeWithConnection {
+            var model  : List<ProductResponse>?  = null
+            val response  = serviceApi.loadProduct()
+            if (response.validateData()) {
+                model = response.validateBody()
+            }
+            model?: throw response.errorBody().toCompleteErrorModel(response.code())
+
+        }
+    }
+
     override suspend fun saveImage(file: File?): ImageResponse {
         return base.executeWithConnection {
                  file?.let {

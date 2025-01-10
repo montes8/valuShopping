@@ -1,21 +1,21 @@
 [
   {
-    "id": 5,
+    "id": 1,
     "title": "Cambio de perfil",
     "icon": "ic_profile"
   },
   {
-    "id": 6,
+    "id": 2,
     "title": "WhatsApp",
     "icon": "ic_admin"
   },
   {
-    "id": 7,
+    "id": 3,
     "title": "Contactanos",
     "icon": "ic_contact"
   },
   {
-    "id": 7,
+    "id": 4,
     "title": "Ayuda",
     "icon": "ic_help"
   }

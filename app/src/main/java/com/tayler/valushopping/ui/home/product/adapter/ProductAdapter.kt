@@ -1,17 +1,21 @@
 package com.tayler.valushopping.ui.home.product.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
-import com.tayler.valushopping.R
+import com.gb.vale.uitaylibrary.utils.uiTayLoadUrl
+import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.tayler.valushopping.databinding.RowOtherBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.utils.EMPTY_VALE
 
 class ProductAdapter(var onClickItem: ((ProductResponse) -> Unit)? = null) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    var adminList: List<ProductResponse> = arrayListOf()
+    var productList: List<ProductResponse> = arrayListOf()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -28,16 +32,18 @@ class ProductAdapter(var onClickItem: ((ProductResponse) -> Unit)? = null) :
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(adminList[position])
+        holder.bind(productList[position])
     }
 
-    override fun getItemCount(): Int = adminList.size
+    override fun getItemCount(): Int = productList.size
 
     inner class ProductViewHolder(private val binding: RowOtherBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(other: ProductResponse) {
+        fun bind(product: ProductResponse) {
             binding.executePendingBindings()
-            binding.rowProductImg.setImageResource(R.drawable.ic_logo_other_product)
-            binding.ctlAdmin.setOnClickUiTayDelay{onClickItem?.invoke(other) }
+            uiTayTryCatch {
+                binding.rowProductImg.uiTayLoadUrl(product.img?: EMPTY_VALE)
+            }
+            binding.ctlAdmin.setOnClickUiTayDelay{onClickItem?.invoke(product) }
         }
     }
 }

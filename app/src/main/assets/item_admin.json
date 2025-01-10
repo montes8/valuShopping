@@ -10,6 +10,11 @@
     "icon": "ic_param"
   },
   {
+    "id": 2,
+    "title": "Listado de productos",
+    "icon": "ic_param"
+  },
+  {
     "id": 3,
     "title": "WhatsApp",
     "icon": "ic_admin"

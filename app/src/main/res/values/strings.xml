@@ -11,6 +11,7 @@
     <string name="txt_other">Otros</string>
     <string name="txt_config">Config</string>
 
+    <string name="txt_profile">Perfil</string>
     <string name="txt_menu_profile">Cambio de perfil</string>
     <string name="txt_menu_client">Se parte de nosotros</string>
     <string name="txt_menu_map">Puntos de entrega</string>
@@ -24,7 +25,7 @@
     <string name="text_yes">SI</string>
     <string name="text_not">NO</string>
     <string name="text_description_product">Descripcion del producto</string>
-    <string name="hint_description_product">Agrega descripcion minuno de caranteres 20</string>
+    <string name="hint_description_product">Agrega descripcion minuno de caracteres 20</string>
     <string name="text_type_product">Tipo de producto</string>
     <string name="text_other">Otros</string>
     <string name="text_garments">Prendas</string>

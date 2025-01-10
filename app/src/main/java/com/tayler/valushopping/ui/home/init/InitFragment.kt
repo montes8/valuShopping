@@ -12,8 +12,10 @@ import com.tayler.valushopping.databinding.FragmentInitBinding
 import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.ui.BaseFragment
 import com.tayler.valushopping.utils.EMPTY_VALE
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class InitFragment : BaseFragment() {
 
     private lateinit var binding: FragmentInitBinding

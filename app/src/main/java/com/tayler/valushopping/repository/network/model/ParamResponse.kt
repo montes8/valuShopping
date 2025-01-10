@@ -16,5 +16,9 @@ data class ParamResponse (
     @SerializedName("idMovie")
     var idMovie : String? = ID_MOVIE_DEFAULT,
     @SerializedName("enableCategory")
-    var enableCategory : Boolean? = false
+    var enableCategory : Boolean? = false,
+    @SerializedName("phone")
+    var phone : String? = ID_MOVIE_DEFAULT,
+    @SerializedName("linkFacebook")
+    var linkFacebook : String? = ID_MOVIE_DEFAULT
 )

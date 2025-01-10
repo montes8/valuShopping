@@ -4,6 +4,6 @@
     <corners android:topLeftRadius="@dimen/dim_tay_24"
         android:topRightRadius="@dimen/dim_tay_24"/>
 
-    <solid  android:color="@color/pink_50"/>
+    <solid  android:color="@color/white"/>
     <stroke android:color="@color/pink_100" android:width="1dp"/>
 </shape>
