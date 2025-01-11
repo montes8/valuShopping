@@ -16,7 +16,7 @@ open class BaseViewModel : ViewModel() {
     fun execute(loading : Boolean = true,func: suspend () -> Unit)=
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                loadingLiveData.postValue(true)
+                loadingLiveData.postValue(loading)
                 shimmerLiveData.postValue(!loading)
                 func()
                 loadingLiveData.postValue(false)
@@ -39,12 +39,4 @@ open class BaseViewModel : ViewModel() {
             }
         }
 
-    fun executeNotProgress(func: suspend () -> Unit) =
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                func()
-            } catch (ex: Exception) {
-                errorLiveData.postValue(ex)
-            }
-        }
 }

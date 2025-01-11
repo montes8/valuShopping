@@ -38,7 +38,7 @@ class AppViewModel  @Inject constructor(
     }
 
     fun logout(){
-        executeNotProgress {
+        execute(false) {
             appPreferences.saveToken(EMPTY_VALE)
         }
     }

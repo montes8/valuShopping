@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Agregar producto",
-    "icon": "ic_product"
+    "icon": "ic_add"
   },
   {
     "id": 2,
@@ -12,12 +12,12 @@
   {
     "id": 2,
     "title": "Listado de productos",
-    "icon": "ic_param"
+    "icon": "ic_product"
   },
   {
     "id": 3,
     "title": "WhatsApp",
-    "icon": "ic_admin"
+    "icon": "ic_social"
   },
   {
     "id": 4,
