@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/flex_bold"
         android:text="@string/text_welcome"
-        android:textSize="@dimen/dim_tay_sp_text_16"
+        android:textSize="@dimen/txt_size_20"
         android:textColor="@color/pink_200"
         android:layout_marginStart="@dimen/dim_tay_20"
         app:layout_constraintBottom_toBottomOf="@+id/imgProfileHome"

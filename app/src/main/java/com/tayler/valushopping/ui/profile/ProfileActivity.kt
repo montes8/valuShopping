@@ -19,7 +19,6 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityProfileBinding
 import com.tayler.valushopping.entity.UserModel
 import com.tayler.valushopping.ui.BaseActivity
-import com.tayler.valushopping.ui.home.HomeActivity
 import com.tayler.valushopping.ui.login.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
@@ -83,13 +82,13 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         binding.imgBannerProfile.setOnClickUiTayDelay {onClickImage(true)}
         binding.imgProfile.setOnClickUiTayDelay {onClickImage(false)}
         binding.btnSaveProfile.setOnClickTayBtnListener{onClickProfile()}
-        binding.toolbar.setNavigationOnClickListener { HomeActivity.newInstance(this)}
+        binding.toolbar.setNavigationOnClickListener { finish()}
     }
 
     private fun onClickProfile(){
         mapperProfile()
         viewModel.saveUser(userModel)
-        binding.snackBarProfile.showUiTaySB()
+        uiTayShowToast(getString(R.string.text_success_profile))
     }
 
     private fun configChangeEdit(){

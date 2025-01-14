@@ -247,14 +247,5 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.gb.vale.uitaylibrary.extra.UITaySnackBar
-            android:id="@+id/snackBarProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:uiTaySBText="Datos guardados correctamente"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -1,12 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="product"
+            type="com.tayler.valushopping.repository.network.model.ProductResponse" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.product.detail.DetailProductActivity">
+        <com.gb.vale.uitaylibrary.extra.UiTayToolBar
+            android:layout_width="match_parent"
+            android:id="@+id/tbDetailProduct"
+            app:uiTayTextTb="Detalle de producto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbDetailProduct"
+            android:layout_height="@dimen/dim_tay_0">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:id="@+id/lnHeaderProduct"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/size_152"
+                        android:layout_marginVertical="@dimen/dim_tay_16"
+                        android:layout_marginHorizontal="@dimen/dim_tay_16"
+                        android:layout_height="@dimen/size_152">
+                        <ImageView
+                            android:contentDescription="@null"
+                            android:layout_width="match_parent"
+                            android:scaleType="fitXY"
+                            app:srcDrawableStringUrl="@{product.img}"
+                            android:background="@drawable/shape_place_holder"
+                            android:layout_height="match_parent"/>
+                    </com.google.android.material.card.MaterialCardView>
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="@dimen/dim_tay_16"
+                        android:layout_marginEnd="@dimen/dim_tay_16"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            tools:text="@string/text_test"
+                            android:fontFamily="@font/flex_bold"
+                            android:text="@{product.name}"
+                            android:textSize="@dimen/txt_size_20"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            tools:text="@string/text_test"
+                            android:layout_marginTop="@dimen/dim_tay_12"
+                            android:fontFamily="@font/flex_bold"
+                            android:text="@{product.getPriceUnitTwo()}"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            tools:text="@string/text_test"
+                            android:text="@{product.getPriceDocTwo()}"
+                            android:layout_marginTop="@dimen/dim_tay_12"
+                            android:fontFamily="@font/flex_bold"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            tools:text="@string/text_test"
+                            android:layout_marginTop="@dimen/dim_tay_12"
+                            android:fontFamily="@font/flex_bold"
+                            android:text="@{product.getMapperTypeAndGender()}"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    tools:text="@string/text_test"
+                    app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{product.description}"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:fontFamily="@font/flex_medium"
+                    android:textSize="@dimen/dim_tay_sp_text_16"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/imgProductSocial"
+                    android:contentDescription="@null"
+                    android:layout_marginTop="-36dp"
+                    android:src="@drawable/ic_whatsapp"
+                    android:layout_marginEnd="@dimen/dim_tay_16"
+                    app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+<data>
+<variable
+    name="product"
+    type="com.tayler.valushopping.repository.network.model.ProductResponse" />
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/dim_tay_16"
+        android:layout_marginVertical="@dimen/dim_tay_8"
+        app:cardCornerRadius="@dimen/dim_tay_12"
+        app:cardElevation="@dimen/dim_tay_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/lnCtnRowProduct"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:contentDescription="@null"
+                android:layout_width="@dimen/size_128"
+                app:srcDrawableStringUrl="@{product.img}"
+                android:layout_height="@dimen/size_128"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+           <TextView
+               android:layout_width="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:text="@string/text_available"
+               android:textSize="@dimen/txt_size_10"
+               app:mapperStateProduct="@{product.state}"
+               android:textColor="@color/white"
+               android:fontFamily="@font/flex_bold"
+               app:layout_constraintTop_toTopOf="parent"
+               android:layout_margin="@dimen/size_4"
+               android:paddingHorizontal="@dimen/dim_tay_8"
+               android:paddingVertical="@dimen/size_4"
+               android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/dim_tay_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    tools:text="@string/text_test"
+                    android:textColor="@color/black"
+                    android:text="@{product.name}"
+                    android:layout_marginTop="@dimen/dim_tay_4"
+                    android:layout_marginEnd="@dimen/size_60"
+                    android:textSize="@dimen/dim_tay_16"
+                    android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    tools:text="@string/text_test"
+                    android:layout_marginTop="@dimen/size_4"
+                    android:lines="2"
+                    android:text="@{product.description}"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/txt_size_14"
+                    android:fontFamily="@font/ui_tay_montserrat_medium"
+                    android:maxLines="2"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dim_tay_4"
+                    android:layout_marginEnd="@dimen/size_4"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="@dimen/dim_tay_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="@dimen/dim_tay_2"
+                            android:textSize="@dimen/txt_size_12"
+                            android:text="@string/text_title_price_unit"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="@dimen/dim_tay_4"
+                            android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+                            android:layout_marginEnd="@dimen/dim_tay_2"
+                            android:text="@{product.getPriceUnit()}"
+                            android:textSize="@dimen/txt_size_12"
+                            tools:text="@string/tay_ui_script"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_width="@dimen/dim_tay_0"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:textSize="@dimen/txt_size_12"
+                          android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+                          android:textColor="@color/black"
+                          android:layout_marginStart="@dimen/dim_tay_2"
+                          android:text="@string/text_title_price_doc"
+                          android:layout_height="wrap_content"/>
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_marginStart="@dimen/dim_tay_4"
+                          android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+                          android:layout_marginEnd="@dimen/dim_tay_2"
+                          android:text="@{product.getPriceDoc()}"
+                          android:textSize="@dimen/txt_size_12"
+                          tools:text="@string/tay_ui_script"
+                          android:layout_height="wrap_content"/>
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <TextView
+                    android:layout_width="match_parent"
+                    tools:text="@string/text_test"
+                    android:fontFamily="@font/ui_tay_montserrat_medium"
+                    android:layout_marginTop="@dimen/dim_tay_4"
+                    android:layout_marginEnd="@dimen/dim_tay_12"
+                    android:text="@{product.getMapperTypeAndGender()}"
+                    android:textSize="@dimen/txt_size_14"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

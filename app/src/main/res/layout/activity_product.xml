@@ -74,100 +74,25 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/dim_tay_12"
                         android:layout_height="wrap_content">
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="@dimen/dim_tay_0"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:text="@string/text_available"
-                                android:fontFamily="@font/flex_bold_italic"
-                                android:textColor="@color/primary_pink"
-                                android:textSize="@dimen/txt_size_10"
-                                android:layout_marginTop="@dimen/dim_tay_8"
-                                android:layout_height="wrap_content"/>
-
-                            <RadioGroup
-                                android:id="@+id/rgAvailable"
-                                android:layout_width="match_parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                android:layout_marginTop="@dimen/dim_tay_8"
-                                android:orientation="horizontal"
-                                app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
-                                android:layout_height="wrap_content">
-
-                                <RadioButton
-                                    android:id="@+id/rbStateActive"
-                                    android:layout_width="wrap_content"
-                                    android:text="@string/text_yes"
-                                    android:checked="true"
-                                    android:textSize="@dimen/txt_size_10"
-                                    android:textColor="@color/selector_item_menu"
-                                    android:theme="@style/MyRadioButton"
-                                    android:layout_height="wrap_content"
-                                    tools:ignore="TooDeepLayout" />
-
-                                <RadioButton
-                                    android:id="@+id/rbStateInactive"
-                                    android:text="@string/text_not"
-                                    android:theme="@style/MyRadioButton"
-                                    android:textSize="@dimen/txt_size_10"
-                                    android:textColor="@color/selector_item_menu"
-                                    android:layout_marginStart="@dimen/size_4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-
-                            </RadioGroup>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/cbState"
+                            android:textColor="@color/pink_200"
+                            android:theme="@style/MyRadioButton"
+                            android:text="@string/text_available"
+                            android:textSize="@dimen/txt_size_10"
+                            android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/cbPrincipal"
                             android:layout_width="@dimen/dim_tay_0"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:text="@string/text_principal"
-                                android:fontFamily="@font/flex_bold_italic"
-                                android:textColor="@color/primary_pink"
-                                android:textSize="@dimen/txt_size_10"
-                                android:layout_marginTop="@dimen/dim_tay_8"
-                                android:layout_height="wrap_content"/>
-
-                            <RadioGroup
-                                android:id="@+id/rgPrincipal"
-                                android:layout_width="match_parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                android:layout_marginTop="@dimen/dim_tay_8"
-                                android:orientation="horizontal"
-                                app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
-                                android:layout_height="wrap_content">
-
-                                <RadioButton
-                                    android:id="@+id/rbPrincipalYes"
-                                    android:layout_width="wrap_content"
-                                    android:text="@string/text_yes"
-                                    android:checked="true"
-                                    android:textSize="@dimen/txt_size_10"
-                                    android:textColor="@color/selector_item_menu"
-                                    android:theme="@style/MyRadioButton"
-                                    android:layout_height="wrap_content"/>
-
-                                <RadioButton
-                                    android:id="@+id/rbPrincipalNot"
-                                    android:text="@string/text_not"
-                                    android:theme="@style/MyRadioButton"
-                                    android:textSize="@dimen/txt_size_10"
-                                    android:textColor="@color/selector_item_menu"
-                                    android:layout_marginStart="@dimen/size_4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-
-                            </RadioGroup>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                            android:textColor="@color/pink_200"
+                            android:text="@string/text_principal"
+                            android:textSize="@dimen/txt_size_10"
+                            android:layout_height="wrap_content"/>
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -269,12 +194,27 @@
                         android:layout_height="40dp">
 
                         <RadioButton
+                            android:id="@+id/rbImitationJewelry"
+                            android:layout_width="wrap_content"
+                            android:text="@string/text_imitation_jewelry"
+                            android:button="@null"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textColor="@color/selector_rb_text"
+                            android:layout_height="match_parent"/>
+
+                        <RadioButton
                             android:id="@+id/rbPole"
                             android:layout_width="wrap_content"
                             android:text="@string/text_pole"
                             android:button="@null"
-                            android:checked="true"
+
                             android:gravity="center"
+                            android:layout_marginStart="@dimen/dim_tay_8"
                             android:paddingVertical="@dimen/dim_tay_8"
                             android:paddingHorizontal="@dimen/dim_tay_24"
                             android:background="@drawable/bg_selector_rb"
@@ -335,6 +275,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <RadioButton
+                            android:id="@+id/rbAccessories"
+                            android:text="@string/text_accessories"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/dim_tay_8"
+                            android:paddingHorizontal="@dimen/dim_tay_24"
+                            android:background="@drawable/bg_selector_rb"
+                            android:textColor="@color/selector_rb_text"
+                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:layout_marginStart="@dimen/dim_tay_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
                             android:id="@+id/rbOther"
                             android:text="@string/text_other"
                             android:button="@null"
@@ -382,7 +335,6 @@
                         android:checked="true"
                         android:text="@string/text_female"
                         android:gravity="center"
-
                         android:paddingVertical="@dimen/dim_tay_8"
                         android:paddingHorizontal="@dimen/dim_tay_24"
                         android:background="@drawable/bg_selector_rb"

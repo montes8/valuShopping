@@ -6,12 +6,17 @@
     <string name="text_test">Gabriela Soledad</string>
     <string name="text_title_dat_user_profile"><u>Datos Personales</u></string>
     <string name="txt_home">Inicio</string>
-    <string name="txt_clothes">Ropa</string>
+    <string name="txt_menu_principal">Principal</string>
     <string name="txt_other">Otros</string>
     <string name="txt_config">Config</string>
 
     <!-- TODO: text error-->
     <string name="error_camera">Necesitas este permiso para agregar imagen</string>
+    <string name="whatsapp_not_found">No tienes WhatsApp</string>
+
+
+    <!-- TODO: text success-->
+    <string name="text_success_profile">Datos guardados correctamente</string>
 
     <!-- TODO: text button-->
     <string name="txt_save">Guardar</string>
@@ -21,6 +26,7 @@
 
     <string name="text_info_user">Si usted no se encuentra loageado, sus datos personales solo de guardaran de forma local</string>
 
+    <!-- TODO: text View-->
     <string name="text_name">Nombres</string>
     <string name="text_phone">Telefono</string>
     <string name="text_address">Dirección</string>
@@ -40,6 +46,7 @@
     <string name="txt_menu_instagram">Instagram</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
     <string name="text_available">DISPONIBLE</string>
+    <string name="text_exhausted">AGOTADO</string>
     <string name="text_principal">PRINCIPAL</string>
     <string name="text_yes">SI</string>
     <string name="text_not">NO</string>
@@ -47,13 +54,20 @@
     <string name="hint_description_product">Agrega descripcion minuno de caracteres 20</string>
     <string name="text_type_product">Tipo de producto</string>
     <string name="text_other">Otros</string>
+    <string name="text_accessories">Accesorios</string>
+
     <string name="text_garments">Prendas</string>
     <string name="text_skirt">Falda</string>
     <string name="text_footwear">Calzado</string>
     <string name="text_pants">Pantalon</string>
     <string name="text_pole">Polo</string>
+    <string name="text_imitation_jewelry">Visuteria</string>
     <string name="text_unisex">Unisex</string>
     <string name="text_female">Mujer</string>
     <string name="text_male">Varon</string>
     <string name="text_gender">Genero</string>
+    <string name="text_product_choose">Elige ahora un producto</string>
+    <string name="text_product_empty">Aun no hay \nproductos agregados</string>
+    <string name="text_title_price_unit">C/U:</string>
+    <string name="text_title_price_doc">DOC/:</string>
 </resources>

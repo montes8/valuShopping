@@ -107,10 +107,10 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         dataProduct.priceTwo = binding.editTotal.uiTayLText.uiTayFormatDecimal()
         dataProduct.phone = binding.editPhoneProduct.uiTayLabelEdit
         dataProduct.img =  fileImage
-        dataProduct.state = binding.rbStateActive.isChecked
+        dataProduct.state = binding.cbState.isChecked
         dataProduct.type = type.toString()
         dataProduct.gender = gender.toString()
-        dataProduct.principal = binding.rbPrincipalYes.isChecked
+        dataProduct.principal = binding.cbPrincipal.isChecked
         dataProduct.category = if(type != 5) TYPE_CLOTHES else TYPE_OTHER
     }
 
@@ -126,12 +126,14 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
 
         rgType.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId){
-                R.id.rbPole->{ type = 0 }
-                R.id.rbPants->{ type = 0  }
-                R.id.rbFootwear->{ type = 0  }
-                R.id.rbSkirt->{ type = 0 }
-                R.id.rbGarments->{ type = 0  }
-                R.id.rbOther->{ type = 0  }
+                R.id.rbImitationJewelry->{type = 0}
+                R.id.rbPole->{ type = 1 }
+                R.id.rbPants->{ type = 2  }
+                R.id.rbFootwear->{ type = 3  }
+                R.id.rbSkirt->{ type = 4 }
+                R.id.rbGarments->{ type = 5  }
+                R.id.rbOther->{ type = 6  }
+                R.id.rbAccessories->{type = 7}
             }
             enableBtn()
         }

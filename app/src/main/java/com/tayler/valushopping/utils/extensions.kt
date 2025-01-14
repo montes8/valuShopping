@@ -4,17 +4,24 @@ import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.provider.Settings
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.R
 import com.tayler.valushopping.repository.ERROR_MESSAGE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_MESSAGE_GENERAL
@@ -30,6 +37,12 @@ import com.tayler.valushopping.repository.network.exception.UnAuthorizedExceptio
 import com.tayler.valushopping.ui.BaseFragment
 import okhttp3.ResponseBody
 import retrofit2.Response
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 @SuppressLint("MissingPermission")
@@ -214,3 +227,125 @@ fun Context.goUrlInstagram(){
     }
 }
 
+fun getUriFromConstancyOneView(context: Context?, viewToShare: View, viewContainer: View): Uri? {
+    val widthSpec = View.MeasureSpec.makeMeasureSpec(viewContainer.width, View.MeasureSpec.EXACTLY)
+    val heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+    viewToShare.measure(widthSpec, heightSpec)
+    viewToShare.layout(0, 0, viewToShare.measuredWidth, viewToShare.measuredHeight)
+    val bitmap = getBitmapFromView(viewToShare)
+    val file = context?.let { saveBitmap(it, bitmap) }
+
+    return context?.let {
+        file?.let { it1 ->
+            FileProvider.getUriForFile(
+                it,
+                "${BuildConfig.APPLICATION_ID}.provider",
+                it1
+            )
+        }
+    }
+}
+
+fun getBitmapFromView(view: View): Bitmap? {
+    val returnedBitmap =
+        Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(returnedBitmap)
+    val bgDrawable = view.background
+    if (bgDrawable != null) bgDrawable.draw(canvas) else canvas.drawColor(Color.WHITE)
+    view.draw(canvas)
+    return returnedBitmap
+}
+
+fun saveBitmap(context: Context, bmp: Bitmap?): File? {
+    val outStream: OutputStream?
+    val file: File? = getFileShared(context)
+    try {
+        outStream = FileOutputStream(file)
+        bmp?.setHasAlpha(true)
+        bmp?.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
+        outStream.flush()
+        outStream.close()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return null
+    }
+    return file
+}
+
+@SuppressLint("SimpleDateFormat")
+private fun getFileShared(context: Context?): File? {
+    val timeStamp =
+        "IMG_" + SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+    return getFileSharedTwo(context!!, timeStamp)
+}
+
+private fun getFileSharedTwo(
+    context: Context,
+    url: String
+): File? {
+    // For a more secure solution, use EncryptedFile from the Security library
+    // instead of File.
+    var file: File? = null
+    try {
+        val fileName = Uri.parse(url).lastPathSegment
+        file = fileName?.let { File.createTempFile(it, ".jpeg", context.cacheDir) }
+    } catch (e: IOException) {
+        // Error while creating file
+    }
+    return file
+}
+
+fun shareImage(uri: Uri?, context: Context){
+    val shareIntent = Intent(Intent.ACTION_SEND)
+    shareIntent.putExtra(Intent.EXTRA_STREAM, uri)
+    shareIntent.type = "image/*"
+    try {
+        context.startActivity(Intent.createChooser(shareIntent, "Compartir constancia"))
+    } catch (ex: ActivityNotFoundException) {
+        ex.printStackTrace()
+    }
+}
+
+fun Context.openWhatsApp(phone:String,text:String) {
+    if (existWhatsAppInDevice(this) || existWhatsAppInDeviceBusiness(this)) {
+        //todo dirige a un numero en especifico y envia el mensaje seteado
+        val sendIntent = Intent(Intent.ACTION_VIEW)
+        try {
+            val url = "https://api.whatsapp.com/send?phone=+51$phone&text=$text"
+            if (existWhatsAppInDevice(this)) {
+                sendIntent.setPackage("com.whatsapp")
+            } else {
+                sendIntent.setPackage("com.whatsapp.w4b")
+            }
+            sendIntent.data = Uri.parse(url)
+            this.startActivity(sendIntent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    } else {
+        Toast.makeText(
+            this,
+            this.resources.getString(R.string.whatsapp_not_found),
+            Toast.LENGTH_SHORT
+        )
+            .show()
+    }
+}
+
+private fun existWhatsAppInDevice(context: Context): Boolean {
+    return existApplicationInDevice(context, PACKAGE_APP_WHATS_APP_BUSINESS)
+}
+
+private fun existWhatsAppInDeviceBusiness(context: Context): Boolean {
+    return existApplicationInDevice(context, PACKAGE_APP_WHATS_APP)
+}
+
+private fun existApplicationInDevice(context: Context, name: String): Boolean {
+    val apps = context.packageManager.getInstalledPackages(0)
+    for (app in apps) {
+        if (app.packageName == name) {
+            return true
+        }
+    }
+    return false
+}

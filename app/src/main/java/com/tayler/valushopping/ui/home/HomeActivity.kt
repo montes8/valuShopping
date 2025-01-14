@@ -2,7 +2,6 @@ package com.tayler.valushopping.ui.home
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
@@ -14,7 +13,6 @@ import com.google.android.material.navigation.NavigationView
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityHomeBinding
 import com.tayler.valushopping.databinding.NavHeaderHomeBinding
-import com.tayler.valushopping.entity.UserModel
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.admin.AdminFragment
@@ -143,15 +141,19 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         item.isChecked = value
     }
     override fun observeViewModel() {
-        viewModel.loadUser().observe(this){
-            configUser(it)
-        }
+       // not implement
     }
 
-    private fun configUser(user : UserModel){
-        Log.d("configUser",user.toString())
-        uiTayTryCatch {  bindingH.imgProfileHome.setDrawableCircle(user.img)}
-        bindingH.txtNameUserMenu.text = user.names
+    override fun onResume() {
+        super.onResume()
+        loadUpdateConfigUser()
+    }
+
+    private fun loadUpdateConfigUser(){
+        viewModel.loadUser().observe(this){
+            uiTayTryCatch {  bindingH.imgProfileHome.setDrawableCircle(it.img)}
+            bindingH.txtNameUserMenu.text = it.names
+        }
     }
 
     override fun getViewModel(): BaseViewModel? = null
