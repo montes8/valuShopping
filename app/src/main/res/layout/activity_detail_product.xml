@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/lnCtnBtnDetail"
             app:layout_constraintTop_toBottomOf="@+id/tbDetailProduct"
             android:layout_height="@dimen/dim_tay_0">
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +42,7 @@
                     android:layout_height="wrap_content">
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/size_152"
+                        app:cardCornerRadius="@dimen/dim_tay_12"
                         android:layout_marginVertical="@dimen/dim_tay_16"
                         android:layout_marginHorizontal="@dimen/dim_tay_16"
                         android:layout_height="@dimen/size_152">
@@ -63,7 +64,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             tools:text="@string/text_test"
-                            android:fontFamily="@font/flex_bold"
+                            android:fontFamily="@font/flex_bold_italic"
                             android:text="@{product.name}"
                             android:textSize="@dimen/txt_size_20"
                             android:layout_height="wrap_content"/>
@@ -108,21 +109,37 @@
                     android:fontFamily="@font/flex_medium"
                     android:textSize="@dimen/dim_tay_sp_text_16"
                     android:layout_height="wrap_content"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:id="@+id/imgProductSocial"
-                    android:contentDescription="@null"
-                    android:layout_marginTop="-36dp"
-                    android:src="@drawable/ic_whatsapp"
-                    android:layout_marginEnd="@dimen/dim_tay_16"
-                    app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_height="wrap_content"/>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:id="@+id/lnCtnBtnDetail"
+            android:orientation="vertical"
+            android:padding="@dimen/dim_tay_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
+            <com.gb.vale.uitaylibrary.button.UITayButton
+                android:id="@+id/btnConsult"
+                android:layout_width="match_parent"
+                app:uiTayBtnIconColorDefault="false"
+                app:uiTayBtnIconStart="@drawable/ic_social"
+                app:uiTayBtnStyle="UI_TAY_SECONDARY"
+                app:uiTayBtnText="     Consultar  "
+                android:layout_height="wrap_content"/>
+
+            <com.gb.vale.uitaylibrary.button.UITayButton
+                android:id="@+id/btnShared"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dim_tay_16"
+                app:uiTayBtnIconStart="@drawable/ic_shared"
+                app:uiTayBtnText="     Compartir  "
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
