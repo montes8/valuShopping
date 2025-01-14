@@ -34,6 +34,7 @@
             <ImageView
                 android:contentDescription="@null"
                 android:layout_width="@dimen/size_128"
+                android:scaleType="fitXY"
                 app:srcDrawableStringUrl="@{product.img}"
                 android:layout_height="@dimen/size_128"/>
             <androidx.constraintlayout.widget.ConstraintLayout

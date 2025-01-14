@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
 import com.gb.vale.uitaylibrary.utils.uiTayParcelable
+import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityDetailProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
@@ -34,7 +35,16 @@ class DetailProductActivity : BaseActivity() {
         product = intent.uiTayParcelable(DetailProductActivity::class.java.name)
         product?.let { binding.product = it }
         binding.imgProductSocial.setOnClickUiTayDelay {
-            consultProduct()
+            if (product?.state== true){
+                consultProduct()
+            }else{
+                uiTayShowToast("Producto no disponible")
+            }
+
+        }
+
+        binding.tbDetailProduct.setOnClickTayBackListener{
+            finish()
         }
     }
 

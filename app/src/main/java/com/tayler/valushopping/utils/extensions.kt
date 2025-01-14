@@ -306,38 +306,23 @@ fun shareImage(uri: Uri?, context: Context){
     }
 }
 
-fun Context.openWhatsApp(phone:String,text:String) {
-    if (existWhatsAppInDevice(this) || existWhatsAppInDeviceBusiness(this)) {
-        //todo dirige a un numero en especifico y envia el mensaje seteado
-        val sendIntent = Intent(Intent.ACTION_VIEW)
-        try {
-            val url = "https://api.whatsapp.com/send?phone=+51$phone&text=$text"
-            if (existWhatsAppInDevice(this)) {
-                sendIntent.setPackage("com.whatsapp")
-            } else {
-                sendIntent.setPackage("com.whatsapp.w4b")
-            }
-            sendIntent.data = Uri.parse(url)
-            this.startActivity(sendIntent)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    } else {
-        Toast.makeText(
-            this,
-            this.resources.getString(R.string.whatsapp_not_found),
-            Toast.LENGTH_SHORT
+fun Context.openWhatsApp(phone: String, text: String) {
+    if (existWhatsAppInDevice(this)){
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("$URL_WHATS_APP_CUSTOM+51$phone&text=$text")
+            )
         )
+    } else{
+        Toast.makeText(this, getString(R.string.whatsapp_not_found), Toast.LENGTH_SHORT)
             .show()
     }
 }
 
-private fun existWhatsAppInDevice(context: Context): Boolean {
-    return existApplicationInDevice(context, PACKAGE_APP_WHATS_APP_BUSINESS)
-}
-
-private fun existWhatsAppInDeviceBusiness(context: Context): Boolean {
+fun existWhatsAppInDevice(context: Context): Boolean {
     return existApplicationInDevice(context, PACKAGE_APP_WHATS_APP)
+            || existApplicationInDevice(context, PACKAGE_APP_WHATS_APP_BUSINESS)
 }
 
 private fun existApplicationInDevice(context: Context, name: String): Boolean {
