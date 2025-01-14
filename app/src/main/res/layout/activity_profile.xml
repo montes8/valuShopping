@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="com.tayler.valushopping.entity.UserModel" />
+
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/collapsingToolbarLayout"
+        tools:context=".ui.profile.ProfileActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dim_tay_0"
+            android:layout_margin="@dimen/dim_tay_0"
+            app:elevation="@dimen/dim_tay_0"
+            android:outlineProvider="none">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collToolbarProfile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_250"
+                android:outlineProvider="bounds"
+                android:padding="@dimen/dim_tay_0"
+                android:layout_margin="@dimen/dim_tay_0"
+                app:title="@string/text_test"
+                android:background="@color/white"
+                app:expandedTitleMarginStart="@dimen/dim_tay_16"
+                app:collapsedTitleGravity="left"
+                android:layout_gravity="start"
+                app:expandedTitleGravity="left|bottom"
+                app:expandedTitleMarginTop="@dimen/dim_tay_48"
+                app:collapsedTitleTextAppearance="@style/Custom.Collapsing"
+                app:expandedTitleTextAppearance="@style/Custom.CollapsingExpand"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                app:maxLines="3">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgImageBanner"
+                        android:layout_width="match_parent"
+                        android:scaleType="fitXY"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/shape_place_holder"
+                        app:fileDrawableString="@{user.imgBanner}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_height="match_parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="@dimen/dim_tay_0"
+                    android:layout_marginTop="@dimen/dim_tay_20"
+                    app:navigationIcon="@drawable/ic_arrow_star"
+                    app:titleMarginStart="@dimen/dim_tay_16"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:contentInsetStart="@dimen/dim_tay_0"
+                    app:contentInsetLeft="@dimen/dim_tay_0"
+                    app:layout_collapseMode="pin">
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/size_80"
+            android:layout_height="@dimen/size_80"
+            android:layout_margin="@dimen/dim_tay_16"
+            android:src="@drawable/ic_profile_place_holder"
+            android:contentDescription="@null"
+            app:layout_anchor="@id/appBarLayout"
+            app:fileDrawableStringCircle="@{user.img}"
+            app:layout_anchorGravity="bottom|right" />
+
+
+        <ImageButton
+            android:id="@+id/imgBannerProfile"
+            android:layout_width="wrap_content"
+            android:contentDescription="@null"
+            app:layout_anchor="@id/appBarLayout"
+            android:elevation="@dimen/dim_tay_2"
+            android:background="@color/transparent"
+            android:layout_marginEnd="@dimen/dim_tay_16"
+            android:layout_marginTop="@dimen/dim_tay_40"
+            app:layout_anchorGravity="top|right"
+            android:src="@drawable/ic_camera_banner"
+            android:layout_height="wrap_content"
+            app:tint="@color/pink_200" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:background="@drawable/ic_bg_general" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_tay_16"
+                android:paddingBottom="@dimen/dim_tay_40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtTitleDataUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_40"
+                    android:fontFamily="@font/flex_bold"
+                    android:text="@string/text_title_dat_user_profile"
+                    android:textColor="@color/pink_200"
+                    android:textSize="@dimen/txt_size_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imgEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_edit"
+                    android:layout_marginStart="@dimen/dim_tay_16"
+                    app:layout_constraintStart_toEndOf="@+id/txtTitleDataUser"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtTitleDataUser"
+                    app:layout_constraintTop_toTopOf="@+id/txtTitleDataUser" />
+
+                <com.gb.vale.uitaylibrary.extra.UiTayInfo
+                    android:layout_width="match_parent"
+                    android:id="@+id/tayInfo"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:uiTayTextInformation="@string/text_info_user"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleDataUser"
+                    android:layout_height="wrap_content"/>
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    android:id="@+id/editNameProfile"
+                    style="@style/UiTayStyleEditLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    app:uiTayLHint="@string/text_name"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tayInfo" />
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    style="@style/UiTayStyleEditLayout"
+                    android:id="@+id/editLastNameProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:uiTayLHint="@string/text_last_name"
+                    android:layout_marginTop="@dimen/dim_tay_16"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editNameProfile" />
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    style="@style/UiTayStyleEditLayout"
+                    android:id="@+id/editEmailProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_16"
+                    app:uiTayLHint="@string/text_email"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editLastNameProfile" />
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    style="@style/UiTayStyleEditLayout"
+                    android:id="@+id/editPhoneProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_16"
+                    app:uiTayLHint="@string/text_phone"
+                    app:uiTayLEditMaxLength="9"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editEmailProfile" />
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    style="@style/UiTayStyleEditLayout"
+                    android:id="@+id/editAddressProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_16"
+                    app:uiTayLHint="@string/text_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editPhoneProfile" />
+
+
+                <com.gb.vale.uitaylibrary.button.UITayButton
+                    android:layout_width="match_parent"
+                    android:id="@+id/btnSaveProfile"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/dim_tay_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:uiTayBtnText="@string/txt_save"
+                    app:uiTayBtnEnable="false"
+                    app:layout_constraintTop_toBottomOf="@+id/editAddressProfile"
+                    android:layout_height="wrap_content"/>
+                <com.gb.vale.uitaylibrary.extra.UITaySnackBar
+                    android:id="@+id/snackBarProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:uiTaySBText="Datos guardados correctamente"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

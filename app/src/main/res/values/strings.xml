@@ -1,15 +1,32 @@
 <resources>
     <string name="app_name">Valu</string>
-    <string name="text_welcome">Bienvenid@s a </string>
+    <string name="text_welcome">Bienvenid@s</string>
     <string name="text_name_principal">VALU \nSHOOPING</string>
     <string name="tb_principal">VALU SHOOPING</string>
-
-
-    <!-- TODO: text menu and tab-->
+    <string name="text_test">Gabriela Soledad</string>
+    <string name="text_title_dat_user_profile"><u>Datos Personales</u></string>
     <string name="txt_home">Inicio</string>
     <string name="txt_clothes">Ropa</string>
     <string name="txt_other">Otros</string>
     <string name="txt_config">Config</string>
+
+    <!-- TODO: text error-->
+    <string name="error_camera">Necesitas este permiso para agregar imagen</string>
+
+    <!-- TODO: text button-->
+    <string name="txt_save">Guardar</string>
+
+
+    <!-- TODO: text Message-->
+
+    <string name="text_info_user">Si usted no se encuentra loageado, sus datos personales solo de guardaran de forma local</string>
+
+    <string name="text_name">Nombres</string>
+    <string name="text_phone">Telefono</string>
+    <string name="text_address">Dirección</string>
+    <string name="text_title">Titulo</string>
+    <string name="text_last_name">Apellidos</string>
+    <string name="text_email">Correo electronico</string>
 
     <string name="txt_profile">Perfil</string>
     <string name="txt_menu_profile">Cambio de perfil</string>

@@ -27,17 +27,5 @@
             android:id="@+id/navOther"
             android:icon="@drawable/ic_term"
             android:title="@string/txt_menu_other" />
-
-        <item
-            android:id="@+id/other_section"
-            android:title="">
-            <menu>
-                <item
-                    android:id="@+id/navLogout"
-                    android:checked="true"
-                    android:title="@string/txt_menu_logout" />
-            </menu>
-        </item>
-
     </group>
 </menu>

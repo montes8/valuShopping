@@ -80,7 +80,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     override fun onCameraPermissionDenied() {
-        uiTayShowToast("Necesitas este permiso para agregar imagen")
+        uiTayShowToast(getString(R.string.error_camera))
     }
 
     override fun onGetImageCameraCompleted(path: String, img: Bitmap) {

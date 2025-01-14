@@ -1,10 +1,13 @@
 package com.tayler.valushopping.utils
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -27,6 +30,7 @@ import com.tayler.valushopping.repository.network.exception.UnAuthorizedExceptio
 import com.tayler.valushopping.ui.BaseFragment
 import okhttp3.ResponseBody
 import retrofit2.Response
+
 
 @SuppressLint("MissingPermission")
 fun Context?.isConnected(): Boolean {
@@ -178,5 +182,35 @@ fun ResponseBody?.toCompleteErrorModel(code : Int) : Exception {
     return this?.let {
         return  if (code == 407) throw UnAuthorizedException () else Gson().fromJson(it.string(), CompleteErrorModel::class.java)?.getApiException()?:GenericException()
     } ?: GenericException()
+}
+
+fun Context.goUrlFacebook(){
+    try {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/100085287459708"))
+        startActivity(intent)
+    } catch (e: java.lang.Exception) {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://www.facebook.com/100085287459708")
+            )
+        )
+    }
+}
+
+fun Context.goUrlInstagram(){
+    val uri = Uri.parse("http://instagram.com/_u/tayler-eddi")
+    val likeIng = Intent(Intent.ACTION_VIEW, uri)
+    likeIng.setPackage("com.instagram.android")
+    try {
+        this.startActivity(likeIng)
+    } catch (e: ActivityNotFoundException) {
+        this.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://instagram.com/tayler-eddi")
+            )
+        )
+    }
 }
 

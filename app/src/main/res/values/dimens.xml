@@ -12,7 +12,7 @@
     <dimen name="size_128">128dp</dimen>
     <dimen name="size_152">152dp</dimen>
     <dimen name="size_170">170dp</dimen>
-
+    <dimen name="size_250">250dp</dimen>
 
     <dimen name="txt_size_10">10sp</dimen>
     <dimen name="txt_size_14">14sp</dimen>

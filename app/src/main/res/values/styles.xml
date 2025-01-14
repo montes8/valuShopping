@@ -23,4 +23,21 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/pink_200</item>
     </style>
+
+    <style name="Flex" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/flex_bold</item>
+        <item name="android:textColor">@color/pink_200</item>
+    </style>
+
+    <style name="Custom.Collapsing" parent="Flex">
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/flex_bold</item>
+    </style>
+
+    <style name="Custom.CollapsingExpand" parent="Flex">
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/flex_bold</item>
+    </style>
 </resources>

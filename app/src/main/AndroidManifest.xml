@@ -38,6 +38,9 @@
         android:theme="@style/Custom.NoActionBar.LightWhite"
         tools:targetApi="31">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.product.update.UpdateProductActivity"
             android:exported="false" />
         <activity

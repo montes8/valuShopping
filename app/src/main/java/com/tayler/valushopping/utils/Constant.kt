@@ -1,6 +1,7 @@
 package com.tayler.valushopping.utils
 
 const val EMPTY_VALE = ""
+const val NAME_VALE = "Bienvenid@sssss"
 const val PRICE_DEFAULT = "0.00"
 const val JSON_ITEM = "item.json"
 const val JSON_ITEM_ADMIN = "item_admin.json"
@@ -16,3 +17,4 @@ const val DIALOG_TITLE_DEFAULT = "Datos guardados"
 const val DIALOG_MESSAGE_DEFAULT = "Datos guardados correctamente, los vera reflejado la proxima ves que ingrese."
 const val TYPE_CLOTHES = "1"
 const val TYPE_OTHER = "2"
+const val LINK_TERM = "https://docs.google.com/uc?id=" + "1JOtkc5ksAuCWWd13wwwbtmNIYgefAfQ4" + "&export=download"
