@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
-import com.gb.vale.uitaylibrary.animation.uiTaySlideUp
 import com.gb.vale.uitaylibrary.manager.camera.UiTayCameraManager
 import com.gb.vale.uitaylibrary.utils.converterCircle
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
@@ -54,6 +54,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     override fun observeViewModel() {
         viewModel.loadUser().observe(this){
             configUser(it)
+            Log.d("observeViewModel",it.toString())
             enableViewEditDefault(userModel.dataSave)
         }
         viewModel.successUserLiveData.observe(this){
@@ -63,7 +64,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     private fun configUser(user :UserModel){
-        userModel= user
+        userModel = user
         binding.user = userModel
     }
 
@@ -88,7 +89,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun onClickProfile(){
         mapperProfile()
         viewModel.saveUser(userModel)
-        binding.snackBarProfile.uiTaySlideUp()
+        binding.snackBarProfile.showUiTaySB()
     }
 
     private fun configChangeEdit(){
