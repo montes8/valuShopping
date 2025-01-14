@@ -60,7 +60,7 @@ class DetailProductActivity : BaseActivity() {
 
     private fun sharedProduct() {
         val uri = getUriFromConstancyOneView(
-            this, binding.root, binding.lnHeaderProduct
+            this, binding.root, binding.ctnGeneralProduct
         )
         shareImage(uri, this)
     }
