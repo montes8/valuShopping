@@ -26,4 +26,6 @@ data class ProductResponse (
     var gender : String? = EMPTY_VALE,
     @SerializedName("phone")
     var phone : String? = EMPTY_VALE,
+    @SerializedName("principal")
+    var principal : Boolean? = false
 )

@@ -180,6 +180,21 @@
 
                 <com.gb.vale.uitaylibrary.label.UiTayEditLayout
                     style="@style/UiTayStyleEditLayout"
+                    android:id="@+id/editDocumentProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:uiTayLHint="@string/text_document"
+                    android:inputType="number"
+                    app:uiTayLEditMaxLength="8"
+                    android:layout_marginTop="@dimen/dim_tay_16"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editLastNameProfile" />
+
+
+                <com.gb.vale.uitaylibrary.label.UiTayEditLayout
+                    style="@style/UiTayStyleEditLayout"
                     android:id="@+id/editEmailProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -188,7 +203,7 @@
                     android:imeOptions="actionNext"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editLastNameProfile" />
+                    app:layout_constraintTop_toBottomOf="@+id/editDocumentProfile" />
 
                 <com.gb.vale.uitaylibrary.label.UiTayEditLayout
                     style="@style/UiTayStyleEditLayout"

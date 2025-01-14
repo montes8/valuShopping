@@ -54,16 +54,17 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     override fun observeViewModel() {
         viewModel.loadUser().observe(this){
             configUser(it)
+            enableViewEditDefault(userModel.dataSave)
         }
         viewModel.successUserLiveData.observe(this){
             configUser(it)
+            enableViewEdit(false)
         }
     }
 
     private fun configUser(user :UserModel){
         userModel= user
         binding.user = userModel
-        enableViewEdit(!userModel.dataSave)
     }
 
     private fun configAppBar(){
@@ -99,8 +100,10 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     private fun mapperProfile(){
+        userModel.dataSave = true
         userModel.names = binding.editNameProfile.uiTayLText
         userModel.lastName = binding.editLastNameProfile.uiTayLText
+        userModel.document = binding.editDocumentProfile.uiTayLText
         userModel.email = binding.editEmailProfile.uiTayLText
         userModel.phone = binding.editPhoneProfile.uiTayLText
         userModel.addressUser = binding.editAddressProfile.uiTayLText
@@ -109,6 +112,12 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun onClickImage(value : Boolean){
         typeBanner = value
         managerCamera?.doCamera(if(typeBanner)"userBannerImg" else "userImg")
+    }
+
+    private fun enableViewEditDefault(value : Boolean){
+        configFocusable(!value)
+        binding.btnSaveProfile.uiTayVisibility(!value)
+        binding.imgEditProfile.uiTayVisibility(value)
     }
 
     private fun enableViewEdit(value : Boolean){
@@ -134,6 +143,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         var flagEnable = 0
         flagEnable  += if(binding.editNameProfile.uiTayLText.isNotEmpty()) 0 else 1
         flagEnable += if(binding.editLastNameProfile.uiTayLText.isNotEmpty()) 0 else 1
+        flagEnable += if(binding.editDocumentProfile.uiTayLText.length == 8) 0 else 1
         flagEnable  += if(binding.editEmailProfile.uiTayLText.uiTayValidateEmail()) 0 else 1
         flagEnable  += if(binding.editPhoneProfile.uiTayLText.uiTayValidatePhoneFormat()) 0 else 1
         flagEnable  += if(binding.editAddressProfile.uiTayLText.isNotEmpty()) 0 else 1

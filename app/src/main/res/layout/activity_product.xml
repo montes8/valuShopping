@@ -71,47 +71,107 @@
                         app:uiTayLHint="Precio x/docena"
                         android:layout_marginTop="@dimen/size_4"
                         android:layout_height="50dp"/>
-
-                    <TextView
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:text="@string/text_available"
-                        android:fontFamily="@font/flex_bold_italic"
-                        android:textColor="@color/primary_pink"
-                        android:textSize="@dimen/txt_size_10"
-                        android:layout_marginTop="@dimen/dim_tay_8"
-                        android:layout_height="wrap_content"/>
-
-                    <RadioGroup
-                        android:id="@+id/rgParam"
-                        android:layout_width="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="@dimen/dim_tay_8"
                         android:orientation="horizontal"
-                        app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
                         android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/dim_tay_0"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:text="@string/text_available"
+                                android:fontFamily="@font/flex_bold_italic"
+                                android:textColor="@color/primary_pink"
+                                android:textSize="@dimen/txt_size_10"
+                                android:layout_marginTop="@dimen/dim_tay_8"
+                                android:layout_height="wrap_content"/>
 
-                        <RadioButton
-                            android:id="@+id/rbStateActive"
-                            android:layout_width="wrap_content"
-                            android:text="@string/text_yes"
-                            android:checked="true"
-                            android:textSize="@dimen/txt_size_10"
-                            android:textColor="@color/selector_item_menu"
-                            android:theme="@style/MyRadioButton"
-                            android:layout_height="wrap_content"/>
+                            <RadioGroup
+                                android:id="@+id/rgAvailable"
+                                android:layout_width="match_parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="@dimen/dim_tay_8"
+                                android:orientation="horizontal"
+                                app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
+                                android:layout_height="wrap_content">
 
-                        <RadioButton
-                            android:id="@+id/rbStateInactive"
-                            android:text="@string/text_not"
-                            android:theme="@style/MyRadioButton"
-                            android:textSize="@dimen/txt_size_10"
-                            android:textColor="@color/selector_item_menu"
-                            android:layout_marginStart="@dimen/dim_tay_24"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                                <RadioButton
+                                    android:id="@+id/rbStateActive"
+                                    android:layout_width="wrap_content"
+                                    android:text="@string/text_yes"
+                                    android:checked="true"
+                                    android:textSize="@dimen/txt_size_10"
+                                    android:textColor="@color/selector_item_menu"
+                                    android:theme="@style/MyRadioButton"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="TooDeepLayout" />
 
-                    </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/rbStateInactive"
+                                    android:text="@string/text_not"
+                                    android:theme="@style/MyRadioButton"
+                                    android:textSize="@dimen/txt_size_10"
+                                    android:textColor="@color/selector_item_menu"
+                                    android:layout_marginStart="@dimen/size_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                            </RadioGroup>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/dim_tay_0"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:text="@string/text_principal"
+                                android:fontFamily="@font/flex_bold_italic"
+                                android:textColor="@color/primary_pink"
+                                android:textSize="@dimen/txt_size_10"
+                                android:layout_marginTop="@dimen/dim_tay_8"
+                                android:layout_height="wrap_content"/>
+
+                            <RadioGroup
+                                android:id="@+id/rgPrincipal"
+                                android:layout_width="match_parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="@dimen/dim_tay_8"
+                                android:orientation="horizontal"
+                                app:layout_constraintTop_toBottomOf="@+id/txtTitleActiveRegister"
+                                android:layout_height="wrap_content">
+
+                                <RadioButton
+                                    android:id="@+id/rbPrincipalYes"
+                                    android:layout_width="wrap_content"
+                                    android:text="@string/text_yes"
+                                    android:checked="true"
+                                    android:textSize="@dimen/txt_size_10"
+                                    android:textColor="@color/selector_item_menu"
+                                    android:theme="@style/MyRadioButton"
+                                    android:layout_height="wrap_content"/>
+
+                                <RadioButton
+                                    android:id="@+id/rbPrincipalNot"
+                                    android:text="@string/text_not"
+                                    android:theme="@style/MyRadioButton"
+                                    android:textSize="@dimen/txt_size_10"
+                                    android:textColor="@color/selector_item_menu"
+                                    android:layout_marginStart="@dimen/size_4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                            </RadioGroup>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>

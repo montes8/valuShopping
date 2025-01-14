@@ -110,6 +110,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         dataProduct.state = binding.rbStateActive.isChecked
         dataProduct.type = type.toString()
         dataProduct.gender = gender.toString()
+        dataProduct.principal = binding.rbPrincipalYes.isChecked
         dataProduct.category = if(type != 5) TYPE_CLOTHES else TYPE_OTHER
     }
 

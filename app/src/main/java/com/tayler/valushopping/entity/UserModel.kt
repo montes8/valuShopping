@@ -9,6 +9,7 @@ data class UserModel (
     var password : String = EMPTY_VALE,
     var names : String = NAME_VALE,
     var lastName : String = EMPTY_VALE,
+    var document : String = EMPTY_VALE,
     var email : String = EMPTY_VALE,
     var phone : String = EMPTY_VALE,
     var addressUser : String = EMPTY_VALE,

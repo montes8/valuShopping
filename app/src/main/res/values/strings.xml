@@ -26,6 +26,7 @@
     <string name="text_address">Dirección</string>
     <string name="text_title">Titulo</string>
     <string name="text_last_name">Apellidos</string>
+    <string name="text_document">Numero de documento</string>
     <string name="text_email">Correo electronico</string>
 
     <string name="txt_profile">Perfil</string>
@@ -39,6 +40,7 @@
     <string name="txt_menu_instagram">Instagram</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
     <string name="text_available">DISPONIBLE</string>
+    <string name="text_principal">PRINCIPAL</string>
     <string name="text_yes">SI</string>
     <string name="text_not">NO</string>
     <string name="text_description_product">Descripcion del producto</string>
