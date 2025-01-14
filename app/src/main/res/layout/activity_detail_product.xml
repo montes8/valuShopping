@@ -128,7 +128,7 @@
                 app:uiTayBtnIconColorDefault="false"
                 app:uiTayBtnIconStart="@drawable/ic_social"
                 app:uiTayBtnStyle="UI_TAY_SECONDARY"
-                app:uiTayBtnText="     Consultar  "
+                app:uiTayBtnText="Consultar"
                 android:layout_height="wrap_content"/>
 
             <com.gb.vale.uitaylibrary.button.UITayButton
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/dim_tay_16"
                 app:uiTayBtnIconStart="@drawable/ic_shared"
-                app:uiTayBtnText="     Compartir  "
+                app:uiTayBtnText="Compartir"
                 android:layout_height="wrap_content"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

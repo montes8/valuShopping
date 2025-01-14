@@ -44,7 +44,7 @@ class DetailProductActivity : BaseActivity() {
 
         }
 
-        binding.btnConsult.setOnClickTayBtnListener {
+        binding.btnShared.setOnClickTayBtnListener {
             if (product?.state== true){
                 sharedProduct()
             }else{
