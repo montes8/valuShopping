@@ -44,14 +44,14 @@ class DataViewModel  @Inject constructor(
     }
 
     fun updateProduct(data : ProductResponse){
-        execute(false) {
+        execute {
             val response = dataNetwork.updateProduct(data)
             _successUpdateProductLiveData.postValue(response)
         }
     }
 
     fun loadDeleteProduct(id:String){
-        execute(false) {
+        execute {
             val response = dataNetwork.deleteProduct(id)
             _successDeleteLiveData.postValue(response)
         }

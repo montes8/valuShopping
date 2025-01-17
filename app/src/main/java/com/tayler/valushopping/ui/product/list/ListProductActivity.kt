@@ -15,6 +15,8 @@ import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter
 import com.tayler.valushopping.ui.product.DataViewModel
+import com.tayler.valushopping.ui.product.update.UpdateProductActivity
+import com.tayler.valushopping.utils.EMPTY_VALE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +24,7 @@ class ListProductActivity : BaseActivity() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var binding: ActivityListProductBinding
     private var productListAdapter = ProductListAdapter()
+    private var listProduct : List<ProductResponse> = ArrayList()
 
     companion object {
         fun newInstance(context: Context) {
@@ -40,8 +43,8 @@ class ListProductActivity : BaseActivity() {
         binding.tbLitProductAdmin.setOnClickTayBackListener{finish()}
         binding.productListAdapter = productListAdapter
         binding.rvProductListAdmin.uiTayAddSwipe(this){
-            it.add(UiTayCardSwipeButton(this, imageResId = R.drawable.ic_delete){
-                onClickDelete()
+            it.add(UiTayCardSwipeButton(this, imageResId = R.drawable.ic_delete){position ->
+                onClickDelete(position)
             })
         }
         loadService()
@@ -51,11 +54,13 @@ class ListProductActivity : BaseActivity() {
         viewModel.loadProduct()
     }
 
-    private fun onClickDelete(){
+    private fun onClickDelete(position:Int){
         showUiTayDialog(model = UiTayDialogModel(title = "Eliminar producto",
             subTitle = "Estas seguro que deseas eliminar el producto")
         ){
-
+           if (it){
+               viewModel.loadDeleteProduct(listProduct[position].uid?: EMPTY_VALE)
+           }
         }
     }
     override fun observeViewModel() {
@@ -66,11 +71,17 @@ class ListProductActivity : BaseActivity() {
         viewModel.shimmerLiveData.observe(this) {
             binding.shimmerProductAdmin.uiTayVisibilityDuo(it, binding.rvProductListAdmin)
         }
+
+        viewModel.successDeleteLiveData.observe(this){
+            loadService()
+        }
     }
 
     private fun configList(list : List<ProductResponse>){
+        listProduct = list
         productListAdapter.productList = list
         productListAdapter.onClickItem = {
+            UpdateProductActivity.newInstance(this,it)
         }
     }
 
