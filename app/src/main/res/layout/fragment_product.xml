@@ -91,6 +91,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="@dimen/txt_size_25"
+                android:visibility="gone"
                 android:fontFamily="@font/ui_tay_montserrat_bold"
                 android:textColor="@color/black"
                 android:text="@string/text_product_empty"
