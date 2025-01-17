@@ -312,9 +312,10 @@ fun Context.sharedImageView(view: View){
 }
 
 fun createBitmapFromView(view: View): Bitmap {
-    view.isDrawingCacheEnabled = true
-    view.buildDrawingCache()
-    return view.drawingCache
+    val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    view.draw(canvas)
+    return bitmap
 }
 
 fun Context.uiCreatePictureFile(nameFile: String = "imgSave"): File {
