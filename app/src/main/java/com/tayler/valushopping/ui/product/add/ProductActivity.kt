@@ -76,7 +76,8 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
 
     private fun configInit(){
         managerCamera = UiTayCameraManager(this,"product",this)
-        configRg()
+        configRgGender()
+        configRgTyper()
     }
 
     override fun onCameraPermissionDenied() {
@@ -113,7 +114,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         dataProduct.category = if(type != 5) TYPE_CLOTHES else TYPE_OTHER
     }
 
-    private fun configRg()= with(binding){
+    private fun configRgGender()= with(binding){
         rgGender.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId){
                 R.id.rbFemale->{ gender = 0 }
@@ -122,7 +123,9 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
             }
             enableBtn()
         }
+    }
 
+    private fun configRgTyper()= with(binding){
         rgType.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId){
                 R.id.rbImitationJewelry->{type = 0}
