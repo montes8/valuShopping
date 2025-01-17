@@ -41,7 +41,13 @@ data class ProductResponse (
 
     fun getPriceUnitTwo() = "C/U: S/ $price"
 
-    fun getPriceDocTwo() = "DOC/: S/ $priceTwo"
+    fun getPriceDocTwo() :String{
+        return if (priceTwo?.isEmpty() == true || priceTwo == "0.00"){
+            "No disponible"
+        }else{
+            "DOC/: S/ $priceTwo"
+        }
+    }
 
     fun getMapperTypeAndGender() : String  {
         return "${getMapperType()}  ${getMapperGender()}"

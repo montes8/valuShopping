@@ -2,6 +2,11 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="product"
+            type="com.tayler.valushopping.repository.network.model.ProductResponse" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -33,11 +38,27 @@
                     android:layout_width="match_parent"
                     android:id="@+id/ctlAdmin"
                     android:layout_height="@dimen/size_152">
+                    <TextView
+                        android:id="@+id/rowStateProduct"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/text_available"
+                        android:textSize="@dimen/txt_size_10"
+                        app:mapperStateProduct="@{product.state}"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/flex_bold"
+                        android:elevation="@dimen/dim_tay_2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="@dimen/dim_tay_8"
+                        android:paddingHorizontal="@dimen/dim_tay_8"
+                        android:paddingVertical="@dimen/size_4"
+                        android:layout_height="wrap_content"/>
                     <ImageView
                         android:contentDescription="@null"
                         android:layout_width="match_parent"
                         android:scaleType="fitXY"
                         android:id="@+id/rowProductImg"
+                        app:srcDrawableStringUrl="@{product.img}"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

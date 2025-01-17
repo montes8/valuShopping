@@ -17,7 +17,9 @@ fun setImageDrawableString(imageView: ImageView, nameImage: String?) {
 
 @BindingAdapter("srcDrawableStringUrl")
 fun setImageDrawableStringUrl(imageView: ImageView, nameImage: String?) {
-    nameImage?.let { imageView.uiTayLoadUrl(it)}
+    uiTayTryCatch {
+        nameImage?.let { imageView.uiTayLoadUrl(it)}
+    }
 }
 
 @BindingAdapter("fileDrawableString")

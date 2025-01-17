@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
-import com.gb.vale.uitaylibrary.utils.uiTayLoadUrl
-import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.tayler.valushopping.databinding.RowOtherBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
-import com.tayler.valushopping.utils.EMPTY_VALE
 
 class ProductAdapter(var onClickItem: ((ProductResponse) -> Unit)? = null) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -39,10 +36,8 @@ class ProductAdapter(var onClickItem: ((ProductResponse) -> Unit)? = null) :
 
     inner class ProductViewHolder(private val binding: RowOtherBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(product: ProductResponse) {
+            binding.product = product
             binding.executePendingBindings()
-            uiTayTryCatch {
-                binding.rowProductImg.uiTayLoadUrl(product.img?: EMPTY_VALE)
-            }
             binding.ctlAdmin.setOnClickUiTayDelay{onClickItem?.invoke(product) }
         }
     }

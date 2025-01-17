@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Environment
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
@@ -19,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.gb.vale.uitaylibrary.utils.uiTaySaveImg
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.tayler.valushopping.BuildConfig
@@ -295,15 +297,33 @@ private fun getFileSharedTwo(
     return file
 }
 
-fun shareImage(uri: Uri?, context: Context){
-    val shareIntent = Intent(Intent.ACTION_SEND)
-    shareIntent.putExtra(Intent.EXTRA_STREAM, uri)
-    shareIntent.type = "image/*"
+fun Context.sharedImageView(view: View){
     try {
-        context.startActivity(Intent.createChooser(shareIntent, "Compartir constancia"))
-    } catch (ex: ActivityNotFoundException) {
-        ex.printStackTrace()
+        val uri = createBitmapFromView(view)
+        val fileShared = uiCreatePictureFile()
+        val url = uiTaySaveImg(fileShared,uri,"productshared")
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this,"${BuildConfig.APPLICATION_ID}.provider",File(url)))
+        intent.setType("image/*")
+        this.startActivity(Intent.createChooser(intent,"Compartir producto"))
+    } catch (e: IOException) {
+        e.printStackTrace()
     }
+}
+
+fun createBitmapFromView(view: View): Bitmap {
+    view.isDrawingCacheEnabled = true
+    view.buildDrawingCache()
+    return view.drawingCache
+}
+
+fun Context.uiCreatePictureFile(nameFile: String = "imgSave"): File {
+    val storageDir = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+    val newPath = File("$storageDir$nameFile")
+    if (!newPath.exists()) {
+        newPath.mkdirs()
+    }
+    return newPath
 }
 
 fun Context.openWhatsApp(phone: String, text: String) {

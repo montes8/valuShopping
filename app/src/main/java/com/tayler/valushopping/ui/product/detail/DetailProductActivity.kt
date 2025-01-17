@@ -10,9 +10,8 @@ import com.tayler.valushopping.databinding.ActivityDetailProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
-import com.tayler.valushopping.utils.getUriFromConstancyOneView
 import com.tayler.valushopping.utils.openWhatsApp
-import com.tayler.valushopping.utils.shareImage
+import com.tayler.valushopping.utils.sharedImageView
 
 class DetailProductActivity : BaseActivity() {
 
@@ -46,7 +45,7 @@ class DetailProductActivity : BaseActivity() {
 
         binding.btnShared.setOnClickTayBtnListener {
             if (product?.state== true){
-                sharedProduct()
+                sharedImageView(binding.lnHeaderProduct)
             }else{
                 uiTayShowToast("Producto no disponible")
             }
@@ -58,12 +57,6 @@ class DetailProductActivity : BaseActivity() {
         }
     }
 
-    private fun sharedProduct() {
-        val uri = getUriFromConstancyOneView(
-            this, binding.root, binding.ctnGeneralProduct
-        )
-        shareImage(uri, this)
-    }
 
     override fun observeViewModel() {}
 }
