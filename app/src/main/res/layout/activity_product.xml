@@ -91,6 +91,7 @@
                             android:layout_weight="1"
                             android:textColor="@color/pink_200"
                             android:text="@string/text_principal"
+                            android:theme="@style/MyRadioButton"
                             android:textSize="@dimen/txt_size_10"
                             android:layout_height="wrap_content"/>
                     </androidx.appcompat.widget.LinearLayoutCompat>

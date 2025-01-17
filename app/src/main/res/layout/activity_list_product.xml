@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <data>
+      <variable
+            name="productListAdapter"
+            type="com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.product.list.ListProductActivity">
+    <com.gb.vale.uitaylibrary.extra.UiTayToolBar
+        android:layout_width="match_parent"
+        android:id="@+id/tbLitProductAdmin"
+        app:uiTayTextTb="Lista de productos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rvProductListAdmin"
+        android:layout_height="@dimen/dim_tay_0"
+        android:layout_marginTop="@dimen/dim_tay_12"
+        app:adapter="@{productListAdapter}"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:spanCount="2"
+        android:paddingBottom="@dimen/dim_tay_8"
+        tools:listitem="@layout/row_product"
+        tools:itemCount="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbLitProductAdmin"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerProductAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_tay_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbLitProductAdmin"
+        tools:visibility="gone">
+        <include layout="@layout/shimmer_product_list" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

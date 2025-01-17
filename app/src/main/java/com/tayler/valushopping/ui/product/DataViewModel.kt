@@ -20,6 +20,11 @@ class DataViewModel  @Inject constructor(
     private val _successProductLiveData    = MutableLiveData<ProductResponse>()
     val successLoadProductLiveData        : LiveData<List<ProductResponse>> get()   = _successLoadProductLiveData
     private val _successLoadProductLiveData    = MutableLiveData<List<ProductResponse>>()
+    val successDeleteLiveData        : LiveData<ProductResponse> get()   = _successDeleteLiveData
+    private val _successDeleteLiveData    = MutableLiveData<ProductResponse>()
+
+    val successUpdateProductLiveData        : LiveData<ProductResponse> get()   = _successUpdateProductLiveData
+    private val _successUpdateProductLiveData    = MutableLiveData<ProductResponse>()
 
 
     fun saveProduct(data : ProductResponse){
@@ -35,6 +40,20 @@ class DataViewModel  @Inject constructor(
         execute(false) {
             val response = dataNetwork.loadProduct()
             _successLoadProductLiveData.postValue(response)
+        }
+    }
+
+    fun updateProduct(data : ProductResponse){
+        execute(false) {
+            val response = dataNetwork.updateProduct(data)
+            _successUpdateProductLiveData.postValue(response)
+        }
+    }
+
+    fun loadDeleteProduct(id:String){
+        execute(false) {
+            val response = dataNetwork.deleteProduct(id)
+            _successDeleteLiveData.postValue(response)
         }
     }
 

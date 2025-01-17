@@ -6,6 +6,7 @@ import com.tayler.valushopping.repository.network.model.ProductResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -34,5 +35,11 @@ interface ServiceApi {
 
     @GET("product")
     suspend fun loadProduct(): Response<List<ProductResponse>>
+
+    @DELETE("product/{id}")
+    suspend fun deleteProduct(@Path("id")id : String): Response<ProductResponse>
+
+    @PUT("product")
+    suspend fun updateProduct(@Body productResponse: ProductResponse): Response<ProductResponse>
 
 }

@@ -76,6 +76,4 @@ class ProductFragment : BaseFragment() {
             binding.shimmerProduct.uiTayVisibilityDuo(it, binding.ctnListProduct)
         }
     }
-
-
 }

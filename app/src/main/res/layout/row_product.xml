@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:tools="http://schemas.android.com/tools">
 <data>
-<variable
+    <import type="android.view.View"/>
+    <variable
+
     name="product"
     type="com.tayler.valushopping.repository.network.model.ProductResponse" />
 </data>
@@ -123,6 +125,7 @@
                       <TextView
                           android:layout_width="wrap_content"
                           android:textSize="@dimen/txt_size_12"
+                          android:visibility="@{product.visiblePriceDoc() ? View.VISIBLE : View.GONE}"
                           android:fontFamily="@font/ui_tay_montserrat_semi_bold"
                           android:textColor="@color/black"
                           android:layout_marginStart="@dimen/dim_tay_2"
@@ -132,6 +135,7 @@
                       <TextView
                           android:layout_width="wrap_content"
                           android:layout_marginStart="@dimen/dim_tay_4"
+                          android:visibility="@{product.visiblePriceDoc() ? View.VISIBLE : View.GONE}"
                           android:fontFamily="@font/ui_tay_montserrat_semi_bold"
                           android:layout_marginEnd="@dimen/dim_tay_2"
                           android:text="@{product.getPriceDoc()}"

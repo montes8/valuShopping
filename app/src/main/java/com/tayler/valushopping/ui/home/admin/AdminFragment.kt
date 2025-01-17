@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.gb.vale.uitaylibrary.utils.callPhoneIntent
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.FragmentAdminBinding
 import com.tayler.valushopping.entity.ItemModel
@@ -12,8 +13,10 @@ import com.tayler.valushopping.ui.home.admin.adapter.AdminAdapter
 import com.tayler.valushopping.ui.login.LoginActivity
 import com.tayler.valushopping.ui.param.ParamActivity
 import com.tayler.valushopping.ui.product.add.ProductActivity
+import com.tayler.valushopping.ui.product.list.ListProductActivity
 import com.tayler.valushopping.utils.JSON_ITEM_ADMIN
 import com.tayler.valushopping.utils.getData
+import com.tayler.valushopping.utils.openWhatsApp
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -49,18 +52,22 @@ class AdminFragment : BaseFragment() {
                 ParamActivity.newInstance(requireContext())
 
             }
-            3,6 -> {
-                //whatsapp
+            3 -> {
+                ListProductActivity.newInstance(requireContext())
             }
-            4,7 ->{
-                //contactanos
+            4 ->{
+                requireContext().openWhatsApp("935815994","Hola necesito ayuda, me comunico de app Valu shopping")
             }
             5 ->{
+                callPhoneIntent(requireContext(),"935815994")
+
+            }
+            6 ->{
                 LoginActivity.newInstance(requireContext())
 
             }
             else->{
-                //ayuda
+                //recomendacion
 
             }
         }

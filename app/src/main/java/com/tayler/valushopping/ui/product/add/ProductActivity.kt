@@ -94,7 +94,6 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         flagEnable  += if(binding.editNameProduct.uiTayLabelEdit.length > 4) 0 else 1
         flagEnable += if(binding.editDescriptionProduct.text.toString().length > 20) 0 else 1
         flagEnable  += if(binding.editUnit.uiTayLText.length > 1) 0 else 1
-        flagEnable  += if(binding.editTotal.uiTayLText.length > 1) 0 else 1
         flagEnable  += if(fileImage.isNotEmpty()) 0 else 1
         flagEnable  += if(binding.editPhoneProduct.uiTayLabelEdit.uiTayValidatePhoneFormat()) 0 else 1
         binding.btnSaveProduct.tayBtnEnable = flagEnable == 0
