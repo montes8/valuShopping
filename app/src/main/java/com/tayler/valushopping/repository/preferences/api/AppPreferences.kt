@@ -22,10 +22,12 @@ class AppPreferences @Inject constructor(private val preferenceManager : Prefere
 
     override fun getUser(): UserModel {
         return retrieveSavedString().toUserModel()
-    // val user : UserModel? = uiTayJsonToObjet(preferenceManager.getString(PREFERENCE_USER))
-        //return  user?:UserModel()
+    }
 
-
+    override fun login(user: String, key: String): Boolean {
+        val login = user == "Valeria1810" && key == "20141018"
+        if (login){saveToken("20141018201410182014101820141018")}
+        return  login
     }
 
     private fun String.toUserModel(): UserModel {

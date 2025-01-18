@@ -2,17 +2,24 @@ package com.tayler.valushopping.ui.home
 
 import android.content.Context
 import android.content.Intent
+import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
+import com.gb.vale.uitaylibrary.extra.UITayStyleTbIcon
+import com.gb.vale.uitaylibrary.utils.showUiTayDialog
+import com.gb.vale.uitaylibrary.utils.uiTayHandler
 import com.gb.vale.uitaylibrary.utils.uiTayOpenPdfUrl
 import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.google.android.material.navigation.NavigationView
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityHomeBinding
 import com.tayler.valushopping.databinding.NavHeaderHomeBinding
+import com.tayler.valushopping.entity.ItemModel
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.admin.AdminFragment
@@ -21,10 +28,14 @@ import com.tayler.valushopping.ui.home.other.OtherFragment
 import com.tayler.valushopping.ui.home.product.ProductFragment
 import com.tayler.valushopping.ui.login.UserViewModel
 import com.tayler.valushopping.ui.profile.ProfileActivity
+import com.tayler.valushopping.utils.JSON_ITEM_HOME
+import com.tayler.valushopping.utils.JSON_ITEM_HOME_TWP
 import com.tayler.valushopping.utils.LINK_TERM
+import com.tayler.valushopping.utils.getData
 import com.tayler.valushopping.utils.goUrlFacebook
 import com.tayler.valushopping.utils.goUrlInstagram
 import com.tayler.valushopping.utils.setDrawableCircle
+import com.tayler.valushopping.utils.setImageString
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -38,6 +49,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private lateinit var productFragment : ProductFragment
     private lateinit var otherFragment   : OtherFragment
     private lateinit var adminFragment   : AdminFragment
+    private var listItem : ArrayList<ItemModel> = ArrayList()
     private var drawer: DrawerLayout? = null
 
     companion object {
@@ -55,8 +67,16 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun setUpView() {
         drawer = binding.drawerLayout
         binding.navViewMenu.setNavigationItemSelectedListener(this)
+        configInit()
+        createItemNavigation()
         initFragment()
         configActionNavigation()
+    }
+
+    private fun  configInit(){
+        val flagSession = viewModel.loadSession()
+        binding.toolBarHome.uiTayStyleTbIcon = if(flagSession) UITayStyleTbIcon.UI_TAY_ICON_TWO else UITayStyleTbIcon.UI_TAY_ICON_START
+        binding.toolBarHome.setOnClickTayMenuListener{ onClickDelete()}
     }
     private fun initFragment(){
         val hView = binding.navViewMenu.getHeaderView(0)
@@ -68,26 +88,24 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         addToNavigation(initFragment)
     }
 
+    private fun createItemNavigation(){
+        listItem = getData(this,if(AppDataVale.paramData.enableCategory == true) JSON_ITEM_HOME_TWP else JSON_ITEM_HOME)
+        listItem.forEach {item->
+            binding.btnNavigation.menu.add(Menu.NONE, item.id, Menu.NONE, item.title).icon =
+                setImageString(item.icon,this)
+        }
+    }
+
     private fun configActionNavigation() = with(binding){
         toolBarHome.setOnClickTayBackListener{
             drawerVisible()
         }
-
         binding.btnNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.bottom_nav_home -> {
-                    addToNavigation(initFragment)
-                }
-                R.id.bottom_nav_product -> {
-                    addToNavigation(productFragment)
-                }
-
-                R.id.bottom_nav_other -> {
-                    addToNavigation(otherFragment)
-                }
-                else -> {
-                    addToNavigation(adminFragment)
-                }
+             when (item.itemId) {
+                1 -> {addToNavigation(initFragment) }
+                2 -> {addToNavigation(productFragment)}
+                3 ->  { addToNavigation(otherFragment)}
+                 else -> {    addToNavigation(adminFragment)}
             }
             drawerGone()
             return@setOnItemSelectedListener true
@@ -106,7 +124,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             R.id.navMap -> {
                 selectedItemMenu(item,false)
-
             }
 
             R.id.navFacebook -> {
@@ -117,6 +134,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.navInstagram -> {
                 selectedItemMenu(item, false)
                 goUrlInstagram()
+            }
+
+            R.id.navSupport -> {
+                selectedItemMenu(item, false)
             }
 
             R.id.navOther ->{
@@ -147,6 +168,17 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onResume() {
         super.onResume()
         loadUpdateConfigUser()
+    }
+
+    private fun onClickDelete(){
+        showUiTayDialog(model = UiTayDialogModel(title = "Deseas cerrar sesión",
+            subTitle = "Estas seguro que deseas cerrar sesión")
+        ){
+            if (it){
+                viewModel.logout()
+                uiTayHandler { newInstance(this) }
+            }
+        }
     }
 
     private fun loadUpdateConfigUser(){

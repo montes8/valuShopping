@@ -7,7 +7,7 @@
     <string name="text_title_dat_user_profile"><u>Datos Personales</u></string>
     <string name="txt_home">Inicio</string>
     <string name="txt_menu_principal">Principal</string>
-    <string name="txt_other">Otros</string>
+    <string name="txt_other">Categorias</string>
     <string name="txt_config">Config</string>
 
     <!-- TODO: text error-->
@@ -47,6 +47,7 @@
     <string name="txt_menu_youtube">Youtube</string>
     <string name="txt_menu_tiktok">Tiktok</string>
     <string name="txt_menu_instagram">Instagram</string>
+    <string name="txt_menu_support">WhatsApp Soporte</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
     <string name="text_available">DISPONIBLE</string>
     <string name="text_exhausted">AGOTADO</string>

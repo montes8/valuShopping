@@ -47,6 +47,9 @@
             android:name=".ui.product.list.ListProductActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.product.detail.DetailProductActivity"
             android:exported="false" />
 

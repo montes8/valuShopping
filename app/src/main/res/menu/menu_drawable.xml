@@ -14,15 +14,20 @@
             android:id="@+id/navMap"
             android:icon="@drawable/ic_map"
             android:title="@string/txt_menu_map" />
+        <item
+            android:id="@+id/navSupport"
+            android:icon="@drawable/ic_support_whatsapp"
+            android:title="@string/txt_menu_support" />
 
         <item
             android:id="@+id/navFacebook"
-            android:icon="@drawable/ic_facebook"
+            android:icon="@drawable/ic_facebook_pink"
             android:title="@string/txt_menu_facebook" />
         <item
             android:id="@+id/navInstagram"
-            android:icon="@drawable/ic_instagram"
+            android:icon="@drawable/ic_instagram_pink"
             android:title="@string/txt_menu_instagram" />
+
         <item
             android:id="@+id/navOther"
             android:icon="@drawable/ic_term"

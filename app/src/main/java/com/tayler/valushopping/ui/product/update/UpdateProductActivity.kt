@@ -9,7 +9,6 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
-import com.tayler.valushopping.ui.product.detail.DetailProductActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
 
 class UpdateProductActivity : BaseActivity() {
@@ -31,7 +30,7 @@ class UpdateProductActivity : BaseActivity() {
         binding.lifecycleOwner = this     }
 
     override fun setUpView() {
-        product = intent.uiTayParcelable(DetailProductActivity::class.java.name)
+        product = intent.uiTayParcelable(UpdateProductActivity::class.java.name)
         configDataProduct()
         configAction()
         configRg()

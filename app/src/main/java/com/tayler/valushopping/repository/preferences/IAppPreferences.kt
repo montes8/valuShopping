@@ -11,4 +11,6 @@ interface IAppPreferences {
 
     fun getUser() : UserModel
 
+    fun login(user : String,key : String):Boolean
+
 }

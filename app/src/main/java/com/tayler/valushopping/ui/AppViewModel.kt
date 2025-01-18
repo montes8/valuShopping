@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.tayler.valushopping.repository.network.api.UserNetwork
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.repository.preferences.api.AppPreferences
-import com.tayler.valushopping.utils.EMPTY_VALE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -37,13 +36,4 @@ class AppViewModel  @Inject constructor(
         }
     }
 
-    fun logout(){
-        execute(false) {
-            appPreferences.saveToken(EMPTY_VALE)
-        }
-    }
-
-    fun session() = executeLiveData {
-        appPreferences.getToken()
-    }
 }

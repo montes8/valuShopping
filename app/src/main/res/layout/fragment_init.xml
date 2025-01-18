@@ -61,7 +61,7 @@
         android:drawablePadding="@dimen/dim_tay_8"
         android:fontFamily="@font/flex_bold"
         android:layout_height="wrap_content"
-        app:drawableStartCompat="@drawable/ic_facebook" />
+        app:drawableStartCompat="@drawable/ic_tiktok" />
 
   </androidx.appcompat.widget.LinearLayoutCompat>
   <androidx.appcompat.widget.LinearLayoutCompat
@@ -78,7 +78,7 @@
         android:drawablePadding="@dimen/dim_tay_8"
         android:fontFamily="@font/flex_bold"
         android:layout_height="wrap_content"
-        app:drawableStartCompat="@drawable/ic_facebook" />
+        app:drawableStartCompat="@drawable/ic_instagram" />
     <TextView
         android:layout_width="@dimen/dim_tay_0"
         android:layout_weight="1"
@@ -88,7 +88,7 @@
         android:drawablePadding="@dimen/dim_tay_8"
         android:fontFamily="@font/flex_bold"
         android:layout_height="wrap_content"
-        app:drawableStartCompat="@drawable/ic_facebook" />
+        app:drawableStartCompat="@drawable/ic_youtube" />
 
   </androidx.appcompat.widget.LinearLayoutCompat>
 

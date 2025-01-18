@@ -3,7 +3,7 @@ package com.tayler.valushopping.repository.network.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.tayler.valushopping.utils.EMPTY_VALE
-import com.tayler.valushopping.utils.ID_DAFAUL
+import com.tayler.valushopping.utils.ID_DEFAULT
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -33,7 +33,7 @@ data class ProductResponse (
     @SerializedName("principal")
     var principal : Boolean? = false,
     @SerializedName("idUser")
-    var idUser : String? = ID_DAFAUL
+    var idUser : String? = ID_DEFAULT
 ):Parcelable{
     fun getPriceUnit() = "S/ $price"
 
