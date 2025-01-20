@@ -37,7 +37,7 @@ class UpdateProductActivity : BaseActivity() {
     }
 
     private fun configDataProduct()= with(binding){
-        imgProduct.uiTayLoadUrl(product?.img?: EMPTY_VALE)
+        imgProduct.uiTayLoadUrl(product?.getLoadImage()?: EMPTY_VALE)
         editUnit.uiTayLText= product?.price?: EMPTY_VALE
         editTotal.uiTayLText= product?.priceTwo?: EMPTY_VALE
         editUnit.uiTayLText= product?.price?: EMPTY_VALE

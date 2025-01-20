@@ -51,7 +51,7 @@
                             android:contentDescription="@null"
                             android:layout_width="match_parent"
                             android:scaleType="fitXY"
-                            app:srcDrawableStringUrl="@{product.img}"
+                            app:srcDrawableStringUrl="@{product.getLoadImage()}"
                             android:background="@drawable/shape_place_holder"
                             android:layout_height="match_parent"/>
                     </com.google.android.material.card.MaterialCardView>

@@ -2,6 +2,7 @@ package com.tayler.valushopping.repository.network.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.ID_DEFAULT
 import kotlinx.parcelize.Parcelize
@@ -35,6 +36,8 @@ data class ProductResponse (
     @SerializedName("idUser")
     var idUser : String? = ID_DEFAULT
 ):Parcelable{
+
+    fun getLoadImage()= "${BuildConfig.BASE_URL}uploads/product/${img}"
     fun getPriceUnit() = "S/ $price"
 
     fun getPriceDoc() = "S/ $priceTwo"

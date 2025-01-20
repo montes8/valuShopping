@@ -26,7 +26,7 @@ interface ServiceApi {
                             @Body paramResponse: ParamResponse): Response<ParamResponse>
 
     @Multipart
-    @POST("uploads")
+    @POST("uploads/product")
     suspend fun saveImage(
         @Part file : MultipartBody.Part): Response<ImageResponse>
 

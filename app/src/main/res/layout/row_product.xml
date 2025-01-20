@@ -37,7 +37,7 @@
                 android:contentDescription="@null"
                 android:layout_width="@dimen/size_128"
                 android:scaleType="fitXY"
-                app:srcDrawableStringUrl="@{product.img}"
+                app:srcDrawableStringUrl="@{product.getLoadImage()}"
                 android:layout_height="@dimen/size_128"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
