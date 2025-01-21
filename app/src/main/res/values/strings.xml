@@ -13,7 +13,7 @@
     <!-- TODO: text error-->
     <string name="error_camera">Necesitas este permiso para agregar imagen</string>
     <string name="whatsapp_not_found">No tienes WhatsApp</string>
-
+    <string name="error_login">Credenciales invalidas</string>
 
     <!-- TODO: text success-->
     <string name="text_success_profile">Datos guardados correctamente</string>
@@ -49,9 +49,9 @@
     <string name="txt_menu_instagram">Instagram</string>
     <string name="txt_menu_support">Soporte tecnico</string>
     <string name="txt_menu_logout"><u>Cerrar sesión</u></string>
-    <string name="text_available">DISPONIBLE</string>
-    <string name="text_exhausted">AGOTADO</string>
-    <string name="text_principal">PRINCIPAL</string>
+    <string name="text_available">Disponible</string>
+    <string name="text_exhausted">Agotado</string>
+    <string name="text_principal">Principal</string>
     <string name="text_yes">SI</string>
     <string name="text_not">NO</string>
     <string name="text_description_product">Descripcion del producto</string>
@@ -92,5 +92,7 @@
     <string name="sub_text_title_join">Te contactaremos con un encargado que te ayudara a saber el proceso para que tus productos aparescan en nuestra aplicacion, asegurate de haber leido la seccion de SOBRE NOSOTROS para saber un poco mas de nosotros.</string>
     <string name="text_title_support">Soporte tecnico</string>
     <string name="sub_text_title_support">Te contactaremos con un asesor si tienes algun problema tecnico en el proceso de uso de nuestra aplicación</string>
+    <string name="text_title_delete">Eliminar producto</string>
+    <string name="sub_text_title_delete">Estas seguro que deseas eliminar el producto</string>
 
 </resources>

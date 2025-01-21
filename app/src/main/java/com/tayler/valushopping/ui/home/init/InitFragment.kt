@@ -19,7 +19,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class InitFragment : BaseFragment() {
 
     private lateinit var binding: FragmentInitBinding
-    companion object { fun newInstance() = InitFragment() }
+
+    companion object {
+        fun newInstance() = InitFragment()
+    }
 
     override fun getMainView(inflater: LayoutInflater, container: ViewGroup?): View {
         binding = DataBindingUtil.inflate(
@@ -31,13 +34,14 @@ class InitFragment : BaseFragment() {
 
     override fun setUpView() {
         val param = AppDataVale.paramData
-        binding.textTitleInit.text = param.title
-        binding.textSubTitleInit.text = param.description
+        if (param.title?.isNotEmpty() == true) binding.textTitleInit.text = param.title
+        if (param.description?.isNotEmpty() == true) binding.textSubTitleInit.text =
+            param.description
         val youTubePlayerView: YouTubePlayerView = binding.youTubeVale
         lifecycle.addObserver(youTubePlayerView)
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = param.idMovie?: EMPTY_VALE
+                val videoId = param.idMovie ?: EMPTY_VALE
                 youTubePlayer.loadVideo(videoId, 0f)
                 youTubePlayer.pause()
             }
@@ -45,5 +49,6 @@ class InitFragment : BaseFragment() {
     }
 
     override fun observeLiveData() {
+        //not implement
     }
 }

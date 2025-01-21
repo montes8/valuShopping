@@ -1,5 +1,6 @@
 package com.tayler.valushopping.repository.network.api
 
+import android.util.Log
 import com.tayler.valushopping.repository.network.ServiceApi
 import com.tayler.valushopping.repository.network.abstracts.IDataNetwork
 import com.tayler.valushopping.repository.network.abstracts.base.BaseNetwork
@@ -48,8 +49,8 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
             if (response.validateData()) {
                 model = response.validateBody()
             }
+            Log.d("servicess","deleteProductsuccpend")
             model?: throw response.errorBody().toCompleteErrorModel(response.code())
-
         }
     }
 

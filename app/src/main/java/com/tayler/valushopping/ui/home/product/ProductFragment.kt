@@ -1,5 +1,6 @@
 package com.tayler.valushopping.ui.home.product
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
+import com.gb.vale.uitaylibrary.utils.uiTayGone
 import com.gb.vale.uitaylibrary.utils.uiTayVisibility
 import com.gb.vale.uitaylibrary.utils.uiTayVisibilityDuo
 import com.tayler.valushopping.R
@@ -46,16 +48,32 @@ class ProductFragment : BaseFragment() {
         binding.productAdapter = productAdapter
         binding.productListAdapter = productListAdapter
         binding.imgTypeList.setOnClickUiTayDelay { onClickView() }
+        loadService()
+         binding.refreshList.setOnRefreshListener {
+             binding.refreshList.isRefreshing = true
+             loadService()
+         }
+    }
+
+    private fun loadService(){
+        flagView = true
+        binding.rvProductList.uiTayGone()
+        setConfigImagePresentation()
         viewModel.loadProduct()
     }
     private fun onClickView(){
-        binding.imgTypeList.setImageDrawable(ContextCompat.getDrawable(
-            requireContext(),if(flagView)R.drawable.ic_type_list else R.drawable.ic_type_list_horizontal))
-        binding.rvProductList.uiTayVisibilityDuo(flagView,binding.rvListProduct)
         flagView = !flagView
+        setConfigImagePresentation()
+        binding.rvListProduct.uiTayVisibilityDuo(flagView,binding.rvProductList)
+    }
+
+    private fun setConfigImagePresentation(){
+        binding.imgTypeList.setImageDrawable(ContextCompat.getDrawable(
+            requireContext(),if(flagView)R.drawable.ic_type_list_horizontal else R.drawable.ic_type_list))
     }
     private fun configList(list : List<ProductResponse>){
-        binding.rvListProduct.uiTayVisibilityDuo(list.isNotEmpty(),binding.textListEmpty)
+        binding.refreshList.isRefreshing = false
+        binding.rvListProduct.uiTayVisibilityDuo(list.isNotEmpty(),binding.ctnListEmpty)
         binding.imgTypeList.uiTayVisibility(list.isNotEmpty())
         productAdapter.productList = list
         productAdapter.onClickItem = {
@@ -73,6 +91,8 @@ class ProductFragment : BaseFragment() {
         }
 
         viewModel.shimmerLiveData.observe(this) {
+            Log.d("servicess","shimmerLiveData   $it")
+
             binding.shimmerProduct.uiTayVisibilityDuo(it, binding.ctnListProduct)
         }
     }

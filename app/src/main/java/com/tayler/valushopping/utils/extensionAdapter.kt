@@ -12,7 +12,9 @@ import com.tayler.valushopping.R
 
 @BindingAdapter("srcDrawableString")
 fun setImageDrawableString(imageView: ImageView, nameImage: String?) {
-    nameImage?.let { imageView.setImageDrawable(setImageString(nameImage,imageView.context)) }
+    uiTayTryCatch {
+        nameImage?.let { imageView.setImageDrawable(setImageString(nameImage,imageView.context)) }
+    }
 }
 
 @BindingAdapter("srcDrawableStringUrl")

@@ -14,104 +14,133 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/refreshList"
+            android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:id="@+id/ctnListProduct"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/txtTitleAdmin"
-                android:layout_width="@dimen/dim_tay_0"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/ctnListProduct"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/pink_200"
-                android:layout_marginEnd="@dimen/dim_tay_16"
-                android:layout_marginStart="@dimen/dim_tay_16"
-                android:layout_marginTop="@dimen/dim_tay_12"
-                android:fontFamily="@font/flex_bold_italic"
-                android:textSize="@dimen/txt_size_20"
-                android:lineSpacingExtra="@dimen/size_4"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/text_product_choose"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:id="@+id/imgTypeList"
-                android:contentDescription="@null"
-                android:layout_width="wrap_content"
-                android:layout_marginEnd="@dimen/size_4"
-                android:padding="@dimen/dim_tay_12"
-                android:visibility="gone"
-                android:src="@drawable/ic_type_list_horizontal"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/txtTitleAdmin"
+                    android:layout_width="@dimen/dim_tay_0"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/pink_200"
+                    android:layout_marginEnd="@dimen/dim_tay_16"
+                    android:layout_marginStart="@dimen/dim_tay_16"
+                    android:layout_marginTop="@dimen/dim_tay_12"
+                    android:fontFamily="@font/flex_bold_italic"
+                    android:textSize="@dimen/txt_size_20"
+                    android:lineSpacingExtra="@dimen/size_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/text_product_choose"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/imgTypeList"
+                    android:contentDescription="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="@dimen/size_4"
+                    android:padding="@dimen/dim_tay_12"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_type_list_horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:id="@+id/rvListProduct"
-                android:layout_height="@dimen/dim_tay_0"
-                app:adapter="@{productAdapter}"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
-                android:visibility="gone"
-                android:clipToPadding="false"
-                android:paddingBottom="@dimen/dim_tay_8"
-                tools:listitem="@layout/row_other"
-                tools:itemCount="4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/rvListProduct"
+                    android:layout_height="@dimen/dim_tay_0"
+                    app:adapter="@{productAdapter}"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    android:visibility="gone"
+                    android:paddingBottom="@dimen/dim_tay_8"
+                    tools:listitem="@layout/row_other"
+                    tools:itemCount="4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:id="@+id/rvProductList"
-                android:layout_height="@dimen/dim_tay_0"
-                app:adapter="@{productListAdapter}"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:spanCount="2"
-                android:visibility="gone"
-                android:paddingBottom="@dimen/dim_tay_8"
-                tools:listitem="@layout/row_product"
-                tools:itemCount="4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/rvProductList"
+                    android:layout_height="@dimen/dim_tay_0"
+                    app:adapter="@{productListAdapter}"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:spanCount="2"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dim_tay_8"
+                    android:paddingBottom="@dimen/dim_tay_8"
+                    tools:listitem="@layout/row_product"
+                    tools:itemCount="4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
 
-            <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/ctnListEmpty"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgListEmpty"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_list_empty"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/textListEmpty"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="@dimen/txt_size_25"
+                        android:layout_marginTop="@dimen/dim_tay_12"
+                        android:fontFamily="@font/ui_tay_montserrat_medium"
+                        android:textColor="@color/gray_400"
+                        android:text="@string/text_product_empty"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgListEmpty"
+                        android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerProduct"
                 android:layout_width="match_parent"
-                android:id="@+id/textListEmpty"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="@dimen/txt_size_25"
-                android:visibility="gone"
-                android:fontFamily="@font/ui_tay_montserrat_bold"
-                android:textColor="@color/black"
-                android:text="@string/text_product_empty"
-                android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"
-                android:layout_height="wrap_content"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <include layout="@layout/shimmer_product" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerProduct"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
-            <include layout="@layout/shimmer_product" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
 
 
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

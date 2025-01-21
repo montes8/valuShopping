@@ -48,7 +48,7 @@ data class ProductResponse (
         return if (visiblePriceDoc()){
             "DOC/: S/ $priceTwo"
         }else{
-            "No disponible"
+            "DOC/: No disponible"
         }
     }
 

@@ -1,5 +1,6 @@
 package com.tayler.valushopping.ui
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -25,6 +26,8 @@ open class BaseViewModel : ViewModel() {
                 ex.printStackTrace()
                 loadingLiveData.postValue(false)
                 shimmerLiveData.postValue(false)
+                Log.d("servicess","errorLiveData")
+
                 errorLiveData.postValue(ex)
             }
         }

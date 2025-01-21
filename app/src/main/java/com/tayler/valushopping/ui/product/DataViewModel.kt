@@ -2,7 +2,6 @@ package com.tayler.valushopping.ui.product
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.repository.network.api.DataNetwork
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseViewModel
@@ -28,9 +27,9 @@ class DataViewModel  @Inject constructor(
 
 
     fun saveProduct(data : ProductResponse){
-        execute(false) {
+        execute {
             val responseImage = dataNetwork.saveImage(File(data.img?: EMPTY_VALE))
-            data.img = "${BuildConfig.BASE_URL}uploads/imgs/${responseImage.nameImage}"
+            data.img = responseImage.nameImage
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
         }

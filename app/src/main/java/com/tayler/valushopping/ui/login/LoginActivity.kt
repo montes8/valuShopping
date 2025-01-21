@@ -45,7 +45,7 @@ class LoginActivity : BaseActivity() {
             if (it){
                 HomeActivity.newInstance(this)
             }else{
-                uiTayShowToast("Credenciales invalidas")
+                uiTayShowToast(getString(R.string.error_login))
             }
         }
     }

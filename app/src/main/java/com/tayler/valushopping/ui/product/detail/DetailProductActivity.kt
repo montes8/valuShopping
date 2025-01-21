@@ -36,7 +36,7 @@ class DetailProductActivity : BaseActivity() {
         product?.let { binding.product = it }
         binding.btnConsult.setOnClickTayBtnListener {
             if (product?.state== true){
-                openWhatsApp(product?.phone?: EMPTY_VALE,"Hola me gustaria consultar : ${product?.name}")
+                openWhatsApp(product?.phone?: EMPTY_VALE,"Hola me gustaria adquirir el producto ${product?.name} aun esta disponible : ")
             }else{
                 uiTayShowToast("Producto no disponible")
             }

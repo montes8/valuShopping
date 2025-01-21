@@ -3,12 +3,14 @@
     <color name="primary_Accent">@color/pink_50</color>
     <color name="primary_secondary">@color/pink_100</color>
     <color name="primary_pink">@color/pink_200</color>
-
+    <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="gray_500">#424242</color>
     <color name="gray_400">#626262</color>
     <color name="gray_100">#FAFBFF</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="blue">#0961f1</color>
+    <color name="purple">#9a43a0</color>
 
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>

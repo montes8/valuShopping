@@ -3,6 +3,7 @@ package com.tayler.valushopping.ui
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
@@ -43,8 +44,12 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun observeMainViewModel() {
         this.observeViewModel()
         getViewModel()?.let { viewModel ->
-            viewModel.errorLiveData.observe(this) { it?.let { showError(it) } }
-            viewModel.loadingLiveData.observe(this) { showLoading(it) }
+            viewModel.errorLiveData.observe(this) { it?.let {
+                Log.d("servicess","baseerrorLiveData")
+                showError(it) } }
+            viewModel.loadingLiveData.observe(this) {
+                Log.d("servicess","baseloadingLiveData")
+                showLoading(it) }
         }
     }
 
@@ -61,8 +66,10 @@ abstract class BaseActivity : AppCompatActivity() {
     fun showLoading(isLoading: Boolean) {
         cyMProgressBar.apply {
             if (isLoading) {
+                Log.d("servicess","showLoading")
                 this?.show()
             } else {
+                Log.d("servicess","hideLoading")
                 this?.dismiss()
             }
         }

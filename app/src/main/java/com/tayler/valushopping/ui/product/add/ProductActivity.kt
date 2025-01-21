@@ -77,7 +77,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun configInit(){
         managerCamera = UiTayCameraManager(this,"product",this)
         configRgGender()
-        configRgTyper()
+        configRgType()
     }
 
     override fun onCameraPermissionDenied() {
@@ -125,7 +125,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         }
     }
 
-    private fun configRgTyper()= with(binding){
+    private fun configRgType()= with(binding){
         rgType.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId){
                 R.id.rbImitationJewelry->{type = 0}

@@ -27,11 +27,10 @@ class UserViewModel  @Inject constructor(
 
     fun login(user : String,key : String){
         execute {
-            val response = appPreferences.login(user,key)
             uiTayHandler(time = 2) {
+                val response = appPreferences.login(user,key)
                 _successLoginLiveData.postValue(response)
             }
-
         }
     }
     fun saveUser(user : UserModel){

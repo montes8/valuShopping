@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
+import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
 import com.gb.vale.uitaylibrary.swipe.UiTayCardSwipeButton
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
 import com.gb.vale.uitaylibrary.utils.uiTayAddSwipe
@@ -13,6 +14,7 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityListProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
+import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter
 import com.tayler.valushopping.ui.product.DataViewModel
 import com.tayler.valushopping.ui.product.update.UpdateProductActivity
@@ -55,8 +57,11 @@ class ListProductActivity : BaseActivity() {
     }
 
     private fun onClickDelete(position:Int){
-        showUiTayDialog(model = UiTayDialogModel(title = "Eliminar producto",
-            subTitle = "Estas seguro que deseas eliminar el producto")
+        showUiTayDialog(model = UiTayDialogModel(title = getString(R.string.text_title_delete),
+            subTitle = getString(R.string.sub_text_title_delete),
+            styleCustom =
+            UiTayDialogModelCustom(btnAcceptSolidColor = R.color.red, btnAcceptStrokeColor = R.color.red)
+        )
         ){
            if (it){
                viewModel.loadDeleteProduct(listProduct[position].uid?: EMPTY_VALE)
@@ -79,10 +84,12 @@ class ListProductActivity : BaseActivity() {
 
     private fun configList(list : List<ProductResponse>){
         listProduct = list
+        binding.rvProductListAdmin.uiTayVisibilityDuo(list.isNotEmpty(),binding.ctnListEmptyProductAdmin)
         productListAdapter.productList = list
         productListAdapter.onClickItem = {
             UpdateProductActivity.newInstance(this,it)
         }
     }
 
+    override fun getViewModel(): BaseViewModel = viewModel
 }
