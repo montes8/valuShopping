@@ -79,7 +79,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         style="@style/UiTayStyleEditLayout"
                         android:inputType="numberDecimal"
-                        app:uiTayLHint="Precio x/docena"
+                        app:uiTayLHint="Docena (opcional)"
                         android:layout_marginTop="@dimen/size_4"
                         android:layout_height="50dp"/>
                     <androidx.appcompat.widget.LinearLayoutCompat
