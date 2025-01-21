@@ -5,6 +5,9 @@
     <color name="primary_pink">@color/pink_200</color>
 
     <color name="black">#FF000000</color>
+    <color name="gray_500">#424242</color>
+    <color name="gray_400">#626262</color>
+    <color name="gray_100">#FAFBFF</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="green">#4CAF50</color>
@@ -15,7 +18,7 @@
     <color name="pink_400">#F50057</color>
     <color name="pink_600">#D81B60</color>
     <color name="pink_700">#C2185B</color>
-    <color name="gray_100">#FAFBFF</color>
+
     <color name="transparency_white">#CBFFFFFF</color>
     <color name="transparent">#00000000</color>
 

@@ -23,17 +23,19 @@ import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.admin.AdminFragment
+import com.tayler.valushopping.ui.home.dialog.DeliveryPointsBS
 import com.tayler.valushopping.ui.home.init.InitFragment
 import com.tayler.valushopping.ui.home.other.OtherFragment
 import com.tayler.valushopping.ui.home.product.ProductFragment
 import com.tayler.valushopping.ui.login.UserViewModel
 import com.tayler.valushopping.ui.profile.ProfileActivity
+import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.JSON_ITEM_HOME
 import com.tayler.valushopping.utils.JSON_ITEM_HOME_TWP
 import com.tayler.valushopping.utils.LINK_TERM
 import com.tayler.valushopping.utils.getData
 import com.tayler.valushopping.utils.goUrlFacebook
-import com.tayler.valushopping.utils.goUrlInstagram
+import com.tayler.valushopping.utils.openWhatsApp
 import com.tayler.valushopping.utils.setDrawableCircle
 import com.tayler.valushopping.utils.setImageString
 import dagger.hilt.android.AndroidEntryPoint
@@ -123,20 +125,17 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.navMap -> {
+                 DeliveryPointsBS.newInstance().show(supportFragmentManager, DeliveryPointsBS::class.simpleName)
                 selectedItemMenu(item,false)
             }
 
             R.id.navFacebook -> {
-                goUrlFacebook()
+                goUrlFacebook(AppDataVale.paramData.linkFacebook?: EMPTY_VALE)
                 selectedItemMenu(item, false)
-            }
-
-            R.id.navInstagram -> {
-                selectedItemMenu(item, false)
-                goUrlInstagram()
             }
 
             R.id.navSupport -> {
+                openWhatsApp(getString(R.string.text_number_support),getString(R.string.text_support))
                 selectedItemMenu(item, false)
             }
 

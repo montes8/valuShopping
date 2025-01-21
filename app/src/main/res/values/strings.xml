@@ -74,4 +74,14 @@
     <string name="text_product_empty">Aun no hay \nproductos agregados</string>
     <string name="text_title_price_unit">C/U:</string>
     <string name="text_title_price_doc">DOC/:</string>
+
+    <!-- TODO: text item menu-->
+    <string name="text_number_support">935815994</string>
+    <string name="text_support">Hola tengo un problema en la app valu</string>
+    <string name="text_not_config">Aun no esta configurado</string>
+    <string name="text_title_delivery_points">Recomedaciones de puntos de entrega</string>
+    <string name="text_message_delivery_points">- Estaciones del tren electrico de lima\n- Estaciones del metropolitano\n- Centros comerciales (Plaza norte, mega plaza,etc)</string>
+    <string name="text_info_delivery_points">Los puntos de entrega se coordinan con el vendedor el producto que desea adquirir.</string>
+
+
 </resources>

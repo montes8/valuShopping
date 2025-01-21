@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    android:id="@+id/ctnBsDeliveryPoints"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textDeliveryPoints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dim_tay_16"
+        android:paddingEnd="@dimen/dim_tay_20"
+        android:fontFamily="@font/ui_tay_montserrat_semi_bold"
+        android:textSize="@dimen/dim_tay_sp_text_18"
+        android:paddingStart="@dimen/dim_tay_0"
+        android:textColor="@color/primary_pink"
+        android:text="@string/text_title_delivery_points"
+        android:layout_marginHorizontal="@dimen/dim_tay_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null"
+        android:elevation="@dimen/dim_tay_2"
+        android:padding="@dimen/dim_tay_16"
+        android:id="@+id/imgCloseDeliveryPoints"
+        android:src="@drawable/ui_tay_ic_close"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        app:tint="@color/pink_100" />
+
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDeliveryPoints"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/text_message_delivery_points"
+        android:layout_marginHorizontal="@dimen/dim_tay_16"
+        android:id="@+id/textDescriptionO"
+        android:fontFamily="@font/ui_tay_montserrat_medium"
+        android:lineSpacingExtra="@dimen/dim_tay_4"
+        android:textColor="@color/gray_400"
+        android:layout_marginVertical="@dimen/dim_tay_12"
+        android:layout_height="wrap_content"/>
+     <com.gb.vale.uitaylibrary.extra.UiTayInfo
+         android:layout_width="match_parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintBottom_toBottomOf="parent"
+         android:layout_marginBottom="@dimen/dim_tay_12"
+         app:uiTayTextInformation="@string/text_info_delivery_points"
+         android:layout_marginHorizontal="@dimen/dim_tay_16"
+         android:layout_marginTop="@dimen/dim_tay_12"
+         app:layout_constraintTop_toBottomOf="@+id/textDescriptionO"
+         android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

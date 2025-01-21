@@ -21,6 +21,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.gb.vale.uitaylibrary.utils.uiTaySaveImg
+import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.tayler.valushopping.BuildConfig
@@ -199,18 +200,23 @@ fun ResponseBody?.toCompleteErrorModel(code : Int) : Exception {
     } ?: GenericException()
 }
 
-fun Context.goUrlFacebook(){
-    try {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/100085287459708"))
-        startActivity(intent)
-    } catch (e: java.lang.Exception) {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("http://www.facebook.com/100085287459708")
+fun Context.goUrlFacebook(idProfile:String){
+    if (idProfile.isNotEmpty()){
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/$idProfile"))
+            startActivity(intent)
+        } catch (e: java.lang.Exception) {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://www.facebook.com/$idProfile")
+                )
             )
-        )
+        }
+    }else{
+        uiTayShowToast(getString(R.string.text_not_config))
     }
+
 }
 
 fun Context.goUrlInstagram(){

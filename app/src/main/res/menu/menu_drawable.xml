@@ -24,11 +24,6 @@
             android:icon="@drawable/ic_facebook_pink"
             android:title="@string/txt_menu_facebook" />
         <item
-            android:id="@+id/navInstagram"
-            android:icon="@drawable/ic_instagram_pink"
-            android:title="@string/txt_menu_instagram" />
-
-        <item
             android:id="@+id/navOther"
             android:icon="@drawable/ic_term"
             android:title="@string/txt_menu_other" />
