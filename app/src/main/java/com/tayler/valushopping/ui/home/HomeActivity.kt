@@ -35,9 +35,9 @@ import com.tayler.valushopping.utils.JSON_ITEM_HOME_TWP
 import com.tayler.valushopping.utils.LINK_TERM
 import com.tayler.valushopping.utils.getData
 import com.tayler.valushopping.utils.goUrlFacebook
-import com.tayler.valushopping.utils.openWhatsApp
 import com.tayler.valushopping.utils.setDrawableCircle
 import com.tayler.valushopping.utils.setImageString
+import com.tayler.valushopping.utils.shoWDialogWhatsApp
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -121,6 +121,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 selectedItemMenu(item,true)
             }
             R.id.navClient -> {
+                showModalJoin()
                 selectedItemMenu(item,false)
             }
 
@@ -135,7 +136,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.navSupport -> {
-                openWhatsApp(getString(R.string.text_number_support),getString(R.string.text_support))
+                showModalSupport()
                 selectedItemMenu(item, false)
             }
 
@@ -148,6 +149,20 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
         drawerGone()
         return true
+    }
+
+    fun showModalSupport(){
+        shoWDialogWhatsApp(getString(R.string.text_number_support),
+            text = getString(R.string.text_support),
+            title = getString(R.string.text_title_support),
+            subTitle = getString(R.string.sub_text_title_support))
+    }
+
+    fun showModalJoin(){
+        shoWDialogWhatsApp(AppDataVale.paramData.phone?:
+        EMPTY_VALE, text = getString(R.string.text_body_join),
+            title = getString(R.string.text_title_join),
+            subTitle = getString(R.string.sub_text_title_join))
     }
 
     private fun drawerGone() {
@@ -179,6 +194,8 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
         }
     }
+
+
 
     private fun loadUpdateConfigUser(){
         viewModel.loadUser().observe(this){

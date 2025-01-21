@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.gb.vale.uitaylibrary.utils.callPhoneIntent
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.FragmentAdminBinding
 import com.tayler.valushopping.entity.ItemModel
 import com.tayler.valushopping.ui.BaseFragment
+import com.tayler.valushopping.ui.about.AboutUsActivity
+import com.tayler.valushopping.ui.home.HomeActivity
 import com.tayler.valushopping.ui.home.admin.adapter.AdminAdapter
 import com.tayler.valushopping.ui.login.LoginActivity
 import com.tayler.valushopping.ui.login.UserViewModel
@@ -19,7 +20,6 @@ import com.tayler.valushopping.ui.product.list.ListProductActivity
 import com.tayler.valushopping.utils.JSON_ITEM
 import com.tayler.valushopping.utils.JSON_ITEM_ADMIN
 import com.tayler.valushopping.utils.getData
-import com.tayler.valushopping.utils.openWhatsApp
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -50,28 +50,25 @@ class AdminFragment : BaseFragment() {
         when(model.id){
             1 -> {
                 ProductActivity.newInstance(requireContext())
-
             }
             2 ->{
                 ParamActivity.newInstance(requireContext())
-
             }
             3 -> {
                 ListProductActivity.newInstance(requireContext())
             }
             4 ->{
-                requireContext().openWhatsApp("935815994","Hola deseo que ser parte de valu shooping")
+                AboutUsActivity.newInstance(requireContext())
             }
             5 ->{
-                callPhoneIntent(requireContext(),"935815994")
-
+                (activity as HomeActivity).showModalSupport()
             }
             6 ->{
                 LoginActivity.newInstance(requireContext())
-
             }
-            else->{
-                //recomendacion
+
+            else ->{
+                (activity as HomeActivity).showModalJoin()
 
             }
         }

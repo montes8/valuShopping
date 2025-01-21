@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -20,6 +19,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
+import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
+import com.gb.vale.uitaylibrary.utils.showUiTayDialog
 import com.gb.vale.uitaylibrary.utils.uiTaySaveImg
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.google.gson.Gson
@@ -41,11 +43,7 @@ import com.tayler.valushopping.ui.BaseFragment
 import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
-import java.io.FileOutputStream
 import java.io.IOException
-import java.io.OutputStream
-import java.text.SimpleDateFormat
-import java.util.Date
 
 
 @SuppressLint("MissingPermission")
@@ -235,74 +233,6 @@ fun Context.goUrlInstagram(){
     }
 }
 
-fun getUriFromConstancyOneView(context: Context?, viewToShare: View, viewContainer: View): Uri? {
-    val widthSpec = View.MeasureSpec.makeMeasureSpec(viewContainer.width, View.MeasureSpec.EXACTLY)
-    val heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-    viewToShare.measure(widthSpec, heightSpec)
-    viewToShare.layout(0, 0, viewToShare.measuredWidth, viewToShare.measuredHeight)
-    val bitmap = getBitmapFromView(viewToShare)
-    val file = context?.let { saveBitmap(it, bitmap) }
-
-    return context?.let {
-        file?.let { it1 ->
-            FileProvider.getUriForFile(
-                it,
-                "${BuildConfig.APPLICATION_ID}.provider",
-                it1
-            )
-        }
-    }
-}
-
-fun getBitmapFromView(view: View): Bitmap? {
-    val returnedBitmap =
-        Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-    val canvas = Canvas(returnedBitmap)
-    val bgDrawable = view.background
-    if (bgDrawable != null) bgDrawable.draw(canvas) else canvas.drawColor(Color.WHITE)
-    view.draw(canvas)
-    return returnedBitmap
-}
-
-fun saveBitmap(context: Context, bmp: Bitmap?): File? {
-    val outStream: OutputStream?
-    val file: File? = getFileShared(context)
-    try {
-        outStream = FileOutputStream(file)
-        bmp?.setHasAlpha(true)
-        bmp?.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
-        outStream.flush()
-        outStream.close()
-    } catch (e: Exception) {
-        e.printStackTrace()
-        return null
-    }
-    return file
-}
-
-@SuppressLint("SimpleDateFormat")
-private fun getFileShared(context: Context?): File? {
-    val timeStamp =
-        "IMG_" + SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-    return getFileSharedTwo(context!!, timeStamp)
-}
-
-private fun getFileSharedTwo(
-    context: Context,
-    url: String
-): File? {
-    // For a more secure solution, use EncryptedFile from the Security library
-    // instead of File.
-    var file: File? = null
-    try {
-        val fileName = Uri.parse(url).lastPathSegment
-        file = fileName?.let { File.createTempFile(it, ".jpeg", context.cacheDir) }
-    } catch (e: IOException) {
-        // Error while creating file
-    }
-    return file
-}
-
 fun Context.sharedImageView(view: View){
     try {
         val uri = createBitmapFromView(view)
@@ -331,6 +261,18 @@ fun Context.uiCreatePictureFile(nameFile: String = "imgSave"): File {
         newPath.mkdirs()
     }
     return newPath
+}
+
+fun AppCompatActivity.shoWDialogWhatsApp(phone: String, text: String,title : String,subTitle:String){
+    showUiTayDialog(model = UiTayDialogModel(image = R.drawable.ic_support_whatsapp, title = title,
+        subTitle = subTitle, styleCustom =
+        UiTayDialogModelCustom(btnAcceptSolidColor = R.color.green, btnAcceptStrokeColor = R.color.green)
+    )
+    ){
+        if (it){
+            openWhatsApp(phone,text)
+        }
+    }
 }
 
 fun Context.openWhatsApp(phone: String, text: String) {

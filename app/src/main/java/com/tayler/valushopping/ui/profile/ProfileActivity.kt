@@ -42,7 +42,8 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
 
     override fun getMainView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-        binding.lifecycleOwner = this    }
+        binding.lifecycleOwner = this
+    }
 
     override fun setUpView() {
         configAppBar()

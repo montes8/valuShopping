@@ -5,18 +5,18 @@
     "icon": "ic_profile"
   },
   {
-    "id": 4,
+    "id": 7,
     "title": "Se parte de nosotros",
     "icon": "ic_admin"
   },
   {
-    "id": 5,
-    "title": "Contactanos",
-    "icon": "ic_contact"
+    "id": 4,
+    "title": "Sobre nosotros",
+    "icon": "ic_help"
   },
   {
-    "id": 7,
-    "title": "Recomendacion",
-    "icon": "ic_help"
+    "id": 5,
+    "title": "Soporte tecnico",
+    "icon": "ic_support"
   }
 ]

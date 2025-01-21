@@ -9,8 +9,8 @@ import com.gb.vale.uitaylibrary.utils.showUiTayDialog
 import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.tayler.valushopping.R
 
-fun AppCompatActivity.successDialog(title : String  = DIALOG_TITLE_DEFAULT,
-                                           message : String =DIALOG_MESSAGE_DEFAULT,
+fun AppCompatActivity.successDialog(title : String  = getString(R.string.text_success_data),
+                                           message : String =getString(R.string.sub_text_success_data),
                                            func: ((action: Boolean?) -> Unit)? = null) {
     this.showUiTayDialog(model = UiTayDialogModel(image = R.drawable.ic_success,title = title,
         subTitle = message)

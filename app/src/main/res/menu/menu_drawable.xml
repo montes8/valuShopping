@@ -8,7 +8,7 @@
             android:title="@string/txt_profile"/>
         <item
             android:id="@+id/navClient"
-            android:icon="@drawable/ic_client"
+            android:icon="@drawable/ic_about"
             android:title="@string/txt_menu_client"/>
         <item
             android:id="@+id/navMap"
@@ -16,7 +16,7 @@
             android:title="@string/txt_menu_map" />
         <item
             android:id="@+id/navSupport"
-            android:icon="@drawable/ic_support_whatsapp"
+            android:icon="@drawable/ic_support"
             android:title="@string/txt_menu_support" />
 
         <item
