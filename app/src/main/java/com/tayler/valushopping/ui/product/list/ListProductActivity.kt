@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
 import com.gb.vale.uitaylibrary.swipe.UiTayCardSwipeButton
+import com.gb.vale.uitaylibrary.utils.EventUiTayObserver
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
 import com.gb.vale.uitaylibrary.utils.uiTayAddSwipe
 import com.gb.vale.uitaylibrary.utils.uiTayVisibilityDuo
@@ -19,6 +20,7 @@ import com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter
 import com.tayler.valushopping.ui.product.DataViewModel
 import com.tayler.valushopping.ui.product.update.UpdateProductActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.result.ValeResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -80,6 +82,11 @@ class ListProductActivity : BaseActivity() {
         viewModel.successDeleteLiveData.observe(this){
             loadService()
         }
+
+        ValeResult.eventUpdateListProduct.observe(this,EventUiTayObserver{
+            loadService()
+           })
+
     }
 
     private fun configList(list : List<ProductResponse>){

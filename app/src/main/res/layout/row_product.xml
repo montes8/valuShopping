@@ -20,7 +20,7 @@
         android:layout_marginHorizontal="@dimen/dim_tay_16"
         android:layout_marginVertical="@dimen/dim_tay_8"
         app:cardCornerRadius="@dimen/dim_tay_12"
-        app:cardElevation="@dimen/dim_tay_12"
+        app:cardElevation="@dimen/size_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="wrap_content">
