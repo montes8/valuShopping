@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
@@ -54,8 +53,6 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     override fun observeViewModel() {
         viewModel.loadUser().observe(this){
             configUser(it)
-            Log.d("observeViewModel",it.toString())
-            enableViewEditDefault(userModel.dataSave)
         }
         viewModel.successUserLiveData.observe(this){
             configUser(it)
@@ -113,12 +110,6 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun onClickImage(value : Boolean){
         typeBanner = value
         managerCamera?.doCamera(if(typeBanner)"userBannerImg" else "userImg")
-    }
-
-    private fun enableViewEditDefault(value : Boolean){
-        configFocusable(!value)
-        binding.btnSaveProfile.uiTayVisibility(!value)
-        binding.imgEditProfile.uiTayVisibility(value)
     }
 
     private fun enableViewEdit(value : Boolean){
