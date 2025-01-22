@@ -58,6 +58,10 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
             configUser(it)
             enableViewEdit(false)
         }
+
+        viewModel.successUserImgLiveData.observe(this){
+            configUser(it)
+        }
     }
 
     private fun configUser(user :UserModel){
@@ -150,6 +154,6 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
             userModel.img = path
             binding.imgProfile.setImageBitmap(img.converterCircle())
         }
-        viewModel.saveUser(userModel)
+        viewModel.saveUserImg(userModel)
     }
 }
