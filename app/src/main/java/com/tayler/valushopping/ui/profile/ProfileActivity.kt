@@ -67,6 +67,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun configUser(user :UserModel){
         userModel = user
         binding.user = userModel
+        initDataProfile()
     }
 
     private fun configAppBar(){
@@ -109,6 +110,16 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         userModel.email = binding.editEmailProfile.uiTayLText
         userModel.phone = binding.editPhoneProfile.uiTayLText
         userModel.addressUser = binding.editAddressProfile.uiTayLText
+    }
+
+    private fun initDataProfile(){
+        userModel.dataSave = true
+        binding.editNameProfile.uiTayLText = userModel.names
+        binding.editLastNameProfile.uiTayLText = userModel.lastName
+        binding.editDocumentProfile.uiTayLText = userModel.document
+        binding.editEmailProfile.uiTayLText = userModel.email
+        binding.editPhoneProfile.uiTayLText = userModel.phone
+        binding.editAddressProfile.uiTayLText = userModel.addressUser
     }
 
     private fun onClickImage(value : Boolean){
