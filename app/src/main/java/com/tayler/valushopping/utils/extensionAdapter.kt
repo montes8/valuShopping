@@ -1,6 +1,8 @@
 package com.tayler.valushopping.utils
 
 import android.graphics.BitmapFactory
+import android.os.Handler
+import android.os.Looper
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -13,14 +15,15 @@ import com.tayler.valushopping.R
 @BindingAdapter("srcDrawableString")
 fun setImageDrawableString(imageView: ImageView, nameImage: String?) {
     uiTayTryCatch {
-        nameImage?.let { imageView.setImageDrawable(setImageString(nameImage,imageView.context)) }
+            nameImage?.let { imageView.setImageDrawable(setImageString(nameImage,imageView.context)) }
     }
 }
 
 @BindingAdapter("srcDrawableStringUrl")
 fun setImageDrawableStringUrl(imageView: ImageView, nameImage: String?) {
     uiTayTryCatch {
-        nameImage?.let { imageView.uiTayLoadUrl(it)}
+        val handler = Handler(Looper.getMainLooper())
+        handler.post { nameImage?.let { imageView.uiTayLoadUrl(it)} }
     }
 }
 

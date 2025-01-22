@@ -38,6 +38,7 @@
                 android:contentDescription="@null"
                 android:layout_width="@dimen/size_128"
                 android:scaleType="fitXY"
+                android:background="@color/gray_150"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

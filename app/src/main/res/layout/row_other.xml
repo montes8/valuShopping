@@ -57,6 +57,7 @@
                         android:contentDescription="@null"
                         android:layout_width="match_parent"
                         android:scaleType="fitXY"
+                        android:background="@color/gray_150"
                         android:id="@+id/rowProductImg"
                         app:srcDrawableStringUrl="@{product.getLoadImage()}"
                         app:layout_constraintTop_toTopOf="parent"
