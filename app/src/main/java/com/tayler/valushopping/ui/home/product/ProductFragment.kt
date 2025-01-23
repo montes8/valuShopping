@@ -1,6 +1,5 @@
 package com.tayler.valushopping.ui.home.product
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,8 +90,6 @@ class ProductFragment : BaseFragment() {
         }
 
         viewModel.shimmerLiveData.observe(this) {
-            Log.d("servicess","shimmerLiveData   $it")
-
             binding.shimmerProduct.uiTayVisibilityDuo(it, binding.ctnListProduct)
         }
     }
