@@ -31,10 +31,13 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun configAnimation(){
-        val ani = AnimationUtils.loadAnimation(this, R.anim.animation_top)
-        val ani2 = AnimationUtils.loadAnimation(this, R.anim.animation_botton)
-        binding.ltSplash.animation=ani
-        binding.ctlBottom.animation=ani2
+        val aniTop = AnimationUtils.loadAnimation(this, R.anim.animation_top)
+        val aniBottom = AnimationUtils.loadAnimation(this, R.anim.animation_botton)
+        binding.ctlBottom.animation = aniBottom
+        binding.imgBagB.animation = aniBottom
+        binding.imgBagBTwo.animation = aniBottom
+        binding.imgBag.animation = aniTop
+        binding.imgBagTwo.animation = aniTop
         viewModel.loadParam()
     }
     override fun observeViewModel() {

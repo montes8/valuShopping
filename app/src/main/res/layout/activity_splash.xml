@@ -8,12 +8,23 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_splash"
         tools:context=".ui.splash.SplashActivity">
 
+        <ImageView
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@null"
+            android:background="@drawable/ic_bg_general"
+            android:layout_height="match_parent"/>
+
+
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/size_128"
+            android:layout_height="@dimen/size_128"
+            android:layout_margin="@dimen/dim_tay_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
@@ -21,16 +32,61 @@
             app:lottie_rawRes="@raw/anim_splash" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/size_128"
+            android:layout_height="@dimen/size_128"
+            android:layout_marginBottom="@dimen/dim_tay_16"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/anim_splash" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/size_128"
+            android:layout_height="@dimen/size_128"
+            android:layout_marginTop="@dimen/dim_tay_16"
+            android:layout_marginEnd="-20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_splash" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/size_128"
+            android:layout_height="@dimen/size_128"
+            android:layout_marginBottom="@dimen/dim_tay_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_marginEnd="-20dp"
+            app:lottie_rawRes="@raw/anim_splash" />
+
+        <ImageView
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            android:contentDescription="@null"
+            android:id="@+id/imgBagTwo"
+            android:layout_marginEnd="@dimen/dim_tay_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ctnAnimSplash"
+            android:src="@drawable/ic_shopping_basket"
+            />
+        <ImageView
+            android:id="@+id/imgBag"
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            android:layout_marginStart="@dimen/dim_tay_40"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ctnAnimSplash"
+            android:src="@drawable/ic_shopping_basket"
+            />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
+            android:id="@+id/ctnAnimSplash"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +103,9 @@
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/anim_value_splash" />
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/ctlBottom"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-70dp"
                 android:orientation="vertical"
@@ -60,18 +115,43 @@
 
 
                 <TextView
+                    android:id="@+id/textSplash"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/ui_tay_montserrat_bold"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/penny_regular"
                     android:gravity="center"
                     android:text="@string/text_name_principal"
                     android:textColor="@color/tay_edit_basic_bg_corner_active"
                     android:textSize="@dimen/txt_size_25"
-                    android:textStyle="italic" />
+                   />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            android:contentDescription="@null"
+            android:id="@+id/imgBagB"
+            android:layout_marginStart="-60dp"
+            android:layout_marginBottom="@dimen/dim_tay_20"
+            app:layout_constraintBottom_toBottomOf="@+id/ctnAnimSplash"
+            app:layout_constraintStart_toEndOf="@+id/ctnAnimSplash"
+            android:src="@drawable/ic_shopping_basket"
+            />
+        <ImageView
+            android:id="@+id/imgBagBTwo"
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            android:layout_marginEnd="-60dp"
+            android:layout_marginBottom="@dimen/dim_tay_20"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/ctnAnimSplash"
+            app:layout_constraintEnd_toStartOf="@+id/ctnAnimSplash"
+            android:src="@drawable/ic_shopping_basket"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

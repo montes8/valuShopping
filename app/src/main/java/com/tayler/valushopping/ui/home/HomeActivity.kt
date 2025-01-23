@@ -12,7 +12,6 @@ import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
 import com.gb.vale.uitaylibrary.extra.UITayStyleTbIcon
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
 import com.gb.vale.uitaylibrary.utils.uiTayHandler
-import com.gb.vale.uitaylibrary.utils.uiTayOpenPdfUrl
 import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.google.android.material.navigation.NavigationView
 import com.tayler.valushopping.R
@@ -22,6 +21,7 @@ import com.tayler.valushopping.entity.ItemModel
 import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
+import com.tayler.valushopping.ui.about.AboutUsActivity
 import com.tayler.valushopping.ui.home.admin.AdminFragment
 import com.tayler.valushopping.ui.home.dialog.DeliveryPointsBS
 import com.tayler.valushopping.ui.home.init.InitFragment
@@ -32,7 +32,6 @@ import com.tayler.valushopping.ui.profile.ProfileActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.JSON_ITEM_HOME
 import com.tayler.valushopping.utils.JSON_ITEM_HOME_TWP
-import com.tayler.valushopping.utils.LINK_TERM
 import com.tayler.valushopping.utils.getData
 import com.tayler.valushopping.utils.goUrlFacebook
 import com.tayler.valushopping.utils.setDrawableCircle
@@ -140,9 +139,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 selectedItemMenu(item, false)
             }
 
-            R.id.navOther ->{
+            R.id.navPart ->{
+                AboutUsActivity.newInstance(this)
                 selectedItemMenu(item,false)
-                uiTayOpenPdfUrl(url = LINK_TERM)
+
 
             }
 
