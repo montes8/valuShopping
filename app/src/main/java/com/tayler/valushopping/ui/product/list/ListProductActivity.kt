@@ -55,7 +55,7 @@ class ListProductActivity : BaseActivity() {
     }
 
     private fun loadService(){
-        viewModel.loadProduct()
+        viewModel.loadProduct(true)
     }
 
     private fun onClickDelete(position:Int){

@@ -64,16 +64,16 @@ class ProductFragment : BaseFragment() {
     private fun onClickView(){
         flagView = !flagView
         setConfigImagePresentation()
-        binding.rvListProduct.uiTayVisibilityDuo(flagView,binding.rvProductList)
+        binding.rvProductList.uiTayVisibilityDuo(flagView,binding.rvListProduct)
     }
 
     private fun setConfigImagePresentation(){
         binding.imgTypeList.setImageDrawable(ContextCompat.getDrawable(
-            requireContext(),if(flagView)R.drawable.ic_type_list_horizontal else R.drawable.ic_type_list))
+            requireContext(),if(flagView)R.drawable.ic_type_list else R.drawable.ic_type_list_horizontal))
     }
     private fun configList(list : List<ProductResponse>){
         binding.refreshList.isRefreshing = false
-        binding.rvListProduct.uiTayVisibilityDuo(list.isNotEmpty(),binding.ctnListEmpty)
+        binding.rvProductList.uiTayVisibilityDuo(list.isNotEmpty(),binding.ctnListEmpty)
         binding.imgTypeList.uiTayVisibility(list.isNotEmpty())
         productAdapter.productList = list
         productAdapter.onClickItem = {

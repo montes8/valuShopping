@@ -41,6 +41,7 @@
     <string name="txt_profile">Perfil</string>
     <string name="txt_menu_profile">Cambio de perfil</string>
     <string name="txt_menu_client">Se parte de nosotros</string>
+    <string name="txt_menu_about">Sobre nosotros</string>
     <string name="txt_menu_map">Puntos de entrega</string>
     <string name="txt_menu_other">T &amp; C</string>
     <string name="txt_menu_facebook">Facebook</string>

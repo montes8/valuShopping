@@ -7,6 +7,10 @@
             android:icon="@drawable/ic_profile"
             android:title="@string/txt_profile"/>
         <item
+            android:id="@+id/navAbout"
+            android:icon="@drawable/ic_home"
+            android:title="@string/txt_menu_about"/>
+        <item
             android:id="@+id/navClient"
             android:icon="@drawable/ic_about"
             android:title="@string/txt_menu_client"/>
@@ -23,9 +27,5 @@
             android:id="@+id/navFacebook"
             android:icon="@drawable/ic_facebook_pink"
             android:title="@string/txt_menu_facebook" />
-        <item
-            android:id="@+id/navOther"
-            android:icon="@drawable/ic_term"
-            android:title="@string/txt_menu_other" />
     </group>
 </menu>

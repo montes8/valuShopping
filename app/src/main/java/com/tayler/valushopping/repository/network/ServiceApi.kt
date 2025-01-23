@@ -36,6 +36,9 @@ interface ServiceApi {
     @GET("product")
     suspend fun loadProduct(): Response<List<ProductResponse>>
 
+    @GET("product/all")
+    suspend fun loadProducts(): Response<List<ProductResponse>>
+
     @DELETE("product/{id}")
     suspend fun deleteProduct(@Path("id")id : String): Response<ProductResponse>
 

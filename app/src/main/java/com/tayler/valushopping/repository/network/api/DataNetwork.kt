@@ -30,10 +30,10 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
         }
     }
 
-    override suspend fun loadProduct(): List<ProductResponse> {
+    override suspend fun loadProduct(all : Boolean): List<ProductResponse> {
         return base.executeWithConnection {
             var model  : List<ProductResponse>?  = null
-            val response  = serviceApi.loadProduct()
+            val response  = if(all)serviceApi.loadProducts() else serviceApi.loadProduct()
             if (response.validateData()) {
                 model = response.validateBody()
             }

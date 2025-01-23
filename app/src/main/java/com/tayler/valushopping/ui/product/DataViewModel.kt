@@ -35,9 +35,9 @@ class DataViewModel  @Inject constructor(
         }
     }
 
-    fun loadProduct(){
+    fun loadProduct(all : Boolean = false){
         execute(false) {
-            val response = dataNetwork.loadProduct()
+            val response = dataNetwork.loadProduct(all)
             _successLoadProductLiveData.postValue(response)
         }
     }
