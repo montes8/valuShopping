@@ -51,8 +51,9 @@
             <TextView
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:fontFamily="@font/flex_bold_italic"
-                android:textSize="@dimen/dim_tay_sp_text_16"
+                android:fontFamily="@font/emily_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/dim_tay_sp_text_18"
                 android:text="@{admin.title}"
                 android:layout_marginStart="@dimen/dim_tay_8"
                 tools:text="@string/text_welcome"
