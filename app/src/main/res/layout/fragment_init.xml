@@ -7,20 +7,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="@dimen/dim_tay_16">
-
-  <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+  <com.google.android.material.card.MaterialCardView
       android:layout_width="match_parent"
-      android:id="@+id/youTubeVale"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:autoPlay="false"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_height="wrap_content"/>
+      app:cardCornerRadius="@dimen/dim_tay_12"
+      android:layout_height="wrap_content">
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:layout_width="match_parent"
+        android:id="@+id/youTubeVale"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:autoPlay="false"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"/>
+  </com.google.android.material.card.MaterialCardView>
+
+
   <TextView
       android:id="@+id/textTitleInit"
       android:layout_width="match_parent"
       android:text="@string/text_not_config"
-      android:fontFamily="@font/flex_bold_italic"
+      android:fontFamily="@font/gabi_regular"
+      android:textStyle="bold"
       android:textSize="@dimen/txt_size_20"
       android:lineSpacingExtra="@dimen/size_4"
       android:textColor="@color/pink_400"
@@ -32,11 +42,11 @@
       android:layout_width="match_parent"
       android:text="@string/text_not_config"
       android:layout_marginTop="@dimen/dim_tay_12"
-      android:fontFamily="@font/flex_medium_italic"
+      android:fontFamily="@font/gabi_regular"
       android:textSize="@dimen/dim_tay_sp_text_14"
       android:minLines="5"
       android:lineSpacingExtra="@dimen/size_4"
-      android:textColor="@color/pink_100"
+      android:textColor="@color/gray_400"
       android:layout_height="wrap_content"/>
   <androidx.appcompat.widget.LinearLayoutCompat
       android:layout_width="match_parent"
@@ -50,7 +60,8 @@
         android:textColor="@color/blue"
         android:layout_marginTop="@dimen/dim_tay_12"
         android:drawablePadding="@dimen/dim_tay_8"
-        android:fontFamily="@font/ui_tay_montserrat_bold"
+        android:textStyle="bold"
+        android:fontFamily="@font/serif_regular"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/ic_facebook" />
     <TextView
@@ -61,7 +72,8 @@
         android:layout_marginTop="@dimen/dim_tay_12"
         android:drawablePadding="@dimen/dim_tay_8"
         android:textColor="@color/black"
-        android:fontFamily="@font/ui_tay_montserrat_bold"
+        android:textStyle="bold"
+        android:fontFamily="@font/serif_regular"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/ic_tiktok" />
 
@@ -79,7 +91,8 @@
         android:textSize="@dimen/txt_size_20"
         android:layout_marginTop="@dimen/dim_tay_12"
         android:drawablePadding="@dimen/dim_tay_8"
-        android:fontFamily="@font/ui_tay_montserrat_bold"
+        android:textStyle="bold"
+        android:fontFamily="@font/serif_regular"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/ic_instagram" />
     <TextView
@@ -90,7 +103,8 @@
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/dim_tay_12"
         android:drawablePadding="@dimen/dim_tay_8"
-        android:fontFamily="@font/flex_bold"
+        android:textStyle="bold"
+        android:fontFamily="@font/serif_regular"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/ic_youtube" />
 
