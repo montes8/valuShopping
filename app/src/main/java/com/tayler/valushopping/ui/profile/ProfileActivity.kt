@@ -137,6 +137,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private fun configFocusable(value : Boolean){
         binding.editNameProfile.uiTayLFocusable = value
         binding.editLastNameProfile.uiTayLFocusable = value
+        binding.editDocumentProfile.uiTayLFocusable = value
         binding.editEmailProfile.uiTayLFocusable = value
         binding.editPhoneProfile.uiTayLFocusable = value
         binding.editAddressProfile.uiTayLFocusable = value

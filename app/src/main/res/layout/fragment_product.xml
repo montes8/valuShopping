@@ -5,9 +5,6 @@
 
     <data>
         <variable
-            name="productAdapter"
-            type="com.tayler.valushopping.ui.home.product.adapter.ProductAdapter" />
-        <variable
             name="productListAdapter"
             type="com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter" />
     </data>
@@ -46,34 +43,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="@string/text_product_choose"
                     android:layout_height="wrap_content"/>
-                <ImageView
-                    android:id="@+id/imgTypeList"
-                    android:contentDescription="@null"
-                    android:layout_width="wrap_content"
-                    android:layout_marginEnd="@dimen/size_4"
-                    android:padding="@dimen/dim_tay_12"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_type_list_horizontal"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_height="wrap_content"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:id="@+id/rvListProduct"
-                    android:layout_height="@dimen/dim_tay_0"
-                    app:adapter="@{productAdapter}"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="2"
-                    android:visibility="gone"
-                    android:paddingBottom="@dimen/dim_tay_8"
-                    tools:listitem="@layout/row_other"
-                    tools:itemCount="4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTitleAdmin"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
@@ -107,6 +76,7 @@
                         android:id="@+id/imgListEmpty"
                         android:layout_width="wrap_content"
                         android:src="@drawable/ic_list_empty"
+                        android:contentDescription="@null"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

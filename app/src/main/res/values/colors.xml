@@ -5,6 +5,7 @@
     <color name="primary_pink">@color/pink_200</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+    <color name="gray_600">#212121</color>
     <color name="gray_500">#424242</color>
     <color name="gray_400">#626262</color>
     <color name="gray_300">#9E9E9E</color>

@@ -25,7 +25,7 @@ class AppPreferences @Inject constructor(private val preferenceManager : Prefere
     }
 
     override fun login(user: String, key: String): Boolean {
-        val login = user == "Valeria1810" && key == "20141018"
+        val login = user == "Valeria" && key == "18101810"
         if (login){saveToken("20141018201410182014101820141018")}
         return  login
     }

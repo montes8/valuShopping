@@ -3,6 +3,7 @@ package com.tayler.valushopping.ui.product.detail
 import android.content.Context
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
+import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
 import com.gb.vale.uitaylibrary.utils.uiTayParcelable
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.tayler.valushopping.R
@@ -10,6 +11,7 @@ import com.tayler.valushopping.databinding.ActivityDetailProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.dialogZoom
 import com.tayler.valushopping.utils.openWhatsApp
 import com.tayler.valushopping.utils.sharedImageView
 
@@ -54,6 +56,10 @@ class DetailProductActivity : BaseActivity() {
 
         binding.tbDetailProduct.setOnClickTayBackListener{
             finish()
+        }
+
+        binding.imageDetailProduct.setOnClickUiTayDelay {
+            dialogZoom()
         }
     }
 

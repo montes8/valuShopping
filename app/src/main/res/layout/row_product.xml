@@ -60,25 +60,20 @@
                 android:layout_height="wrap_content"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="@dimen/dim_tay_0"
+                android:padding="@dimen/dim_tay_8"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/rowImgProductList"
                 android:layout_height="match_parent">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/dim_tay_8"
-                android:gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/rowTextNameP"
                     android:layout_width="match_parent"
                     tools:text="@string/text_test"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:textColor="@color/black"
                     android:text="@{product.name}"
                     android:layout_marginEnd="@dimen/size_60"
@@ -87,19 +82,27 @@
                     android:textStyle="bold"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/rowTextDescriptionP"
                     android:layout_width="match_parent"
                     tools:text="@string/text_test"
                     android:layout_marginTop="@dimen/size_4"
                     android:text="@{product.description}"
                     android:ellipsize="end"
+                    app:layout_constraintTop_toBottomOf="@+id/rowTextNameP"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:textSize="@dimen/txt_size_12"
                     android:fontFamily="@font/gabi_regular"
                     android:maxLines="3"
                     android:layout_height="wrap_content"/>
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
+                    android:id="@+id/rowLnPriceP"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/dim_tay_4"
+                    app:layout_constraintTop_toBottomOf="@+id/rowTextDescriptionP"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/dim_tay_2"
                     android:layout_marginEnd="@dimen/size_4"
                     android:layout_height="wrap_content">
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -159,13 +162,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     tools:text="@string/text_test"
+                    app:layout_constraintTop_toBottomOf="@+id/rowLnPriceP"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:fontFamily="@font/serif_regular"
-                    android:layout_marginTop="@dimen/dim_tay_4"
+                    android:layout_marginTop="@dimen/dim_tay_2"
                     android:layout_marginEnd="@dimen/dim_tay_12"
                     android:text="@{product.getMapperTypeAndGender()}"
                     android:textSize="@dimen/txt_size_14"
                     android:layout_height="wrap_content"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
