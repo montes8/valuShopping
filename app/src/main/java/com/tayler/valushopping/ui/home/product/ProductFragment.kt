@@ -11,9 +11,11 @@ import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.FragmentProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseFragment
+import com.tayler.valushopping.ui.home.HomeActivity
 import com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter
 import com.tayler.valushopping.ui.product.DataViewModel
 import com.tayler.valushopping.ui.product.detail.DetailProductActivity
+import com.tayler.valushopping.utils.dialogZoom
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -60,6 +62,9 @@ class ProductFragment : BaseFragment() {
         productListAdapter.onClickItem = {
             DetailProductActivity.newInstance(requireContext(),it)
         }
+        productListAdapter.onClickImage = {
+            (activity as HomeActivity).dialogZoom(it)
+       }
     }
 
     override fun observeLiveData() {

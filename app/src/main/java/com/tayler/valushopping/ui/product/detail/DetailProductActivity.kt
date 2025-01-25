@@ -11,6 +11,7 @@ import com.tayler.valushopping.databinding.ActivityDetailProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.createBitmapFromView
 import com.tayler.valushopping.utils.dialogZoom
 import com.tayler.valushopping.utils.openWhatsApp
 import com.tayler.valushopping.utils.sharedImageView
@@ -59,7 +60,7 @@ class DetailProductActivity : BaseActivity() {
         }
 
         binding.imageDetailProduct.setOnClickUiTayDelay {
-            dialogZoom()
+            dialogZoom(createBitmapFromView(binding.imageDetailProduct))
         }
     }
 
