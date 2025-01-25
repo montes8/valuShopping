@@ -9,6 +9,9 @@ plugins {
 def CONFIG = { k -> "\"${project.properties.get(k)}\"" }
 def BASE_URL = "BASE_URL"
 
+def Properties keystoreProps = new Properties()
+keystoreProps.load(new FileInputStream(file('../keystore.properties')))
+
 android {
     namespace 'com.tayler.valushopping'
     compileSdk 34
@@ -22,12 +25,22 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        config {
+            keyAlias keystoreProps['keyAlias']
+            keyPassword keystoreProps['keyPassword']
+            storeFile file(keystoreProps['storeFile'])
+            storePassword keystoreProps['storePassword']
+        }
+    }
+
     buildTypes {
         release {
 
             buildConfigField "String", BASE_URL, CONFIG("production.server.url")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "encryption_key", CONFIG("preferences.encryption")
+            signingConfig signingConfigs.config
             minifyEnabled false
             shrinkResources false
             debuggable false
