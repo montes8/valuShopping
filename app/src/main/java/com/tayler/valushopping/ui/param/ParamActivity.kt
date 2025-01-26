@@ -91,6 +91,7 @@ class ParamActivity : BaseActivity() {
         dataParam = param
         binding.editIdMovie.uiTayLText= dataParam.idMovie?: EMPTY_VALE
         binding.editTitleParam.uiTayLText = dataParam.title?: EMPTY_VALE
+        binding.editPhoneParam.uiTayLText = dataParam.phone?: EMPTY_VALE
         binding.editDescriptionParam.setText(dataParam.description?: EMPTY_VALE)
         dataParam.enableCategory?.let {
             binding.rbCategoryActive.isChecked = it

@@ -1,12 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.about.AboutUsActivity">
+
+    <com.gb.vale.uitaylibrary.extra.UiTayToolBar
+        android:id="@+id/tbAbout"
+        android:layout_width="match_parent"
+        app:uiTayTextTb="Sobre nosotros"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbAbout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="@dimen/dim_tay_0">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/dim_tay_16"
+            android:orientation="vertical"
+            android:layout_height="@dimen/dim_tay_0">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Modo de uso"
+                android:fontFamily="@font/serif_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/txt_size_14"
+                android:textColor="@color/pink_200"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="@string/text_about_use"
+                android:fontFamily="@font/serif_regular"
+                android:textSize="@dimen/txt_size_10"
+                android:textColor="@color/gray_300"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dim_tay_8"
+                android:text="Faltas motivo de bloqueo"
+                android:fontFamily="@font/serif_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/txt_size_14"
+                android:textColor="@color/pink_200"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="@string/text_about_blocking"
+                android:fontFamily="@font/serif_regular"
+                android:textSize="@dimen/size_10"
+                android:textColor="@color/gray_300"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dim_tay_8"
+                android:text="Recomendaciones"
+                android:fontFamily="@font/serif_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/txt_size_14"
+                android:textColor="@color/pink_200"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="@string/text_about_recommended"
+                android:fontFamily="@font/serif_regular"
+                android:textSize="@dimen/size_10"
+                android:textColor="@color/gray_300"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dim_tay_8"
+                android:text="Uso del perfil"
+                android:fontFamily="@font/serif_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/txt_size_14"
+                android:textColor="@color/pink_200"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="@string/text_about_profile"
+                android:fontFamily="@font/serif_regular"
+                android:textSize="@dimen/size_10"
+                android:textColor="@color/gray_300"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

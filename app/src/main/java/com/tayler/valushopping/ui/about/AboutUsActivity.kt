@@ -23,6 +23,7 @@ class AboutUsActivity : BaseActivity() {
     }
 
     override fun setUpView() {
+        binding.tbAbout.setOnClickTayBackListener{finish()}
     }
 
     override fun observeViewModel() {
