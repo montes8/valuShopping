@@ -22,9 +22,6 @@ data class CompleteErrorModel(
     @SerializedName("description")
     val description: String?= ERROR_MESSAGE_GENERAL
 ) : Exception(description){
-    fun getException(): Exception {
-        return CompleteErrorModel( this.code, this.title,this.description)
-    }
 
     fun getApiException(): Exception {
         return ApiException( this.code?:0, this.title?: ERROR_MESSAGE_GENERAL,this.description?:ERROR_MESSAGE_GENERAL)

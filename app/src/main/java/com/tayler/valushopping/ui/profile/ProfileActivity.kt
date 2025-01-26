@@ -103,7 +103,6 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     private fun mapperProfile(){
-        userModel.dataSave = true
         userModel.names = binding.editNameProfile.uiTayLText
         userModel.lastName = binding.editLastNameProfile.uiTayLText
         userModel.document = binding.editDocumentProfile.uiTayLText
@@ -113,7 +112,6 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     private fun initDataProfile(){
-        userModel.dataSave = true
         binding.editNameProfile.uiTayLText = userModel.names
         binding.editLastNameProfile.uiTayLText = userModel.lastName
         binding.editDocumentProfile.uiTayLText = userModel.document

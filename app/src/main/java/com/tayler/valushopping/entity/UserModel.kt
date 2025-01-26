@@ -14,5 +14,5 @@ data class UserModel (
     var addressUser : String = EMPTY_VALE,
     var img : String = EMPTY_VALE,
     var imgBanner : String = EMPTY_VALE,
-    var dataSave : Boolean = false
+    var rol : String = EMPTY_VALE
 )

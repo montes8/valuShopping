@@ -3,6 +3,8 @@ package com.tayler.valushopping.ui.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tayler.valushopping.entity.UserModel
+import com.tayler.valushopping.entity.singleton.AppDataVale
+import com.tayler.valushopping.repository.network.api.UserNetwork
 import com.tayler.valushopping.repository.preferences.api.AppPreferences
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.utils.EMPTY_VALE
@@ -12,6 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class UserViewModel  @Inject constructor(
     private val  appPreferences: AppPreferences,
+    private val  userNetwork: UserNetwork,
 
 ): BaseViewModel(){
 
@@ -29,8 +32,14 @@ class UserViewModel  @Inject constructor(
 
     fun login(user : String,key : String){
         execute {
-                val response = appPreferences.login(user,key)
-                _successLoginLiveData.postValue(response)
+                val response = userNetwork.login(user,key)
+                appPreferences.saveToken(response.token)
+                 val useSave = appPreferences.getUser()
+                 useSave.id = response.userValid?.uid?: EMPTY_VALE
+                 useSave.rol = response.userValid?.rol?: EMPTY_VALE
+                 val userUpdate = appPreferences.saveUser(useSave)
+                 AppDataVale.user = userUpdate
+                 _successLoginLiveData.postValue(true)
         }
     }
     fun saveUser(user : UserModel){

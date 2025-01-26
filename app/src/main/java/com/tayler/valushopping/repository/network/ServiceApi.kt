@@ -1,6 +1,8 @@
 package com.tayler.valushopping.repository.network
 
 import com.tayler.valushopping.repository.network.model.ImageResponse
+import com.tayler.valushopping.repository.network.model.LoginRequest
+import com.tayler.valushopping.repository.network.model.LoginResponse
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import okhttp3.MultipartBody
@@ -13,8 +15,10 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
-
 interface ServiceApi {
+
+    @POST("user/login")
+    suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
     @GET("config/param")
     suspend fun loadParam(): Response<ParamResponse>?
 
@@ -36,8 +40,8 @@ interface ServiceApi {
     @GET("product")
     suspend fun loadProduct(): Response<List<ProductResponse>>
 
-    @GET("product/all")
-    suspend fun loadProducts(): Response<List<ProductResponse>>
+    @GET("product/all/{id}")
+    suspend fun loadProducts(@Path("id")id : Boolean): Response<List<ProductResponse>>
 
     @DELETE("product/{id}")
     suspend fun deleteProduct(@Path("id")id : String): Response<ProductResponse>

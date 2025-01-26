@@ -10,7 +10,4 @@ interface IAppPreferences {
     fun saveUser(value : UserModel):UserModel
 
     fun getUser() : UserModel
-
-    fun login(user : String,key : String):Boolean
-
 }

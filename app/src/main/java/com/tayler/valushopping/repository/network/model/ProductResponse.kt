@@ -4,7 +4,6 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.utils.EMPTY_VALE
-import com.tayler.valushopping.utils.ID_DEFAULT
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -33,8 +32,8 @@ data class ProductResponse (
     var phone : String? = EMPTY_VALE,
     @SerializedName("principal")
     var principal : Boolean? = false,
-    @SerializedName("idUser")
-    var idUser : String? = ID_DEFAULT
+    @SerializedName("admin")
+    var admin : Boolean? = false
 ):Parcelable{
 
     fun getLoadImage()= "${BuildConfig.BASE_URL}uploads/product/${img}"

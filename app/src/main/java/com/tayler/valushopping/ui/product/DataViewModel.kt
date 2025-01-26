@@ -2,6 +2,7 @@ package com.tayler.valushopping.ui.product
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.api.DataNetwork
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseViewModel
@@ -30,14 +31,15 @@ class DataViewModel  @Inject constructor(
         execute {
             val responseImage = dataNetwork.saveImage(File(data.img?: EMPTY_VALE))
             data.img = responseImage.nameImage
+            data.admin = AppDataVale.user.rol == "ADMIN"
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
         }
     }
 
-    fun loadProduct(all : Boolean = false){
+    fun loadProduct(all : Boolean = false,admin:Boolean = false){
         execute(false) {
-            val response = dataNetwork.loadProduct(all)
+            val response = dataNetwork.loadProduct(all,admin)
             _successLoadProductLiveData.postValue(response)
         }
     }

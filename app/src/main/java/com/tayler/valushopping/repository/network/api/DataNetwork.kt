@@ -1,6 +1,5 @@
 package com.tayler.valushopping.repository.network.api
 
-import android.util.Log
 import com.tayler.valushopping.repository.network.ServiceApi
 import com.tayler.valushopping.repository.network.abstracts.IDataNetwork
 import com.tayler.valushopping.repository.network.abstracts.base.BaseNetwork
@@ -30,10 +29,10 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
         }
     }
 
-    override suspend fun loadProduct(all : Boolean): List<ProductResponse> {
+    override suspend fun loadProduct(all : Boolean,admin:Boolean): List<ProductResponse> {
         return base.executeWithConnection {
             var model  : List<ProductResponse>?  = null
-            val response  = if(all)serviceApi.loadProducts() else serviceApi.loadProduct()
+            val response  = if(all)serviceApi.loadProducts(admin) else serviceApi.loadProduct()
             if (response.validateData()) {
                 model = response.validateBody()
             }
@@ -49,7 +48,6 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
             if (response.validateData()) {
                 model = response.validateBody()
             }
-            Log.d("servicess","deleteProductsuccpend")
             model?: throw response.errorBody().toCompleteErrorModel(response.code())
         }
     }

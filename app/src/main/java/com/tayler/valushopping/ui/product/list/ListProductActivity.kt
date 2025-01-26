@@ -13,6 +13,7 @@ import com.gb.vale.uitaylibrary.utils.uiTayAddSwipe
 import com.gb.vale.uitaylibrary.utils.uiTayVisibilityDuo
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityListProductBinding
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
@@ -55,7 +56,7 @@ class ListProductActivity : BaseActivity() {
     }
 
     private fun loadService(){
-        viewModel.loadProduct(true)
+        viewModel.loadProduct(true,AppDataVale.user.rol != "ADMIN")
     }
 
     private fun onClickDelete(position:Int){

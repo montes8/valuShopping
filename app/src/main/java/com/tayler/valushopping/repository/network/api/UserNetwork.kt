@@ -3,6 +3,8 @@ package com.tayler.valushopping.repository.network.api
 import com.tayler.valushopping.repository.network.ServiceApi
 import com.tayler.valushopping.repository.network.abstracts.IUserNetwork
 import com.tayler.valushopping.repository.network.abstracts.base.BaseNetwork
+import com.tayler.valushopping.repository.network.model.LoginRequest
+import com.tayler.valushopping.repository.network.model.LoginResponse
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.toCompleteErrorModel
@@ -24,6 +26,17 @@ class UserNetwork @Inject constructor(private val serviceApi : ServiceApi, priva
 
             model
          }
+    }
+
+    override suspend fun login(user: String, key: String) : LoginResponse{
+        return base.executeWithConnection {
+            var model : LoginResponse?  = null
+            val response  = serviceApi.login(LoginRequest(user,key))
+            if (response.validateData()) {
+                model = response.validateBody()
+            }
+            model?: throw response.errorBody().toCompleteErrorModel(response.code())
+        }
     }
 
     override suspend fun saveParam(param: ParamResponse): ParamResponse {
