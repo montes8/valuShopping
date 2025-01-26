@@ -32,6 +32,7 @@ class DataViewModel  @Inject constructor(
             val responseImage = dataNetwork.saveImage(File(data.img?: EMPTY_VALE))
             data.img = responseImage.nameImage
             data.admin = AppDataVale.user.rol == "ADMIN"
+            data.idUser = AppDataVale.user.id
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
         }
