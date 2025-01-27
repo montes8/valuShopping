@@ -103,10 +103,21 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
         binding.btnNavigation.setOnItemSelectedListener { item ->
              when (item.itemId) {
-                1 -> {addToNavigation(initFragment) }
-                2 -> {addToNavigation(productFragment)}
-                3 ->  { addToNavigation(otherFragment)}
-                 else -> {    addToNavigation(adminFragment)}
+                1 -> {
+                    addToNavigation(initFragment) }
+                2 -> {
+                    addToNavigation(productFragment)
+                    initFragment.onPauseMovie()
+                }
+
+                3 ->  {
+                    addToNavigation(otherFragment)
+                    initFragment.onPauseMovie()
+                }
+                 else -> {
+                     addToNavigation(adminFragment)
+                     initFragment.onPauseMovie()
+                 }
             }
             drawerGone()
             return@setOnItemSelectedListener true
@@ -200,7 +211,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun loadUpdateConfigUser(){
         viewModel.loadUser().observe(this){
             uiTayTryCatch {  bindingH.imgProfileHome.setDrawableCircle(it.img)}
-            bindingH.txtNameUserMenu.text = it.names
+            if (it.names.isNotEmpty())bindingH.txtNameUserMenu.text = it.names
         }
     }
 

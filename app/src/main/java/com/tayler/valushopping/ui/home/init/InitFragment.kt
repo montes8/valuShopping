@@ -19,7 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class InitFragment : BaseFragment() {
 
     private lateinit var binding: FragmentInitBinding
-
+    var youTubePlayerView: YouTubePlayerView? =  null
+    var youTubePlayerVale : YouTubePlayer? = null
     companion object {
         fun newInstance() = InitFragment()
     }
@@ -37,15 +38,28 @@ class InitFragment : BaseFragment() {
         if (param.title?.isNotEmpty() == true) binding.textTitleInit.text = param.title
         if (param.description?.isNotEmpty() == true) binding.textSubTitleInit.text =
             param.description
-        val youTubePlayerView: YouTubePlayerView = binding.youTubeVale
-        lifecycle.addObserver(youTubePlayerView)
-        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-            override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = param.idMovie ?: EMPTY_VALE
-                youTubePlayer.loadVideo(videoId, 0f)
-                youTubePlayer.pause()
-            }
-        })
+
+        onInitMovie()
+    }
+
+    fun onInitMovie(){
+        youTubePlayerView = binding.youTubeVale
+        youTubePlayerView?.let {
+            lifecycle.addObserver(it)
+        }
+        youTubePlayerView?.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    youTubePlayerVale = youTubePlayer
+                    val videoId = AppDataVale.paramData.idMovie ?: EMPTY_VALE
+                    youTubePlayerVale?.loadVideo(videoId, 0f)
+                    youTubePlayerVale?.pause()
+                }
+            })
+
+    }
+
+    fun onPauseMovie(){
+        youTubePlayerVale?.pause()
     }
 
     override fun observeLiveData() {

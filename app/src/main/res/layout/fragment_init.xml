@@ -31,8 +31,8 @@
       android:text="@string/text_not_config"
       android:fontFamily="@font/gabi_regular"
       android:textStyle="bold"
-      android:textSize="@dimen/txt_size_20"
-      android:lineSpacingExtra="@dimen/size_4"
+      android:textSize="@dimen/txt_size_18"
+      android:maxLines="2"
       android:textColor="@color/pink_400"
       android:layout_marginTop="@dimen/dim_tay_12"
       android:layout_height="wrap_content"/>
@@ -41,11 +41,10 @@
       android:id="@+id/textSubTitleInit"
       android:layout_width="match_parent"
       android:text="@string/text_not_config"
-      android:layout_marginTop="@dimen/dim_tay_12"
+      android:layout_marginTop="@dimen/dim_tay_8"
       android:fontFamily="@font/gabi_regular"
       android:textSize="@dimen/dim_tay_sp_text_14"
       android:minLines="5"
-      android:lineSpacingExtra="@dimen/size_4"
       android:textColor="@color/gray_400"
       android:layout_height="wrap_content"/>
   <androidx.appcompat.widget.LinearLayoutCompat

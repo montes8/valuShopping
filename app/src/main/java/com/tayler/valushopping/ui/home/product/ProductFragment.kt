@@ -23,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProductFragment : BaseFragment() {
     private val viewModel: DataViewModel by viewModels()
     private lateinit var binding: FragmentProductBinding
-    private var productListAdapter = ProductListAdapter()
+    private var productListAdapter = ProductListAdapter(false)
     private var flagView = true
 
     companion object { fun newInstance() = ProductFragment() }

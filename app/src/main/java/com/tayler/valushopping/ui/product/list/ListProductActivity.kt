@@ -19,6 +19,7 @@ import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.product.adapter.ProductListAdapter
 import com.tayler.valushopping.ui.product.DataViewModel
+import com.tayler.valushopping.ui.product.add.ProductActivity
 import com.tayler.valushopping.ui.product.update.UpdateProductActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.result.ValeResult
@@ -46,6 +47,7 @@ class ListProductActivity : BaseActivity() {
 
     private fun configInit(){
         binding.tbLitProductAdmin.setOnClickTayBackListener{finish()}
+        binding.tbLitProductAdmin.setOnClickTayMenuListener{ProductActivity.newInstance(this)}
         binding.productListAdapter = productListAdapter
         binding.rvProductListAdmin.uiTayAddSwipe(this){
             it.add(UiTayCardSwipeButton(this, imageResId = R.drawable.ic_delete){position ->

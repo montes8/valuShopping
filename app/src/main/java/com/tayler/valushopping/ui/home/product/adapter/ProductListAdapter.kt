@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
+import com.gb.vale.uitaylibrary.utils.uiTayVisibility
 import com.tayler.valushopping.databinding.RowProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.utils.createBitmapFromView
 
-class ProductListAdapter(var onClickImage: ((Bitmap) -> Unit)? = null,var onClickItem: ((ProductResponse) -> Unit)? = null) :
+class ProductListAdapter(var state : Boolean = true,var onClickImage: ((Bitmap) -> Unit)? = null,var onClickItem: ((ProductResponse) -> Unit)? = null) :
     RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
 
     var productList: List<ProductResponse> = arrayListOf()
@@ -41,6 +42,7 @@ class ProductListAdapter(var onClickImage: ((Bitmap) -> Unit)? = null,var onClic
             binding.product = product
             binding.executePendingBindings()
             binding.lnCtnRowProduct.setOnClickUiTayDelay{onClickItem?.invoke(product) }
+            binding.rowTextStateProduct.uiTayVisibility(state)
             binding.rowImgProductList.setOnClickUiTayDelay { onClickImage?.invoke(
                 createBitmapFromView(binding.rowImgProductList)
             )
