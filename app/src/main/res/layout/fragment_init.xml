@@ -9,6 +9,7 @@
     android:layout_margin="@dimen/dim_tay_16">
   <com.google.android.material.card.MaterialCardView
       android:layout_width="match_parent"
+      app:cardBackgroundColor="@color/gray_300"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -17,6 +18,7 @@
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:layout_width="match_parent"
         android:id="@+id/youTubeVale"
+        android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:autoPlay="false"

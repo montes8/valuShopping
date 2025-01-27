@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class InitFragment : BaseFragment() {
 
     private lateinit var binding: FragmentInitBinding
-    var youTubePlayerView: YouTubePlayerView? =  null
+    private var youTubePlayerView: YouTubePlayerView? =  null
     var youTubePlayerVale : YouTubePlayer? = null
     companion object {
         fun newInstance() = InitFragment()
@@ -42,7 +42,7 @@ class InitFragment : BaseFragment() {
         onInitMovie()
     }
 
-    fun onInitMovie(){
+    private fun onInitMovie(){
         youTubePlayerView = binding.youTubeVale
         youTubePlayerView?.let {
             lifecycle.addObserver(it)
@@ -55,7 +55,6 @@ class InitFragment : BaseFragment() {
                     youTubePlayerVale?.pause()
                 }
             })
-
     }
 
     fun onPauseMovie(){
