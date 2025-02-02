@@ -44,7 +44,7 @@ class ProductFragment : BaseFragment() {
         binding.productListAdapter = productListAdapter
         loadService()
          binding.refreshList.setOnRefreshListener {
-             binding.refreshList.isRefreshing = true
+             binding.refreshList.isRefreshing = false
              loadService()
          }
     }
