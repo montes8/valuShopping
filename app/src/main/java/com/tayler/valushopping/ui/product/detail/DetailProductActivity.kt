@@ -6,6 +6,8 @@ import android.graphics.Bitmap
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
+import com.gb.vale.uitaylibrary.utils.uiTayBgBorder
+
 import com.gb.vale.uitaylibrary.utils.uiTayParcelable
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.gb.vale.uitaylibrary.utils.uiTayVisibility
@@ -48,6 +50,8 @@ class DetailProductActivity : BaseActivity() {
         product = intent.uiTayParcelable(DetailProductActivity::class.java.name)
         product?.let { binding.product = it }
         binding.adapterMore = adapterImage
+        binding.lnInfoDetail.uiTayBgBorder(color = R.color.red_50, radius = R.dimen.size_8,
+            )
         adapterImage.onClickImage = {
             dialogZoomDetail(it)
         }

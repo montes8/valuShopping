@@ -25,7 +25,9 @@
     <!-- TODO: text Message-->
 
     <string name="text_info_user">Si usted no se encuentra loageado, sus datos personales solo de guardaran de forma local</string>
-    <string name="text_info_product">Todos los productos seran pagados de la forma que se cordine con el vendedor.</string>
+    <string name="text_info_product">Consulte con el vendedor para mas detalle.</string>
+
+
 
     <string name="ui_script_multi">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </string>
 

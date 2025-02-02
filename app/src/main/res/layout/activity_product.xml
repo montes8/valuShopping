@@ -136,6 +136,7 @@
                     android:id="@+id/editNameProduct"
                     android:inputType="textCapSentences"
                     app:uiTayLabelHint="nombre de producto"
+                    app:uiTayLabelEditMaxLength="100"
                     android:layout_marginHorizontal="@dimen/dim_tay_16"
                     app:uiTayLabelTitle="Nombre del producto"
                     android:layout_height="wrap_content"/>

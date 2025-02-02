@@ -44,6 +44,8 @@
                         android:layout_width="@dimen/size_152"
                         android:id="@+id/cardImageProduct"
                         app:cardCornerRadius="@dimen/dim_tay_12"
+                        app:strokeColor="@color/pink_50"
+                        app:strokeWidth="@dimen/size_1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,51 +78,82 @@
                             android:text="@{product.name}"
                             android:textColor="@color/primary_pink"
                             android:textSize="@dimen/txt_size_20"
+                            android:maxLines="2"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_height="wrap_content"/>
                         <TextView
-                            android:id="@+id/textPriceProduct"
+                            android:id="@+id/textTypeProduct"
                             android:layout_width="@dimen/dim_tay_0"
                             tools:text="@string/text_test"
+                            android:text="@{product.getMapperTypeAndGender()}"
                             android:textColor="@color/gray_400"
-                            android:layout_marginTop="@dimen/dim_tay_12"
+                            android:layout_marginTop="@dimen/dim_tay_8"
                             app:layout_constraintTop_toBottomOf="@+id/textNameProduct"
                             android:fontFamily="@font/serif_regular"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:text="@{product.getPriceUnitTwo()}"
                             android:textSize="@dimen/dim_tay_sp_text_16"
                             android:layout_height="wrap_content"/>
                         <TextView
-                            android:id="@+id/textPriceDocProduct"
+                            android:id="@+id/textPriceProduct"
                             android:layout_width="@dimen/dim_tay_0"
-                            tools:text="@string/text_test"
+                            tools:text="@string/tay_ui_script"
+                            android:lines="1"
+                            android:maxLines="1"
                             android:textColor="@color/gray_400"
-                            android:text="@{product.getPriceDocTwo()}"
-                            android:layout_marginTop="@dimen/dim_tay_12"
+                            android:text="@{product.getPriceUnitTwo()}"
+                            android:layout_marginTop="@dimen/size_4"
                             android:fontFamily="@font/serif_regular"
-                            app:layout_constraintTop_toBottomOf="@+id/textPriceProduct"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textTypeProduct"
+                            app:layout_constraintEnd_toStartOf="@+id/textPriceDocProduct"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            android:textSize="@dimen/txt_size_14"
                             android:layout_height="wrap_content"/>
 
                         <TextView
-                            android:id="@+id/textTypeProduct"
+                            android:id="@+id/textPriceDocProduct"
                             android:layout_width="@dimen/dim_tay_0"
                             android:fontFamily="@font/serif_regular"
                             android:textColor="@color/gray_400"
-                            tools:text="@string/text_test"
-                            android:layout_marginTop="@dimen/dim_tay_12"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textPriceDocProduct"
+                            tools:text="@string/tay_ui_script"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textSize="@dimen/txt_size_14"
+                            app:layout_constraintTop_toBottomOf="@+id/textTypeProduct"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:text="@{product.getMapperTypeAndGender()}"
-                            android:textSize="@dimen/dim_tay_sp_text_16"
+                            app:layout_constraintStart_toEndOf="@+id/textPriceProduct"
+                            android:text="@{product.getPriceDocTwo()}"
                             android:layout_height="wrap_content"/>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:id="@+id/lnInfoDetail"
+                            android:padding="@dimen/size_4"
+                            app:layout_constraintTop_toBottomOf="@+id/textPriceProduct"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="@dimen/dim_tay_8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_height="wrap_content">
+                           <ImageView
+                               android:layout_width="@dimen/dim_tay_16"
+                               android:contentDescription="@null"
+                               android:layout_marginTop="@dimen/size_4"
+                               android:src="@drawable/ui_tay_ic_info"
+                               android:layout_height="@dimen/dim_tay_16"
+                               app:tint="@color/red" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/textInfo"
+                                android:textColor="@color/red"
+                                android:layout_marginStart="@dimen/size_4"
+                                android:textSize="@dimen/txt_size_12"
+                                android:fontFamily="@font/gabi_regular"
+                                android:text="@string/text_info_product"
+                                android:layout_height="wrap_content"/>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -138,13 +171,28 @@
                     android:layout_marginHorizontal="@dimen/dim_tay_12"
                     app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
                     android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/textTitleDescriptionProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_tay_8"
+                    android:text="Descripción del producto"
+                    android:layout_marginHorizontal="@dimen/dim_tay_16"
+                    android:textColor="@color/pink_400"
+                    android:fontFamily="@font/serif_regular"
+                    android:textSize="@dimen/txt_size_18"
+                    app:layout_constraintTop_toBottomOf="@+id/rvMoreImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
                 <TextView
                     android:id="@+id/textDescriptionProduct"
                     android:layout_width="match_parent"
-                    android:textColor="@color/gray_300"
+                    android:textColor="@color/gray_400"
                     android:fontFamily="@font/serif_regular"
                     tools:text="@string/ui_script_multi"
-                    app:layout_constraintTop_toBottomOf="@+id/rvMoreImage"
+                    app:layout_constraintTop_toBottomOf="@+id/textTitleDescriptionProduct"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:text="@{product.description}"
@@ -152,25 +200,6 @@
                     android:layout_marginTop="@dimen/dim_tay_8"
                     android:textSize="@dimen/dim_tay_sp_text_16"
                     android:layout_height="wrap_content"/>
-                <com.gb.vale.uitaylibrary.extra.UiTayInfo
-                    android:layout_width="match_parent"
-                    android:id="@+id/textInfo"
-                    android:layout_marginHorizontal="@dimen/dim_tay_16"
-                    android:layout_marginTop="@dimen/dim_tay_24"
-                    app:uiTayStyleInfo="UI_TAY_INFO"
-                    app:uiTayTextInformation="@string/text_info_product"
-                    app:layout_constraintTop_toBottomOf="@+id/textDescriptionProduct"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:id="@+id/imgTest"
-                    android:layout_width="match_parent"
-                    android:contentDescription="@null"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textInfo"
-
-                    android:layout_height="@dimen/size_110"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

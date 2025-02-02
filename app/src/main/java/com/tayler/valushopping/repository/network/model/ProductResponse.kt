@@ -43,13 +43,13 @@ data class ProductResponse(
 
     fun getPriceDoc() = "S/ $priceTwo"
 
-    fun getPriceUnitTwo() = "C/U: S/ $price"
+    fun getPriceUnitTwo() = "c/u: S/ $price"
 
     fun getPriceDocTwo(): String {
         return if (visiblePriceDoc()) {
-            "DOC/: S/ $priceTwo"
+            "doc/: S/ $priceTwo"
         } else {
-            "DOC/: No disponible"
+            "doc/: No disponible"
         }
     }
 
