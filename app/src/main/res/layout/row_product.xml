@@ -92,18 +92,20 @@
                     android:layout_marginTop="@dimen/dim_tay_2"
                     android:text="@{product.description}"
                     android:ellipsize="end"
+                    android:gravity="center_vertical"
                     app:layout_constraintTop_toBottomOf="@+id/rowTextNameP"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="@dimen/txt_size_12"
                     android:fontFamily="@font/gabi_regular"
                     android:maxLines="3"
-                    android:layout_height="wrap_content"/>
+                    app:layout_constraintBottom_toTopOf="@+id/rowLnPriceP"
+                    android:layout_height="@dimen/dim_tay_0"/>
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:id="@+id/rowLnPriceP"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/rowTextDescriptionP"
+                    app:layout_constraintBottom_toTopOf="@+id/rowTextType"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="@dimen/dim_tay_2"
@@ -164,9 +166,9 @@
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
                 <TextView
+                    android:id="@+id/rowTextType"
                     android:layout_width="match_parent"
                     tools:text="@string/text_test"
-                    app:layout_constraintTop_toBottomOf="@+id/rowLnPriceP"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
