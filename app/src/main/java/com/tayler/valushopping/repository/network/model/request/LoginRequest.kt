@@ -1,4 +1,4 @@
-package com.tayler.valushopping.repository.network.model
+package com.tayler.valushopping.repository.network.model.request
 
 import com.google.gson.annotations.SerializedName
 

@@ -6,6 +6,7 @@ import com.tayler.valushopping.repository.network.abstracts.base.BaseNetwork
 import com.tayler.valushopping.repository.network.exception.GenericException
 import com.tayler.valushopping.repository.network.model.ImageResponse
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import com.tayler.valushopping.utils.toCompleteErrorModel
 import com.tayler.valushopping.utils.validateBody
 import com.tayler.valushopping.utils.validateData
@@ -61,7 +62,8 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
             }
             model?: throw response.errorBody().toCompleteErrorModel(response.code())
 
-        }    }
+        }
+    }
 
     override suspend fun saveImage(file: File?): ImageResponse {
         return base.executeWithConnection {
@@ -76,6 +78,17 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
                      model?: throw response.errorBody().toCompleteErrorModel(response.code())
                  }?: throw GenericException()
 
+        }
+    }
+
+    override suspend fun loadProductImage(idProduct: String): List<ImageMoreResponse> {
+        return base.executeWithConnection {
+            var model  : List<ImageMoreResponse>?  = null
+            val response  = serviceApi.loadProductImage(idProduct)
+            if (response.validateData()) {
+                model = response.validateBody()
+            }
+            model?: throw response.errorBody().toCompleteErrorModel(response.code())
         }
     }
 }

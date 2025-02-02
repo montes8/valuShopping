@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.api.DataNetwork
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.utils.EMPTY_VALE
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,9 +23,11 @@ class DataViewModel  @Inject constructor(
     private val _successLoadProductLiveData    = MutableLiveData<List<ProductResponse>>()
     val successDeleteLiveData        : LiveData<ProductResponse> get()   = _successDeleteLiveData
     private val _successDeleteLiveData    = MutableLiveData<ProductResponse>()
-
     val successUpdateProductLiveData        : LiveData<ProductResponse> get()   = _successUpdateProductLiveData
     private val _successUpdateProductLiveData    = MutableLiveData<ProductResponse>()
+
+    val successProductImageLiveData        : LiveData<List<ImageMoreResponse>> get()   = _successProductImageLiveData
+    private val _successProductImageLiveData    = MutableLiveData<List<ImageMoreResponse>>()
 
 
     fun saveProduct(data : ProductResponse){
@@ -56,6 +59,13 @@ class DataViewModel  @Inject constructor(
         execute {
             val response = dataNetwork.deleteProduct(id)
             _successDeleteLiveData.postValue(response)
+        }
+    }
+
+    fun loadMoreImageProduct(id:String){
+        execute {
+            val response = dataNetwork.loadProductImage(id)
+            _successProductImageLiveData.postValue(response)
         }
     }
 

@@ -2,6 +2,7 @@ package com.tayler.valushopping.repository.network.abstracts
 
 import com.tayler.valushopping.repository.network.model.ImageResponse
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import java.io.File
 
 interface IDataNetwork {
@@ -10,4 +11,26 @@ interface IDataNetwork {
     suspend fun deleteProduct(idProduct : String): ProductResponse
     suspend fun updateProduct(product : ProductResponse): ProductResponse
     suspend fun saveImage(file: File?):ImageResponse
+    suspend fun loadProductImage(idProduct : String): List<ImageMoreResponse>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
+                name="adapterMore"
+                type="com.tayler.valushopping.ui.product.detail.adapter.MoreImageAdapter" />
+
+        <variable
             name="product"
             type="com.tayler.valushopping.repository.network.model.ProductResponse" />
     </data>
@@ -19,7 +23,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_height="wrap_content"/>
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -44,7 +47,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginVertical="@dimen/dim_tay_16"
+                        android:layout_marginVertical="@dimen/dim_tay_8"
                         android:layout_marginHorizontal="@dimen/dim_tay_16"
                         android:layout_height="@dimen/size_152">
                         <ImageView
@@ -86,7 +89,8 @@
                             app:layout_constraintTop_toBottomOf="@+id/textNameProduct"
                             android:fontFamily="@font/serif_regular"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"                            android:text="@{product.getPriceUnitTwo()}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="@{product.getPriceUnitTwo()}"
                             android:textSize="@dimen/dim_tay_sp_text_16"
                             android:layout_height="wrap_content"/>
                         <TextView
@@ -113,7 +117,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textPriceDocProduct"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"                            android:text="@{product.getMapperTypeAndGender()}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="@{product.getMapperTypeAndGender()}"
                             android:textSize="@dimen/dim_tay_sp_text_16"
                             android:layout_height="wrap_content"/>
 
@@ -121,20 +126,17 @@
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-                <TextView
-                    android:id="@+id/textStateProduct"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="@string/text_available"
-                    android:textSize="@dimen/txt_size_10"
-                    app:mapperStateProduct="@{product.state}"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/flex_bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textDescriptionProduct"
-                    android:layout_marginVertical="@dimen/dim_tay_12"
-                    android:layout_marginHorizontal="@dimen/dim_tay_16"
-                    android:paddingHorizontal="@dimen/dim_tay_8"
-                    android:paddingVertical="@dimen/size_4"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/rvMoreImage"
+                    tools:itemCount="2"
+                    app:adapter="@{adapterMore}"
+                    tools:listitem="@layout/row_more_image"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginHorizontal="@dimen/dim_tay_12"
+                    app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/textDescriptionProduct"
@@ -142,12 +144,12 @@
                     android:textColor="@color/gray_300"
                     android:fontFamily="@font/serif_regular"
                     tools:text="@string/ui_script_multi"
-                    app:layout_constraintTop_toBottomOf="@+id/lnHeaderProduct"
+                    app:layout_constraintTop_toBottomOf="@+id/rvMoreImage"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:text="@{product.description}"
                     android:layout_marginHorizontal="@dimen/dim_tay_16"
-                    android:layout_marginTop="@dimen/dim_tay_24"
+                    android:layout_marginTop="@dimen/dim_tay_8"
                     android:textSize="@dimen/dim_tay_sp_text_16"
                     android:layout_height="wrap_content"/>
                 <com.gb.vale.uitaylibrary.extra.UiTayInfo

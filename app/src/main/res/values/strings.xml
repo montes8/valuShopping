@@ -25,7 +25,7 @@
     <!-- TODO: text Message-->
 
     <string name="text_info_user">Si usted no se encuentra loageado, sus datos personales solo de guardaran de forma local</string>
-    <string name="text_info_product">Todos los productos seran pagados contraentrega, para evitar inconvenientes, si usted no cumple con lo coordinado ya no podra hacer uso de esta aplicacion, GRACIAS POR SU COMPRENIÓN</string>
+    <string name="text_info_product">Todos los productos seran pagados de la forma que se cordine con el vendedor.</string>
 
     <string name="ui_script_multi">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </string>
 
