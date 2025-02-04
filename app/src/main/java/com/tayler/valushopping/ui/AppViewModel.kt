@@ -2,6 +2,7 @@ package com.tayler.valushopping.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.api.UserNetwork
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.repository.preferences.api.AppPreferences
@@ -23,6 +24,7 @@ class AppViewModel  @Inject constructor(
     fun loadParam(){
         execute(false) {
             val response = userNetwork.loadParam()
+            AppDataVale.user = appPreferences.getUser()
             _successParamLiveData.postValue(response)
         }
     }

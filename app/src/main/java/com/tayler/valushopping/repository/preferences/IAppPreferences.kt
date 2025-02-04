@@ -1,13 +1,13 @@
 package com.tayler.valushopping.repository.preferences
 
-import com.tayler.valushopping.entity.UserModel
+import com.tayler.valushopping.repository.network.model.response.UserResponse
 
 interface IAppPreferences {
     fun saveToken(value : String )
 
     fun getToken() : Boolean
 
-    fun saveUser(value : UserModel):UserModel
+    fun saveUser(value : UserResponse):UserResponse
 
-    fun getUser() : UserModel
+    fun getUser() : UserResponse
 }

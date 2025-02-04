@@ -15,7 +15,7 @@ import com.tayler.valushopping.ui.home.admin.adapter.AdminAdapter
 import com.tayler.valushopping.ui.login.LoginActivity
 import com.tayler.valushopping.ui.login.UserViewModel
 import com.tayler.valushopping.ui.param.ParamActivity
-import com.tayler.valushopping.ui.product.add.ProductActivity
+import com.tayler.valushopping.ui.product.add.ProductCreateActivity
 import com.tayler.valushopping.ui.product.list.ListProductActivity
 import com.tayler.valushopping.utils.JSON_ITEM
 import com.tayler.valushopping.utils.JSON_ITEM_ADMIN
@@ -49,7 +49,7 @@ class AdminFragment : BaseFragment() {
     private fun configOnClickAdapter(model : ItemModel){
         when(model.id){
             1 -> {
-                ProductActivity.newInstance(requireContext())
+                ProductCreateActivity.newInstance(requireContext())
             }
             2 ->{
                 ParamActivity.newInstance(requireContext())

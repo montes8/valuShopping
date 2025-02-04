@@ -1,7 +1,9 @@
 package com.tayler.valushopping.ui.product
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.api.DataNetwork
 import com.tayler.valushopping.repository.network.model.ProductResponse
@@ -23,8 +25,6 @@ class DataViewModel  @Inject constructor(
     private val _successLoadProductLiveData    = MutableLiveData<List<ProductResponse>>()
     val successDeleteLiveData        : LiveData<ProductResponse> get()   = _successDeleteLiveData
     private val _successDeleteLiveData    = MutableLiveData<ProductResponse>()
-    val successUpdateProductLiveData        : LiveData<ProductResponse> get()   = _successUpdateProductLiveData
-    private val _successUpdateProductLiveData    = MutableLiveData<ProductResponse>()
 
     val successProductImageLiveData        : LiveData<List<ImageMoreResponse>> get()   = _successProductImageLiveData
     private val _successProductImageLiveData    = MutableLiveData<List<ImageMoreResponse>>()
@@ -35,7 +35,9 @@ class DataViewModel  @Inject constructor(
             val responseImage = dataNetwork.saveImage(File(data.img?: EMPTY_VALE))
             data.img = responseImage.nameImage
             data.admin = AppDataVale.user.rol == "ADMIN"
-            data.idUser = AppDataVale.user.id
+            data.idUser = AppDataVale.user.uid
+            Log.d( "userrrr",AppDataVale.user.toString())
+            data.url = "${BuildConfig.BASE_URL}/uploads/uploads/product/$responseImage"
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
         }
@@ -51,7 +53,7 @@ class DataViewModel  @Inject constructor(
     fun updateProduct(data : ProductResponse){
         execute {
             val response = dataNetwork.updateProduct(data)
-            _successUpdateProductLiveData.postValue(response)
+            _successProductLiveData.postValue(response)
         }
     }
 

@@ -1,6 +1,7 @@
 package com.tayler.valushopping.utils
 
 const val EMPTY_VALE = ""
+const val TY_DEFAULT = "0"
 const val JSON_ITEM_HOME = "item_home.json"
 const val JSON_ITEM_HOME_TWP = "item_home_two.json"
 const val JSON_ITEM = "item.json"

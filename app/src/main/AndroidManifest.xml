@@ -27,21 +27,22 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:hardwareAccelerated="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Custom.NoActionBar.LightWhite"
         tools:targetApi="31">
         <activity
+            android:name=".ui.product.add.ProductCreateActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:exported="false" />
+        <activity
             android:name=".ui.about.AboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.profile.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.product.update.UpdateProductActivity"
             android:exported="false" />
         <activity
             android:name=".ui.product.list.ListProductActivity"
@@ -62,11 +63,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <activity
-            android:name=".ui.product.add.ProductActivity"
-            android:exported="false"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.param.ParamActivity"
             android:exported="false"

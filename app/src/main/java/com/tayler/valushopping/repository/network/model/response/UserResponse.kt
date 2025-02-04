@@ -1,24 +1,29 @@
 package com.tayler.valushopping.repository.network.model.response
 
 import com.google.gson.annotations.SerializedName
+import com.tayler.valushopping.utils.EMPTY_VALE
 
 data class UserResponse (
     @SerializedName("uid")
-    val uid : String? = null,
+    var uid : String? = EMPTY_VALE,
     @SerializedName("nameUser")
-    val nameUser : String? = null,
+    var nameUser : String? = EMPTY_VALE,
     @SerializedName("names")
-    val names : String,
+    var names : String? = EMPTY_VALE,
     @SerializedName("lastName")
-    val lastName : String? = null,
+    var lastName : String?  = EMPTY_VALE,
     @SerializedName("document")
-    val document : String,
+    var document : String? = EMPTY_VALE,
     @SerializedName("email")
-    val email : String? = null,
+    var email : String? = EMPTY_VALE,
     @SerializedName("phone")
-    val phone : String,
+    var phone : String? = EMPTY_VALE,
     @SerializedName("address")
-    val address : String? = null,
+    var address : String? = EMPTY_VALE,
+    @SerializedName("img")
+    var img : String? = EMPTY_VALE,
+    @SerializedName("imgBanner")
+    var imgBanner : String? = EMPTY_VALE,
     @SerializedName("rol")
-    val rol : String
+    var rol : String? = EMPTY_VALE
 )

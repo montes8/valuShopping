@@ -211,7 +211,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun loadUpdateConfigUser(){
         viewModel.loadUser().observe(this){
             uiTayTryCatch {  bindingH.imgProfileHome.setDrawableCircle(it.img)}
-            if (it.names.isNotEmpty())bindingH.txtNameUserMenu.text = it.names
+            if (it.names?.isNotEmpty()==true)bindingH.txtNameUserMenu.text = it.names
         }
     }
 

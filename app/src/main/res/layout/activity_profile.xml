@@ -5,7 +5,7 @@
     <data>
         <variable
             name="user"
-            type="com.tayler.valushopping.entity.UserModel" />
+            type="com.tayler.valushopping.repository.network.model.response.UserResponse" />
 
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout

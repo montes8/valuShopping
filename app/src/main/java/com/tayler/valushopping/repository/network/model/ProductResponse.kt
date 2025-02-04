@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.TY_DEFAULT
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -15,19 +16,21 @@ data class ProductResponse(
     @SerializedName("description")
     var description: String? = EMPTY_VALE,
     @SerializedName("type")
-    var type: String? = EMPTY_VALE,
+    var type: String? = TY_DEFAULT,
     @SerializedName("category")
-    var category: String? = EMPTY_VALE,
+    var category: String? = TY_DEFAULT,
     @SerializedName("price")
     var price: String? = EMPTY_VALE,
     @SerializedName("priceTwo")
     var priceTwo: String? = EMPTY_VALE,
     @SerializedName("state")
-    var state: Boolean? = true,
+    var state: Boolean? = false,
     @SerializedName("img")
     var img: String? = EMPTY_VALE,
+    @SerializedName("url")
+    var url: String? = EMPTY_VALE,
     @SerializedName("gender")
-    var gender: String? = EMPTY_VALE,
+    var gender: String? = TY_DEFAULT,
     @SerializedName("phone")
     var phone: String? = EMPTY_VALE,
     @SerializedName("principal")
@@ -82,4 +85,6 @@ data class ProductResponse(
             else -> "Mujer"
         }
     }
+
+    fun tyFlowCreate() = uid?.isEmpty() == true
 }

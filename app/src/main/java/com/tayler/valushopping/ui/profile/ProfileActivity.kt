@@ -16,9 +16,10 @@ import com.gb.vale.uitaylibrary.utils.uiTayValidatePhoneFormat
 import com.gb.vale.uitaylibrary.utils.uiTayVisibility
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityProfileBinding
-import com.tayler.valushopping.entity.UserModel
+import com.tayler.valushopping.repository.network.model.response.UserResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.login.UserViewModel
+import com.tayler.valushopping.utils.EMPTY_VALE
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -30,7 +31,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private var managerCamera : UiTayCameraManager? = null
     private var flagClick = true
     private var typeBanner = true
-    private var userModel = UserModel()
+    private var userModel = UserResponse()
 
     companion object {
         fun newInstance(context: Context) {
@@ -64,7 +65,7 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         }
     }
 
-    private fun configUser(user :UserModel){
+    private fun configUser(user :UserResponse){
         userModel = user
         binding.user = userModel
         initDataProfile()
@@ -108,16 +109,16 @@ class ProfileActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         userModel.document = binding.editDocumentProfile.uiTayLText
         userModel.email = binding.editEmailProfile.uiTayLText
         userModel.phone = binding.editPhoneProfile.uiTayLText
-        userModel.addressUser = binding.editAddressProfile.uiTayLText
+        userModel.address = binding.editAddressProfile.uiTayLText
     }
 
     private fun initDataProfile(){
-        binding.editNameProfile.uiTayLText = userModel.names
-        binding.editLastNameProfile.uiTayLText = userModel.lastName
-        binding.editDocumentProfile.uiTayLText = userModel.document
-        binding.editEmailProfile.uiTayLText = userModel.email
-        binding.editPhoneProfile.uiTayLText = userModel.phone
-        binding.editAddressProfile.uiTayLText = userModel.addressUser
+        binding.editNameProfile.uiTayLText = userModel.names?: EMPTY_VALE
+        binding.editLastNameProfile.uiTayLText = userModel.lastName?: EMPTY_VALE
+        binding.editDocumentProfile.uiTayLText = userModel.document?: EMPTY_VALE
+        binding.editEmailProfile.uiTayLText = userModel.email?: EMPTY_VALE
+        binding.editPhoneProfile.uiTayLText = userModel.phone?: EMPTY_VALE
+        binding.editAddressProfile.uiTayLText = userModel.address?: EMPTY_VALE
     }
 
     private fun onClickImage(value : Boolean){

@@ -7,25 +7,29 @@ import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.gb.vale.uitaylibrary.manager.camera.UiTayCameraManager
+import com.gb.vale.uitaylibrary.utils.EventUiTay
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
 import com.gb.vale.uitaylibrary.utils.uiTayFormatDecimal
+import com.gb.vale.uitaylibrary.utils.uiTayLoadUrl
+import com.gb.vale.uitaylibrary.utils.uiTayParcelable
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
+import com.gb.vale.uitaylibrary.utils.uiTayTryCatch
 import com.gb.vale.uitaylibrary.utils.uiTayValidatePhoneFormat
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivityProductBinding
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
-import com.tayler.valushopping.ui.home.HomeActivity
 import com.tayler.valushopping.ui.product.DataViewModel
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.TYPE_CLOTHES
 import com.tayler.valushopping.utils.TYPE_OTHER
+import com.tayler.valushopping.utils.result.ValeResult
 import com.tayler.valushopping.utils.successDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListener {
+class ProductCreateActivity  : BaseActivity(),UiTayCameraManager.CameraControllerListener{
     private val viewModel: DataViewModel by viewModels()
     private lateinit var binding: ActivityProductBinding
     private var managerCamera : UiTayCameraManager? = null
@@ -33,14 +37,20 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     private var fileImage = EMPTY_VALE
     private var type = 0
     private var gender = 0
+    private var typeCreate = true
     companion object {
-        fun newInstance(context: Context) {
-            context.startActivity(Intent(context, ProductActivity::class.java))
+        fun newInstance(context: Context,product : ProductResponse= ProductResponse()) {
+            val intent = Intent(context, ProductCreateActivity::class.java)
+            intent.putExtra(ProductCreateActivity::class.java.name,product)
+            context.startActivity(intent)
         }
     }
+
+
     override fun getMainView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
-        binding.lifecycleOwner = this    }
+        binding.lifecycleOwner = this
+    }
 
     override fun setUpView() {
         configInit()
@@ -51,17 +61,23 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     override fun observeViewModel() {
         viewModel.successProductLiveData.observe(this){
             this.successDialog{
-                HomeActivity.newInstance(this)
+                ValeResult.eventUpdateListProduct.postValue(EventUiTay(true))
+                finish()
             }
         }
     }
     private fun loadService(){
         mapperData()
-        viewModel.saveProduct(dataProduct)
+        if (typeCreate){
+            viewModel.saveProduct(dataProduct)
+        }else{
+            viewModel.updateProduct(dataProduct)
+        }
+
     }
     private fun configAction(){
         binding.imgProduct.setOnClickUiTayDelay {
-            managerCamera?.doCamera("valeImageProduct")
+            if (typeCreate)managerCamera?.doCamera("valeImageProduct")
         }
         binding.tbProduct.setOnClickTayBackListener{onToBack()}
         binding.btnSaveProduct.setOnClickTayBtnListener{ loadService()}
@@ -75,9 +91,44 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
     }
 
     private fun configInit(){
+        dataProduct = intent.uiTayParcelable(ProductCreateActivity::class.java.name)?:ProductResponse()
         managerCamera = UiTayCameraManager(this,"product",this)
+        typeCreate = dataProduct.tyFlowCreate()
+        if (!typeCreate)configDataProduct()
+        if (!typeCreate)configRg()
         configRgGender()
         configRgType()
+    }
+
+    private fun configRg()= with(binding){
+        type = dataProduct.type?.toInt()?:0
+        gender = dataProduct.gender?.toInt()?:0
+        rbFemale.isChecked = dataProduct.gender == "0"
+        rbMale.isChecked = dataProduct.gender == "1"
+        rbUnisex.isChecked = dataProduct.gender == "2"
+        rbImitationJewelry.isChecked = dataProduct.type == "0"
+        rbPole.isChecked = dataProduct.type == "1"
+        rbPants.isChecked = dataProduct.type == "2"
+        rbFootwear.isChecked = dataProduct.type == "3"
+        rbSkirt.isChecked = dataProduct.type == "4"
+        rbGarments.isChecked = dataProduct.type == "5"
+        rbOther.isChecked = dataProduct.type == "6"
+        rbAccessories.isChecked = dataProduct.type == "7"
+    }
+
+    private fun configDataProduct()= with(binding){
+        binding.btnSaveProduct.tayBtnText = "Actualizar"
+        uiTayTryCatch {
+            imgProduct.uiTayLoadUrl(dataProduct.getLoadImage()) }
+        editUnit.uiTayLText= dataProduct.price?: EMPTY_VALE
+        editTotal.uiTayLText= dataProduct.priceTwo?: EMPTY_VALE
+        editUnit.uiTayLText= dataProduct.price?: EMPTY_VALE
+        editNameProduct.uiTayLabelEdit = dataProduct.name?: EMPTY_VALE
+        editPhoneProduct.uiTayLabelEdit = dataProduct.phone?: EMPTY_VALE
+        editDescriptionProduct.setText(dataProduct.description?: EMPTY_VALE)
+        cbState.isChecked = dataProduct.state?:false
+        cbPrincipal.isChecked = dataProduct.principal?:false
+        btnSaveProduct.tayBtnEnable = true
     }
 
     override fun onCameraPermissionDenied() {
@@ -95,7 +146,7 @@ class ProductActivity : BaseActivity(),UiTayCameraManager.CameraControllerListen
         flagEnable  += if(binding.editNameProduct.uiTayLabelEdit.length > 4) 0 else 1
         flagEnable += if(binding.editDescriptionProduct.text.toString().length > 20) 0 else 1
         flagEnable  += if(binding.editUnit.uiTayLText.isNotEmpty()) 0 else 1
-        flagEnable  += if(fileImage.isNotEmpty()) 0 else 1
+        if (typeCreate)flagEnable  += if(fileImage.isNotEmpty()) 0 else 1
         flagEnable  += if(binding.editPhoneProduct.uiTayLabelEdit.uiTayValidatePhoneFormat()) 0 else 1
         binding.btnSaveProduct.tayBtnEnable = flagEnable == 0
     }
