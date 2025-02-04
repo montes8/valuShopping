@@ -6,6 +6,7 @@ import com.tayler.valushopping.repository.network.abstracts.base.BaseNetwork
 import com.tayler.valushopping.repository.network.exception.GenericException
 import com.tayler.valushopping.repository.network.model.ImageResponse
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.repository.network.model.request.ProductImageRequest
 import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import com.tayler.valushopping.utils.toCompleteErrorModel
 import com.tayler.valushopping.utils.validateBody
@@ -53,6 +54,17 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
         }
     }
 
+    override suspend fun deleteProductImage(idProduct : String): ImageMoreResponse {
+        return base.executeWithConnection {
+            var model  : ImageMoreResponse?  = null
+            val response  = serviceApi.deleteProductImage(idProduct)
+            if (response.validateData()) {
+                model = response.validateBody()
+            }
+            model?: throw response.errorBody().toCompleteErrorModel(response.code())
+        }
+    }
+
     override suspend fun updateProduct(product : ProductResponse): ProductResponse {
         return base.executeWithConnection {
             var model  : ProductResponse?  = null
@@ -77,6 +89,34 @@ class DataNetwork @Inject constructor(private val serviceApi : ServiceApi,privat
                      }
                      model?: throw response.errorBody().toCompleteErrorModel(response.code())
                  }?: throw GenericException()
+
+        }
+    }
+
+    override suspend fun saveImageMore(file: File?,nameFile:String): ImageResponse {
+        return base.executeWithConnection {
+            file?.let {
+                val image = it.asRequestBody("image/*".toMediaType())
+                val multiPartBody = MultipartBody.Part.createFormData("archivo",it.name,image)
+                val response = serviceApi.saveImageMore(multiPartBody,nameFile)
+                var model : ImageResponse? = null
+                if (response.isSuccessful && response.body() != null) {
+                    model = response.validateBody()
+                }
+                model?: throw response.errorBody().toCompleteErrorModel(response.code())
+            }?: throw GenericException()
+
+        }
+    }
+
+    override suspend fun saveProductDBImages(request: ProductImageRequest): ImageMoreResponse {
+        return base.executeWithConnection {
+            var model  : ImageMoreResponse?  = null
+            val response  = serviceApi.saveProductImages(request)
+            if (response.validateData()) {
+                model = response.validateBody()
+            }
+            model?: throw response.errorBody().toCompleteErrorModel(response.code())
 
         }
     }

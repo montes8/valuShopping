@@ -5,6 +5,7 @@ import com.tayler.valushopping.repository.network.model.LoginResponse
 import com.tayler.valushopping.repository.network.model.ParamResponse
 import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.repository.network.model.request.LoginRequest
+import com.tayler.valushopping.repository.network.model.request.ProductImageRequest
 import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -36,8 +37,15 @@ interface ServiceApi {
     suspend fun saveImage(
         @Part file : MultipartBody.Part): Response<ImageResponse>
 
+    @Multipart
+    @POST("uploads/productMore/{nameFile}")
+    suspend fun saveImageMore(
+        @Part file : MultipartBody.Part,
+        @Path("nameFile")id : String): Response<ImageResponse>
+
     @POST("product")
     suspend fun saveProduct(@Body productResponse: ProductResponse): Response<ProductResponse>
+
 
     @GET("product")
     suspend fun loadProduct(): Response<List<ProductResponse>>
@@ -53,5 +61,10 @@ interface ServiceApi {
 
     @GET("product/img/{id}")
     suspend fun loadProductImage(@Path("id")id : String): Response<List<ImageMoreResponse>>
+    @POST("product/img")
+    suspend fun saveProductImages(@Body productResponse: ProductImageRequest): Response<ImageMoreResponse>
+
+    @DELETE("product/img/{id}")
+    suspend fun deleteProductImage(@Path("id")id : String): Response<ImageMoreResponse>
 
 }

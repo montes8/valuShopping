@@ -1,12 +1,12 @@
 package com.tayler.valushopping.ui.product
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.network.api.DataNetwork
 import com.tayler.valushopping.repository.network.model.ProductResponse
+import com.tayler.valushopping.repository.network.model.request.ProductImageRequest
 import com.tayler.valushopping.repository.network.model.response.ImageMoreResponse
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.utils.EMPTY_VALE
@@ -29,6 +29,9 @@ class DataViewModel  @Inject constructor(
     val successProductImageLiveData        : LiveData<List<ImageMoreResponse>> get()   = _successProductImageLiveData
     private val _successProductImageLiveData    = MutableLiveData<List<ImageMoreResponse>>()
 
+    val successMoreImageLiveData        : LiveData<ImageMoreResponse> get()   = _successMoreImageLiveData
+    private val _successMoreImageLiveData    = MutableLiveData<ImageMoreResponse>()
+
 
     fun saveProduct(data : ProductResponse){
         execute {
@@ -36,7 +39,6 @@ class DataViewModel  @Inject constructor(
             data.img = responseImage.nameImage
             data.admin = AppDataVale.user.rol == "ADMIN"
             data.idUser = AppDataVale.user.uid
-            Log.d( "userrrr",AppDataVale.user.toString())
             data.url = "${BuildConfig.BASE_URL}/uploads/uploads/product/$responseImage"
             val response = dataNetwork.saveProduct(data)
             _successProductLiveData.postValue(response)
@@ -64,10 +66,31 @@ class DataViewModel  @Inject constructor(
         }
     }
 
-    fun loadMoreImageProduct(id:String){
-        execute {
+    fun loadMoreImageProduct(id:String,loading : Boolean = true){
+        execute(loading) {
             val response = dataNetwork.loadProductImage(id)
             _successProductImageLiveData.postValue(response)
+        }
+    }
+
+    fun loadDeleteMoreProductImage(id:String){
+        execute {
+            val response = dataNetwork.deleteProductImage(id)
+            _successMoreImageLiveData.postValue(response)
+        }
+    }
+
+    fun loadSaveMoreProductImage(data:ProductResponse,file: String){
+        execute {
+            val responseImage = dataNetwork.saveImageMore(File(file),data.phone?: EMPTY_VALE)
+            val request = ProductImageRequest(
+                responseImage.nameImage,
+                data.uid,
+                data.idUser,"${BuildConfig.BASE_URL}/uploads/productMore/${data.phone}/${responseImage.nameImage}",
+                data.phone
+            )
+            val response = dataNetwork.saveProductDBImages(request)
+            _successMoreImageLiveData.postValue(response)
         }
     }
 

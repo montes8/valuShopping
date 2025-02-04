@@ -74,6 +74,7 @@
     <string name="text_gender">Genero</string>
     <string name="text_product_choose">Elige ahora un producto</string>
     <string name="text_product_empty">Aun no hay \nproductos agregados</string>
+    <string name="text_product_image_empty">Aun no hay \nimagenes agregadas</string>
     <string name="text_title_price_unit">C/U:</string>
     <string name="text_title_price_doc">DOC/:</string>
 
@@ -96,6 +97,10 @@
     <string name="sub_text_title_support">Te contactaremos con un asesor si tienes algun problema tecnico en el proceso de uso de nuestra aplicación</string>
     <string name="text_title_delete">Eliminar producto</string>
     <string name="sub_text_title_delete">Estas seguro que deseas eliminar el producto</string>
+
+    <string name="text_title_delete_image">Eliminar imagen</string>
+    <string name="sub_text_title_delete_image">Estas seguro que deseas eliminar la imagen del producto</string>
+
 
 
     <string name="text_about_use">* En esta app podras ver en la sección de principal los productos disponibles, para poder adquirilos.\n* Luego para poder ver mas detall del producto darle click al producto para poder ver el detalle, tambien podras ver ma imagen mas grande dandole click a la imagen del prodcuto

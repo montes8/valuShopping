@@ -9,12 +9,12 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="100dp"
-                android:id="@+id/cardAdmin"
+                android:layout_width="match_parent"
+                android:id="@+id/cardListImage"
                 android:outlineSpotShadowColor="@color/pink_100"
                 app:cardCornerRadius="@dimen/dim_tay_24"
                 app:layout_constraintStart_toStartOf="parent"
@@ -24,19 +24,30 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:cardElevation="@dimen/dim_tay_12"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/size_152"
                 tools:ignore="UnusedAttribute">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:id="@+id/ctlImageMore"
+                    android:id="@+id/ctlListImageMore"
                     android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/rowMoreImgDelete"
+                        android:layout_width="@dimen/size_32"
+                        android:src="@drawable/ic_delete"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/size_4"
+                        android:elevation="@dimen/dim_tay_2"
+                        android:layout_height="@dimen/size_32"
+                        app:tint="@color/red" />
                     <ImageView
                         android:contentDescription="@null"
                         android:layout_width="match_parent"
                         android:scaleType="fitXY"
                         android:background="@color/gray_150"
-                        android:id="@+id/rowMoreImg"
+                        android:id="@+id/rowMoreListImg"
                         app:srcDrawableStringUrl="@{image.url}"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"

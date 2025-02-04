@@ -2,7 +2,7 @@ package com.tayler.valushopping.repository.network.model.request
 
 import com.google.gson.annotations.SerializedName
 
-class LoginRequest (
+data class LoginRequest (
     @SerializedName("nameUser")
     val nameUser: String,
     @SerializedName("password")

@@ -34,13 +34,25 @@ class UserViewModel  @Inject constructor(
         execute {
                 val response = userNetwork.login(user,key)
                 appPreferences.saveToken(response.token)
-                 val useSave = appPreferences.getUser()
-                 useSave.uid = response.userValid?.uid?: EMPTY_VALE
-                 useSave.rol = response.userValid?.rol?: EMPTY_VALE
-                 val userUpdate = appPreferences.saveUser(useSave)
-                 AppDataVale.user = userUpdate
-            _successLoginLiveData.postValue(true)
+                mapperUserUpdate(response.userValid?: UserResponse())
+               _successLoginLiveData.postValue(true)
         }
+    }
+
+    private fun mapperUserUpdate(response: UserResponse):UserResponse{
+        val useSave = appPreferences.getUser()
+        useSave.uid = response.uid
+        useSave.rol = response.rol
+        useSave.nameUser = response.nameUser
+        useSave.names = response.names
+        useSave.lastName = response.lastName
+        useSave.document = response.document
+        useSave.email = response.email
+        useSave.phone = response.phone
+        useSave.address = response.address
+        val userUpdate = appPreferences.saveUser(useSave)
+        AppDataVale.user = userUpdate
+        return useSave
     }
     fun saveUser(user : UserResponse){
         execute {

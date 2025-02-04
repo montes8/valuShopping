@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import com.gb.vale.uitaylibrary.extra.UITayStyleTbIcon
 import com.gb.vale.uitaylibrary.manager.camera.UiTayCameraManager
 import com.gb.vale.uitaylibrary.utils.EventUiTay
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
@@ -21,6 +22,7 @@ import com.tayler.valushopping.repository.network.model.ProductResponse
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.product.DataViewModel
+import com.tayler.valushopping.ui.product.images.AddImagesActivity
 import com.tayler.valushopping.utils.EMPTY_VALE
 import com.tayler.valushopping.utils.TYPE_CLOTHES
 import com.tayler.valushopping.utils.TYPE_OTHER
@@ -81,6 +83,8 @@ class ProductCreateActivity  : BaseActivity(),UiTayCameraManager.CameraControlle
         }
         binding.tbProduct.setOnClickTayBackListener{onToBack()}
         binding.btnSaveProduct.setOnClickTayBtnListener{ loadService()}
+        binding.tbProduct.setOnClickTayMenuListener{
+            if (!typeCreate){ AddImagesActivity.newInstance(this,dataProduct) }}
     }
 
     private fun configChange(){
@@ -94,6 +98,8 @@ class ProductCreateActivity  : BaseActivity(),UiTayCameraManager.CameraControlle
         dataProduct = intent.uiTayParcelable(ProductCreateActivity::class.java.name)?:ProductResponse()
         managerCamera = UiTayCameraManager(this,"product",this)
         typeCreate = dataProduct.tyFlowCreate()
+        binding.tbProduct.uiTayStyleTbIcon = if (typeCreate)
+            UITayStyleTbIcon.UI_TAY_ICON_START else UITayStyleTbIcon.UI_TAY_ICON_TWO
         if (!typeCreate)configDataProduct()
         if (!typeCreate)configRg()
         configRgGender()
@@ -157,7 +163,7 @@ class ProductCreateActivity  : BaseActivity(),UiTayCameraManager.CameraControlle
         dataProduct.price = binding.editUnit.uiTayLText.uiTayFormatDecimal()
         dataProduct.priceTwo = binding.editTotal.uiTayLText.uiTayFormatDecimal()
         dataProduct.phone = binding.editPhoneProduct.uiTayLabelEdit
-        dataProduct.img =  fileImage
+        if(typeCreate)dataProduct.img =  fileImage
         dataProduct.state = binding.cbState.isChecked
         dataProduct.type = type.toString()
         dataProduct.gender = gender.toString()
