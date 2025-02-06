@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
+import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
 import com.gb.vale.uitaylibrary.utils.converterCircle
 import com.gb.vale.uitaylibrary.utils.setOnClickUiTayDelay
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
@@ -21,6 +22,16 @@ fun AppCompatActivity.successDialog(title : String  = getString(R.string.text_su
         subTitle = message)
     ){
      func?.invoke(it)
+    }
+}
+
+
+fun AppCompatActivity.errorDialog(img:Int,title: String,subTitle:String,func: ((action: Boolean?) -> Unit)? = null){
+    showUiTayDialog(model = UiTayDialogModel(image = img, title = title,
+        subTitle = subTitle,styleCustom =
+        UiTayDialogModelCustom(btnAcceptSolidColor = R.color.red, btnAcceptStrokeColor = R.color.red)
+    )){
+       func?.invoke(it)
     }
 }
 

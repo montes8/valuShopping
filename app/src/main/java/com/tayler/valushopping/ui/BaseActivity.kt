@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
-import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
-import com.gb.vale.uitaylibrary.utils.showUiTayDialog
-import com.tayler.valushopping.R
 import com.tayler.valushopping.component.CrossProgressBarFull
 import com.tayler.valushopping.utils.addToBaseNavigation
+import com.tayler.valushopping.utils.errorDialog
 import com.tayler.valushopping.utils.mapperError
 import com.tayler.valushopping.utils.onToBaseBack
 
@@ -55,11 +52,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showError(error: Throwable) {
         val mapper = error.mapperError()
-        showUiTayDialog(model = UiTayDialogModel(image = mapper.first, title = mapper.second,
-            subTitle = mapper.third,styleCustom =
-            UiTayDialogModelCustom(btnAcceptSolidColor = R.color.red, btnAcceptStrokeColor = R.color.red)
-        )){
-           // not implement
+        errorDialog(img =  mapper.first, title = mapper.second,
+            subTitle = mapper.third){
+            //not implement
         }
     }
 

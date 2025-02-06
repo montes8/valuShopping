@@ -2,6 +2,8 @@ package com.tayler.valushopping.repository.network.model
 
 import com.google.gson.annotations.SerializedName
 import com.tayler.valushopping.utils.EMPTY_VALE
+import com.tayler.valushopping.utils.HOUR_END_DEFAULT
+import com.tayler.valushopping.utils.HOUR_START_DEFAULT
 import com.tayler.valushopping.utils.ID_MOVIE_DEFAULT
 
 data class ParamResponse (
@@ -18,5 +20,9 @@ data class ParamResponse (
     @SerializedName("phone")
     var phone : String? = ID_MOVIE_DEFAULT,
     @SerializedName("linkFacebook")
-    var linkFacebook : String? = ID_MOVIE_DEFAULT
+    var linkFacebook : String? = ID_MOVIE_DEFAULT,
+    @SerializedName("hourStart")
+    var hourStart : String? = HOUR_START_DEFAULT,
+    @SerializedName("hourEnd")
+    var hourEnd : String? = HOUR_END_DEFAULT
 )

@@ -14,3 +14,5 @@ const val URL_WHATS_APP_CUSTOM = "http" +
 const val ID_MOVIE_DEFAULT = "beH6uqy6Xsw"
 const val TYPE_CLOTHES = "1"
 const val TYPE_OTHER = "2"
+const val HOUR_START_DEFAULT = "09:00:00"
+const val HOUR_END_DEFAULT = "21:00:00"

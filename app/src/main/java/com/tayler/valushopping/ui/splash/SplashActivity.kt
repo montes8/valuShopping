@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.gb.vale.uitaylibrary.utils.uiTayFormatTwelveHour
 import com.gb.vale.uitaylibrary.utils.uiTayHandler
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivitySplashBinding
@@ -12,6 +13,8 @@ import com.tayler.valushopping.ui.AppViewModel
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
 import com.tayler.valushopping.ui.home.HomeActivity
+import com.tayler.valushopping.utils.errorDialog
+import com.tayler.valushopping.utils.validateHourApp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +46,20 @@ class SplashActivity : BaseActivity() {
     override fun observeViewModel() {
         viewModel.successParamLiveData.observe(this){
             AppDataVale.paramData = it
+            validateAttentionTime()
+        }
+    }
+
+    private fun validateAttentionTime(){
+        if (AppDataVale.paramData.validateHourApp()){
             uiTayHandler(2000) { HomeActivity.newInstance(this) }
+        }else{
+            errorDialog(img = R.drawable.ic_info_error, title = "Fuera de horario de atención", subTitle =
+            "Nuestros horario de atencion es de " +
+                    "${AppDataVale.paramData.hourStart?.uiTayFormatTwelveHour()} a " +
+                    "${AppDataVale.paramData.hourEnd?.uiTayFormatTwelveHour()}, gracias por su comprensión"){
+              finish()
+            }
         }
     }
 

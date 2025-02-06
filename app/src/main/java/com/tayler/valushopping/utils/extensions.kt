@@ -5,19 +5,14 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Environment
-import android.os.Handler
-import android.os.Looper
-import android.os.StrictMode
 import android.provider.Settings
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -26,10 +21,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
-import com.gb.vale.uitaylibrary.utils.UI_TAY_EMPTY
-import com.gb.vale.uitaylibrary.utils.converterCircle
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
-import com.gb.vale.uitaylibrary.utils.uiTayDrawableRound
 import com.gb.vale.uitaylibrary.utils.uiTaySaveImg
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.google.gson.Gson
@@ -52,8 +44,6 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
 import java.io.IOException
-import java.io.InputStream
-import java.net.URL
 
 
 @SuppressLint("MissingPermission")
@@ -304,6 +294,7 @@ fun existWhatsAppInDevice(context: Context): Boolean {
             || existApplicationInDevice(context, PACKAGE_APP_WHATS_APP_BUSINESS)
 }
 
+@SuppressLint("QueryPermissionsNeeded")
 private fun existApplicationInDevice(context: Context, name: String): Boolean {
     val apps = context.packageManager.getInstalledPackages(0)
     for (app in apps) {
@@ -314,35 +305,4 @@ private fun existApplicationInDevice(context: Context, name: String): Boolean {
     return false
 }
 
-fun ImageView.uiValuLoadUrl(
-    url: String = UI_TAY_EMPTY, circle: Boolean = false,
-    placeHolder: Drawable = this.context.uiTayDrawableRound(com.gb.vale.uitaylibrary.R.color.ui_tay_gray, com.gb.vale.uitaylibrary.R.dimen.dim_tay_0)
-) {
 
-    val handler = Handler(Looper.getMainLooper())
-    handler.post {
-        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-        StrictMode.setThreadPolicy(policy)
-        val bitmap: Bitmap?
-        val inputStream: InputStream
-        try {
-            inputStream = URL(url).openStream()
-            bitmap = BitmapFactory.decodeStream(inputStream)
-            if (circle) {
-                val imgCircle = bitmap.converterCircle()
-                imgCircle?.let {
-                    this.setImageBitmap(it)
-                } ?: this.setImageDrawable(placeHolder)
-            } else {
-                bitmap?.let {
-                    this.setImageBitmap(it)
-                } ?: this.setImageDrawable(placeHolder)
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-            this.setImageDrawable(placeHolder)
-        }
-    }
-
-
-}
