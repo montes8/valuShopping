@@ -12,6 +12,8 @@ class GenericException : Exception()
 
 class MyNetworkException : Exception()
 
+class OutOfHour : Exception()
+
 class UnAuthorizedException: Exception()
 
 data class CompleteErrorModel(

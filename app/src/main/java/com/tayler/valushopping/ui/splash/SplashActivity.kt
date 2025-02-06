@@ -9,6 +9,7 @@ import com.gb.vale.uitaylibrary.utils.uiTayHandler
 import com.tayler.valushopping.R
 import com.tayler.valushopping.databinding.ActivitySplashBinding
 import com.tayler.valushopping.entity.singleton.AppDataVale
+import com.tayler.valushopping.repository.ERROR_TITLE_OF_HOUR
 import com.tayler.valushopping.ui.AppViewModel
 import com.tayler.valushopping.ui.BaseActivity
 import com.tayler.valushopping.ui.BaseViewModel
@@ -54,10 +55,10 @@ class SplashActivity : BaseActivity() {
         if (AppDataVale.paramData.validateHourApp()){
             uiTayHandler(2000) { HomeActivity.newInstance(this) }
         }else{
-            errorDialog(img = R.drawable.ic_info_error, title = "Fuera de horario de atención", subTitle =
+            errorDialog(img = R.drawable.ic_info_error, title = ERROR_TITLE_OF_HOUR, subTitle =
             "Nuestros horario de atencion es de " +
                     "${AppDataVale.paramData.hourStart?.uiTayFormatTwelveHour()} a " +
-                    "${AppDataVale.paramData.hourEnd?.uiTayFormatTwelveHour()}, gracias por su comprensión"){
+                    "${AppDataVale.paramData.hourEnd?.uiTayFormatTwelveHour()}, gracias por su comprensión."){
               finish()
             }
         }

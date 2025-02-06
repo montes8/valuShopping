@@ -22,22 +22,26 @@ import androidx.fragment.app.FragmentManager
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModel
 import com.gb.vale.uitaylibrary.dialog.UiTayDialogModelCustom
 import com.gb.vale.uitaylibrary.utils.showUiTayDialog
+import com.gb.vale.uitaylibrary.utils.uiTayFormatTwelveHour
 import com.gb.vale.uitaylibrary.utils.uiTaySaveImg
 import com.gb.vale.uitaylibrary.utils.uiTayShowToast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.tayler.valushopping.BuildConfig
 import com.tayler.valushopping.R
+import com.tayler.valushopping.entity.singleton.AppDataVale
 import com.tayler.valushopping.repository.ERROR_MESSAGE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_MESSAGE_GENERAL
 import com.tayler.valushopping.repository.ERROR_MESSAGE_NETWORK
 import com.tayler.valushopping.repository.ERROR_TITLE_EXPIRE
 import com.tayler.valushopping.repository.ERROR_TITLE_GENERAL
 import com.tayler.valushopping.repository.ERROR_TITLE_NETWORK
+import com.tayler.valushopping.repository.ERROR_TITLE_OF_HOUR
 import com.tayler.valushopping.repository.network.exception.ApiException
 import com.tayler.valushopping.repository.network.exception.CompleteErrorModel
 import com.tayler.valushopping.repository.network.exception.GenericException
 import com.tayler.valushopping.repository.network.exception.MyNetworkException
+import com.tayler.valushopping.repository.network.exception.OutOfHour
 import com.tayler.valushopping.repository.network.exception.UnAuthorizedException
 import com.tayler.valushopping.ui.BaseFragment
 import okhttp3.ResponseBody
@@ -66,6 +70,9 @@ fun Throwable.mapperError():Triple<Int,String,String>{
         is MyNetworkException -> Triple(R.drawable.ic_error_red,ERROR_TITLE_NETWORK,ERROR_MESSAGE_NETWORK)
         is UnAuthorizedException -> Triple(R.drawable.ic_info_error,ERROR_TITLE_EXPIRE,ERROR_MESSAGE_EXPIRE)
         is ApiException -> Triple(R.drawable.ic_info_error, title,messageApi)
+        is OutOfHour -> Triple(R.drawable.ic_info_error, ERROR_TITLE_OF_HOUR,"Nuestros horario de atencion es de " +
+                "${AppDataVale.paramData.hourStart?.uiTayFormatTwelveHour()} a " +
+                "${AppDataVale.paramData.hourEnd?.uiTayFormatTwelveHour()}, gracias por su comprensión.")
         else -> Triple(R.drawable.ic_info_error, ERROR_TITLE_GENERAL, ERROR_MESSAGE_GENERAL)
     }
 }
